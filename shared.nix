@@ -63,6 +63,14 @@
     brave
     pavucontrol
     playerctl
+    nerdfonts
+  ];
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    (nerdfonts.override { fonts = [ "Mononoki" ]; })
   ];
 
   environment.shells = with pkgs; [ zsh ];
