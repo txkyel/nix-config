@@ -15,13 +15,13 @@
   home.homeDirectory = "/home/kyle";
   home.stateVersion = "24.05"; # Please read the comment before changing.
   home.packages = [];
-  home.file = {};
-  home.sessionVariables = {};
-
-  home.file.qtile_config = {
-    source = "./qtile-config/config.py";
-    target = ".config/qtile/config.py";
+  home.file = {
+    qtile_config = {
+      source = ./qtile/config.py;
+      target = ".config/qtile/config.py";
+    };
   };
+  home.sessionVariables = {};
 
   # Enable xdg
   xdg.enable = true;
