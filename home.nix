@@ -35,6 +35,14 @@
     userName = "Kyle Xiao";
   };
 
+  programs.alacritty.enable = true;
+  programs.alacritty.settings = {
+    window.padding = {
+      x = 8;
+      y = 8;
+    };
+  };
+
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
