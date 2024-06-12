@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
+      ../hardware/x230.nix
     ];
 
   networking.hostName = "x230"; # Define your hostname.
