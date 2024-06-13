@@ -6,7 +6,14 @@
   home.username = "kyle";
   home.homeDirectory = "/home/kyle";
   home.stateVersion = "24.05"; # Please read the comment before changing.
-  home.packages = [
+  home.packages = with pkgs; [
+    alacritty
+    rofi
+    picom
+    maim
+    brave
+    pavucontrol
+    playerctl
     (pkgs.discord.override {
       withVencord = true;
     })

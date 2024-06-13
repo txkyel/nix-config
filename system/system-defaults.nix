@@ -94,14 +94,6 @@
     _7zz
     lm_sensors
     ntfs3g
-    # TODO: Move system/user specific packages to another file
-    alacritty
-    rofi
-    picom
-    maim
-    brave
-    pavucontrol
-    playerctl
   ];
 
   # This value determines the NixOS release from which the default
