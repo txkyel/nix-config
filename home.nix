@@ -1,15 +1,5 @@
 { inputs, config, pkgs, ... }:
-  let
-    myAliases = {
-      # Color aliases
-      "ls" = "ls --color=auto";
-      "grep" = "grep --color=auto";
-      "diff" = "diff --color=auto";
-      "ip" = "ip -color=auto";
-      # Misc
-      "ll" = "ls -l";
-    };
-  in
+
 {
   home.username = "kyle";
   home.homeDirectory = "/home/kyle";
@@ -87,7 +77,6 @@
     dotDir = ".config/zsh";
     autocd = true;
     enableCompletion = true;
-    shellAliases = myAliases;
     completionInit = ''
       autoload -U compinit && compinit
       zstyle ':completion:*' menu select
@@ -113,23 +102,23 @@
     plugins = [
       {
         name = "vi-mode";
-	src = pkgs.zsh-vi-mode;
-	file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
       {
         name = "fast-syntax-highlighting";
-	src = pkgs.zsh-fast-syntax-highlighting;
-	file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
+        src = pkgs.zsh-fast-syntax-highlighting;
+        file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
       }
       {
         name = "history-substring-search";
-	src = pkgs.zsh-history-substring-search;
-	file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
+        src = pkgs.zsh-history-substring-search;
+        file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
       }
       {
         name = "autosuggestions";
-	src = pkgs.zsh-autosuggestions;
-	file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
+        src = pkgs.zsh-autosuggestions;
+        file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
       }
     ];
 

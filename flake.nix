@@ -4,10 +4,12 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nixvim = {
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,6 +29,7 @@
           ./system/vm
         ];
       };
+
       x230 = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
@@ -35,12 +38,13 @@
         ];
       };
     };
+
     homeConfigurations = {
       kyle = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ./home.nix
           nixvim.homeManagerModules.nixvim
+          ./home.nix
         ];
       };
     };

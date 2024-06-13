@@ -60,9 +60,18 @@
   environment.shells = with pkgs; [ zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
+  
+  environment.shellAliases = {
+    # Color aliases
+    "ls" = "ls --color=auto --group-directories-first";
+    "grep" = "grep --color=auto";
+    "diff" = "diff --color=auto";
+    "ip" = "ip -color=auto";
+    # Misc
+    "ll" = "ls -alF";
+    "la" = "ls -A";
+  };
 
-
-  # TODO: Move user to separate file
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kyle = {
     isNormalUser = true;
