@@ -12,4 +12,14 @@
     ];
 
   networking.hostName = "x230"; # Define your hostname.
+
+  services.kmonad = {
+    enable = true;
+    keyboards = {
+      laptop-keyboard = {
+        device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
+        config = builtins.readFile ./laptop.kbd;
+      };
+    };
+  };
 }

@@ -1,0 +1,85 @@
+#| --------------------------------------------------------------------------
+
+Notable features:
+* Swapped backspace and backslash
+* Use capslock as esc when tapped, lctl when held
+* Use space as a momentary layer toggle
+  * Vim key arrows
+* Use right alt as a meta key
+* Replace the menu key with layer toggle
+  * Use capslock as lctl
+
+Transparent layer for copying
+(deflayer name
+  _    _    _    _                             _    _    _    _    _    _    _
+       _    _    _    _    _    _    _    _    _    _    _    _         _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _              _
+  _    _    _    _              _              _    _    _         _    _    _
+                                                                   _    _    _
+)
+
+  -------------------------------------------------------------------------- |#
+
+(defcfg
+  input (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
+  output (uinput-sink "My KMonad output")
+  fallthrough true
+  allow-cmd false
+)
+
+;; US
+(defsrc
+  esc  mute vold volu                          prnt slck pause ins del  home pgup
+       f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11   f12      end  pgdn
+  grv  1    2    3    4    5    6    7    8    9    0    -     =        \
+  tab  q    w    e    r    t    y    u    i    o    p    [     ]        ret
+  caps a    s    d    f    g    h    j    k    l    ;    '     bspc
+  lsft 102d z    x    c    v    b    n    m    ,    .    /              rsft
+  wkup lctl lmet lalt           spc            ralt cmps rctl      back up   fwd
+                                                                   left down rght
+)
+
+(defalias 
+  cesc (tap-next-release esc lctl)
+  ;; Like qmk LT(vka, KC_SPC)
+  ltvka (tap-next-release spc (layer-toggle vka))
+  ;; Like qmk TG(simple)
+  tos (layer-add simple)
+  tod (layer-rem simple)
+)
+
+(deflayer default
+  esc  mute vold volu                          prnt slck pause ins del  home pgup
+       f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11   f12      end  pgdn
+  grv  1    2    3    4    5    6    7    8    9    0    -     =        bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [     ]        ret
+ @cesc a    s    d    f    g    h    j    k    l    ;    '     \
+  lsft 102d z    x    c    v    b    n    m    ,    .    /              rsft
+  wkup lctl lmet lalt        @ltvka            rmet @tos rctl     back up   fwd
+                                                                   left down rght
+)
+
+(deflayer vka
+  _    _    _    _                             _    _    _    _    _    _    _
+       _    _    _    _    _    _    _    _    _    _    _    _         _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _         _
+  caps _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    _    _    _    _    _    left down up   rght _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _              _
+  _    _    _    _              _              _    _    _         _    _    _
+                                                                   _    _    _
+)
+
+(deflayer simple
+  _    _    _    _                             _    _    _    _    _    _    _
+       _    _    _    _    _    _    _    _    _    _    _    _         _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    _    _    _    _    _    _    _    _    _    _    _    _         _
+  lctl _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _              _
+  _    _    _    _              _              _    @tod _         _    _    _
+                                                                   _    _    _
+)

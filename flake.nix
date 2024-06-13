@@ -10,13 +10,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    kmonad = {
+      url = "github:kmonad/kmonad?submodules=1&dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, nixvim, ...}:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, kmonad, nixvim, ...}:
     let 
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -34,6 +39,7 @@
         inherit system;
         modules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-x230
+          kmonad.nixosModules.default
           ./system/x230
         ];
       };
