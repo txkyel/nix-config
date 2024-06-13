@@ -12,6 +12,7 @@
     picom
     maim
     brave
+    google-chrome
     pavucontrol
     playerctl
     (pkgs.discord.override {
