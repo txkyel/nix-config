@@ -24,7 +24,6 @@
       virtualbox-nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./shared.nix 
           ./system/vm
         ];
       };
@@ -32,7 +31,6 @@
         inherit system;
         modules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-x230
-          ./shared.nix 
           ./system/x230
         ];
       };

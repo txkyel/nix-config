@@ -7,8 +7,21 @@
 {
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Periodically optimize nix store
+  nix.optimise.automatic = true;
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  # Garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than +10";
+    persistent = true;
+  };
 
   # Bootloader.
+  boot.loader.timeout = 1;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -37,34 +50,6 @@
     windowManager.qtile.enable = true;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.kyle = {
-    isNormalUser = true;
-    home = "/home/kyle";
-    description = "kyle";
-    extraGroups = [ "networkmanager" "wheel" "audio" ];
-    packages = with pkgs; [];
-  };
-
-  # Packages installed in system profile
-  environment.systemPackages = with pkgs; [
-    home-manager
-    wget
-    git
-    alacritty
-    rofi
-    picom
-    zsh
-    maim
-    xclip
-    brave
-    pavucontrol
-    playerctl
-  ];
-
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
@@ -75,6 +60,39 @@
   environment.shells = with pkgs; [ zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
+
+
+  # TODO: Move user to separate file
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.kyle = {
+    isNormalUser = true;
+    home = "/home/kyle";
+    description = "kyle";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [];
+  };
+
+  # Packages installed in system profile
+  environment.systemPackages = with pkgs; [
+    wget
+    git
+    zsh
+    xclip
+    xsel
+    zip
+    unzip
+    _7zz
+    lm_sensors
+    ntfs3g
+    # TODO: Move system/user specific packages to another file
+    alacritty
+    rofi
+    picom
+    maim
+    brave
+    pavucontrol
+    playerctl
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
