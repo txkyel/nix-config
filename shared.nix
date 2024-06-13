@@ -63,7 +63,6 @@
     brave
     pavucontrol
     playerctl
-    nerdfonts
   ];
 
   fonts.packages = with pkgs; [

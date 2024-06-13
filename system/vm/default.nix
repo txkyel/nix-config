@@ -7,8 +7,8 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ../hardware/x230.nix
+      ./hardware-configuration.nix
     ];
 
-  networking.hostName = "x230"; # Define your hostname.
+  networking.hostName = "virtualbox-nixos"; # Define your hostname.
 }

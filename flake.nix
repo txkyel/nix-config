@@ -25,7 +25,7 @@
         inherit system;
         modules = [
           ./shared.nix 
-          ./system/vm.nix
+          ./system/vm
         ];
       };
       x230 = nixpkgs.lib.nixosSystem {
@@ -33,7 +33,7 @@
         modules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-x230
           ./shared.nix 
-          ./system/x230.nix
+          ./system/x230
         ];
       };
     };
