@@ -15,6 +15,7 @@
     google-chrome
     pavucontrol
     playerctl
+    libnotify
     (pkgs.discord.override {
       withVencord = true;
     })
@@ -32,6 +33,9 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Notification daemon
+  services.dunst.enable = true;
 
   programs.git = {
     enable = true;
