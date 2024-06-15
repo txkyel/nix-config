@@ -8,14 +8,15 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
   home.packages = with pkgs; [
     alacritty
-    rofi
-    picom
-    maim
     brave
     google-chrome
-    pavucontrol
-    playerctl
     libnotify
+    maim
+    pavucontrol
+    picom
+    playerctl
+    rofi
+    vlc
     (pkgs.discord.override {
       withVencord = true;
     })
@@ -26,7 +27,10 @@
       target = ".config/qtile/config.py";
     };
   };
-  home.sessionVariables = {};
+  home.sessionVariables = {
+    XCOMPOSEFILE = "${config.xdg.configHome}/x11/xcompose";
+    XCOMPOSECACHE = "${config.xdg.cacheHome}/x11/xcompose";
+  };
 
   # Enable xdg
   xdg.enable = true;
