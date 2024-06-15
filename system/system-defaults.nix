@@ -7,18 +7,17 @@
 {
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  # Automatically optimise
-  nix.settings.auto-optimise-store = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Garbage collection
+  # Scheduled store optimisation
+  nix.optimise.automatic = true;
+  # Scheduled garbage collection
   nix.gc = {
     automatic = true;
-    dates = "weekly";
     options = "--delete-older-than +5";
     persistent = true;
-    randomizedDelaySec = "45min";
+    randomizedDelaySec = "30min";
   };
 
   # Bootloader.
