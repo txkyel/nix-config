@@ -40,6 +40,11 @@
 
   # Notification daemon
   services.dunst.enable = true;
+  services.dunst.settings = {
+    global = {
+      show_indicators = false;
+    };
+  };
 
   programs.git = {
     enable = true;
