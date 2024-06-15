@@ -94,6 +94,7 @@
     _7zz
     lm_sensors
     ntfs3g
+    brightnessctl
   ];
 
   # This value determines the NixOS release from which the default
