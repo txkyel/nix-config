@@ -9,13 +9,23 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  system.autoUpgrade = {
+    enable = true;
+    flake = inputs.self.outPath;
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "-L" # print build logs
+    ];
+    randomizedDelaySec = "30min";
+  };
 
   # Scheduled store optimisation
   nix.optimise.automatic = true;
   # Scheduled garbage collection
   nix.gc = {
     automatic = true;
-    options = "--delete-older-than +5";
+    options = "--delete-older-than 15d";
     persistent = true;
     randomizedDelaySec = "30min";
   };
