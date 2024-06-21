@@ -11,7 +11,7 @@
   nixpkgs.config.allowUnfree = true;
   system.autoUpgrade = {
     enable = true;
-    flake = inputs.self.outPath;
+    flake = "${config.users.users.kyle.home}/nix-config";
     flags = [
       "--update-input"
       "nixpkgs"
