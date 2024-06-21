@@ -16,6 +16,7 @@
       "--update-input"
       "nixpkgs"
       "-L" # print build logs
+      "--commit-lock-file"
     ];
     randomizedDelaySec = "30min";
   };
