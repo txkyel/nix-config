@@ -21,7 +21,15 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, kmonad, nixvim, ...}:
+  outputs = {
+    self,
+    nixpkgs,
+    nixos-hardware,
+    home-manager,
+    kmonad,
+    nixvim,
+    ...
+  }@inputs:
     let 
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -30,6 +38,7 @@
     nixosConfigurations = {
       virtualbox-nixos = nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit inputs; };
         modules = [
           ./system/vm
         ];
@@ -37,6 +46,7 @@
 
       x230 = nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit inputs; };
         modules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-x230
           kmonad.nixosModules.default
