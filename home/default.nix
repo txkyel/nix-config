@@ -13,10 +13,8 @@
   ];
 
   home.packages = with pkgs; [
-    alacritty
     brave
     google-chrome
-    libnotify
     maim
     pavucontrol
     picom
@@ -34,26 +32,10 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # Notification daemon
-  services.dunst.enable = true;
-  services.dunst.settings = {
-    global = {
-      show_indicators = false;
-    };
-  };
-
   programs.git = {
     enable = true;
     userEmail = "kylexiao20@gmail.com";
     userName = "Kyle Xiao";
-  };
-
-  programs.alacritty.enable = true;
-  programs.alacritty.settings = {
-    window.padding = {
-      x = 8;
-      y = 8;
-    };
   };
 
   programs.nixvim = {
