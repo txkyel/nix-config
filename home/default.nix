@@ -27,10 +27,6 @@
       withVencord = true;
     })
   ];
-  home.sessionVariables = {
-    XCOMPOSEFILE = "${config.xdg.configHome}/x11/xcompose";
-    XCOMPOSECACHE = "${config.xdg.cacheHome}/x11/xcompose";
-  };
 
   # Enable xdg
   xdg.enable = true;
