@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -23,10 +23,11 @@
     };
   };
 
+  # Force options to override hardware defaults. This is to enable steam despite incompatibility.
   hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable = lib.mkForce true;
+    driSupport = lib.mkForce true;
+    driSupport32Bit = lib.mkForce true;
   };
 
   programs.steam.enable = true;
