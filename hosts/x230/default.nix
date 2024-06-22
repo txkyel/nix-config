@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../system-defaults.nix
+      ../common.nix
     ];
 
   networking.hostName = "x230"; # Define your hostname.

@@ -40,7 +40,7 @@
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
-          ./system/vm
+          ./hosts/vm
         ];
       };
 
@@ -50,7 +50,7 @@
         modules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-x230
           kmonad.nixosModules.default
-          ./system/x230
+          ./hosts/x230
         ];
       };
     };
