@@ -6,6 +6,12 @@
   home.username = "kyle";
   home.homeDirectory = "/home/kyle";
   home.stateVersion = "24.05"; # Please read the comment before changing.
+
+  imports = [
+    ./programs
+    ./wm
+  ];
+
   home.packages = with pkgs; [
     alacritty
     brave
@@ -21,12 +27,6 @@
       withVencord = true;
     })
   ];
-  home.file = {
-    qtile_config = {
-      source = ./qtile/config.py;
-      target = ".config/qtile/config.py";
-    };
-  };
   home.sessionVariables = {
     XCOMPOSEFILE = "${config.xdg.configHome}/x11/xcompose";
     XCOMPOSECACHE = "${config.xdg.cacheHome}/x11/xcompose";

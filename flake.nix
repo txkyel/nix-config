@@ -60,7 +60,7 @@
         inherit pkgs;
         modules = [
           nixvim.homeManagerModules.nixvim
-          ./home.nix
+          ./home
         ];
       };
     };
