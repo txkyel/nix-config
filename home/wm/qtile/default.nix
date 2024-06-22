@@ -1,9 +1,6 @@
 {
   home.file = {
-    qtile_config = {
-      source = ./config.py;
-      target = ".config/qtile/config.py";
-    };
+    ".config/qtile/config.py".source = ./config.py;
   };
 }
 
