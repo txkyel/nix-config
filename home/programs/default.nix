@@ -4,5 +4,6 @@
     ./dunst
     ./git
     ./rofi
+    ./zsh
   ];
 }
