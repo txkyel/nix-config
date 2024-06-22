@@ -19,7 +19,6 @@
     pavucontrol
     picom
     playerctl
-    rofi
     vlc
     (pkgs.discord.override {
       withVencord = true;
