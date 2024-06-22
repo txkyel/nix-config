@@ -7,9 +7,6 @@
   home.homeDirectory = "/home/kyle";
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  # Enable xdg
-  xdg.enable = true;
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 

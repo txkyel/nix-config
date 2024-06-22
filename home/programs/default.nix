@@ -5,6 +5,7 @@
     ./git
     ./neovim
     ./rofi
+    ./xdg
     ./zsh
   ];
 }
