@@ -11,13 +11,12 @@
   nixpkgs.config.allowUnfree = true;
   system.autoUpgrade = {
     enable = true;
-    flake = "${config.users.users.kyle.home}/nix-config";
+    dates = "3:00";
+    flake = "github:txkyel/nix-config";
     flags = [
-      "--update-input"
-      "nixpkgs"
       "-L" # print build logs
     ];
-    randomizedDelaySec = "30min";
+    persistent = true;
   };
 
   # Scheduled store optimisation
@@ -25,9 +24,9 @@
   # Scheduled garbage collection
   nix.gc = {
     automatic = true;
-    options = "--delete-older-than 15d";
+    dates = "weekly";
+    options = "--delete-older-than 30d";
     persistent = true;
-    randomizedDelaySec = "30min";
   };
 
   # Bootloader.
