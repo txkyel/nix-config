@@ -58,13 +58,11 @@
   };
 
   # Configure window manager
-  services.xserver = {
-    enable = true;
-    # Qtile
-    windowManager.qtile.enable = true;
-  };
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
   # Hyprland
   programs.hyprland.enable = true;
+  programs.hyprland.xwayland.enable = true;
 
   fonts.packages = with pkgs; [
     noto-fonts
