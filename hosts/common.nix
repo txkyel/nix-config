@@ -51,18 +51,20 @@
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_CA.UTF-8";
 
-  # Configure Xserver
-  services.xserver = {
-    # Keyboard
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
+  # Keyboard
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
 
-    # Desktop environment
+  # Configure window manager
+  services.xserver = {
     enable = true;
+    # Qtile
     windowManager.qtile.enable = true;
   };
+  # Hyprland
+  programs.hyprland.enable = true;
 
   fonts.packages = with pkgs; [
     noto-fonts

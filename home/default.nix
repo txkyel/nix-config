@@ -19,13 +19,15 @@
   home.packages = with pkgs; [
     brave
     google-chrome
-    maim
     pavucontrol
-    picom
     playerctl
-    vlc
+    mpv
     (pkgs.discord.override {
       withVencord = true;
     })
+
+    # Wayland
+    wl-clipboard
+    grim
   ];
 }
