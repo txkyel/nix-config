@@ -13,21 +13,13 @@
   # Home manager package configs
   imports = [
     ./programs
-    ./wm
   ];
 
   home.packages = with pkgs; [
     brave
     google-chrome
-    pavucontrol
-    playerctl
-    mpv
     (pkgs.discord.override {
       withVencord = true;
     })
-
-    # Wayland
-    wl-clipboard
-    grim
   ];
 }

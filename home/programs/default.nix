@@ -1,11 +1,11 @@
 {
   imports = [
-    ./alacritty
-    ./dunst
+#    ./alacritty
+#    ./dunst
     ./git
     ./neovim
-    ./rofi
-    ./xdg
+#    ./rofi
+#    ./xdg
     ./zsh
   ];
 }
