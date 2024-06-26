@@ -21,25 +21,32 @@
     };
 
     # Hyprland inputs
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+    };
+
     wallust.url = "git+https://codeberg.org/explosion-mental/wallust?ref=dev";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixos-hardware,
-    home-manager,
-    kmonad,
-    nixvim,
-    ...
-  }@inputs:
-    let 
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  let 
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+  in
   {
     nixosConfigurations = {
+      x230 = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { host = "x230"; inherit inputs; };
+        modules = [
+          ./hosts/x230
+        ];
+      };
       virtualbox-nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs; };
@@ -47,23 +54,13 @@
           ./hosts/vm
         ];
       };
-
-      x230 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          nixos-hardware.nixosModules.lenovo-thinkpad-x230
-          kmonad.nixosModules.default
-          ./hosts/x230
-        ];
-      };
     };
 
     homeConfigurations = {
       kyle = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        extraSpecialArgs = { inherit inputs; };
         modules = [
-          nixvim.homeManagerModules.nixvim
           ./home
         ];
       };

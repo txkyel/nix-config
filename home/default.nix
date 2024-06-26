@@ -1,8 +1,7 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
-  # TODO: Figure out how to link to global nixpkgs instead of setting option for instanced nixpkgs
-  nixpkgs.config.allowUnfree = true;
+  imports = [ inputs.nixvim.homeManagerModules.nixvim ./programs ];
   home.username = "kyle";
   home.homeDirectory = "/home/kyle";
   home.stateVersion = "24.05"; # Please read the comment before changing.
@@ -10,10 +9,6 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # Home manager package configs
-  imports = [
-    ./programs
-  ];
 
   home.packages = with pkgs; [
     brave
