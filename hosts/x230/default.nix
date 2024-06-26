@@ -24,10 +24,9 @@
   };
 
   # Force options to override hardware defaults. This is to enable steam despite incompatibility.
-  hardware.opengl = {
-    enable = lib.mkForce true;
-    driSupport = lib.mkForce true;
-    driSupport32Bit = lib.mkForce true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
 
   programs.steam.enable = true;
