@@ -100,13 +100,6 @@
   services = {
     gvfs.enable = true;
     tumbler.enable = true;
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      wireplumber.enable = true;
-    };
     udev.enable = true;
     envfs.enable = true;
     dbus.enable = true;
@@ -116,12 +109,6 @@
     };
     fwupd.enable = true;
     upower.enable = true;
-  };
-
-  security = {
-    pam.services.swaylock.text = "auth include login";
-    polkit.enable = true;
-    rtkit.enable = true;
   };
 
   programs = {
