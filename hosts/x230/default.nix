@@ -24,12 +24,6 @@
     };
   };
 
-  # Force options to override hardware defaults. This is to enable steam despite incompatibility.
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
   programs.steam.enable = true;
   programs.gamemode.enable = true;
 }
