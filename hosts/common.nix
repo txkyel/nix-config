@@ -5,9 +5,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-  # Enable networking
-  networking.networkmanager.enable = true;
-
   # Keyboard
   services.xserver.xkb = {
     layout = "us";

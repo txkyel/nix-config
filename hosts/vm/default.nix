@@ -11,6 +11,4 @@
       ./../common.nix
       ./../../modules/core
     ];
-
-  networking.hostName = "virtualbox-nixos"; # Define your hostname.
 }

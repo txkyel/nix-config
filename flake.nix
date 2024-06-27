@@ -47,9 +47,9 @@
           ./hosts/x230
         ];
       };
-      virtualbox-nixos = nixpkgs.lib.nixosSystem {
+      vm = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs; };
+        specialArgs = { host = "vm"; inherit inputs; };
         modules = [
           ./hosts/vm
         ];

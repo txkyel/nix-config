@@ -14,8 +14,6 @@
       ./../../modules/core
     ];
 
-  networking.hostName = "x230"; # Define your hostname.
-
   services.kmonad = {
     enable = true;
     keyboards = {
