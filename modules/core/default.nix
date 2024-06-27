@@ -5,6 +5,7 @@
     ./pipewire.nix
     ./network.nix
     ./security.nix
+    ./services.nix
     ./system.nix
     ./wayland.nix
   ];

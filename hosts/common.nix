@@ -96,15 +96,9 @@
   ]);
 
   services = {
-    gvfs.enable = true;
     tumbler.enable = true;
     udev.enable = true;
     envfs.enable = true;
-    dbus.enable = true;
-    fstrim = {
-      enable = true;
-      interval = "weekly";
-    };
     fwupd.enable = true;
     upower.enable = true;
   };
