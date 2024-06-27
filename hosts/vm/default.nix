@@ -8,7 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../common.nix
+      ./../common.nix
+      ./../../modules/core
     ];
 
   networking.hostName = "virtualbox-nixos"; # Define your hostname.
