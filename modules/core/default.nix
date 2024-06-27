@@ -6,5 +6,6 @@
     ./network.nix
     ./security.nix
     ./system.nix
+    ./wayland.nix
   ];
 }

@@ -90,8 +90,6 @@
     swww
     waybar
     wlogout
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-hyprland
     xdg-user-dirs
     xdg-utils
     yad
@@ -112,13 +110,6 @@
   };
 
   programs = {
-    hyprland = {
-      enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-      portalPackage = pkgs.xdg-desktop-portal-hyprland;
-      xwayland.enable = true;
-    };
-    xwayland.enable = true;
     hyprlock.enable = true;
     git.enable = true;
     dconf.enable = true;
@@ -132,11 +123,6 @@
       tumbler
     ];
   };
-
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = with pkgs; [
-    xdg-desktop-portal-gtk
-  ];
 
   systemd.services = {
     NetworkManager-wait-online.enable = false;
