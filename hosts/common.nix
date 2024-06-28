@@ -5,12 +5,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-  # Keyboard
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
