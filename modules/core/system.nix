@@ -2,9 +2,9 @@
 {
   nix = {
     settings = {
-      auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
     };
+    optimise.automatic = true;
     gc = {
       automatic = true;
       dates = "weekly";
@@ -17,7 +17,10 @@
   system.autoUpgrade = {
     enable = true;
     flake = "github:txkyel/nix-config";
-    flags = [ "-L" ];
+    flags = [
+      "--show-trace"
+      "-L"
+    ];
     persistent = true;
   };
 
