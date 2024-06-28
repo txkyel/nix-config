@@ -44,12 +44,10 @@
   };
 
   environment.shells = with pkgs; [ zsh ];
-  programs.zsh.enable = true;
   
   # Packages installed in system profile
   environment.systemPackages = (with pkgs; 
   [
-    zsh
     wl-clipboard
     networkmanagerapplet
 
@@ -95,18 +93,8 @@
     yad
   ]);
 
-  services = {
-    tumbler.enable = true;
-    udev.enable = true;
-    envfs.enable = true;
-    fwupd.enable = true;
-    upower.enable = true;
-  };
-
   programs = {
     hyprlock.enable = true;
-    git.enable = true;
-    dconf.enable = true;
     waybar.enable = true;
     thunar.enable = true;
     thunar.plugins = with pkgs.xfce; [
@@ -116,13 +104,5 @@
       thunar-volman
       tumbler
     ];
-  };
-
-  systemd.services = {
-    NetworkManager-wait-online.enable = false;
-    power-profiles-daemon = {
-      enable = true;
-      wantedBy = [ "multi-user.target" ];
-    };
   };
 }
