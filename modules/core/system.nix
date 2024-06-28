@@ -32,6 +32,17 @@
     _7zz
   ];
 
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    fira-code
+    jetbrains-mono
+    font-awesome
+    terminus_font
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  ];
+
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_US.UTF-8";
   system.stateVersion = "24.05";
