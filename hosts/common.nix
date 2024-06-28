@@ -27,18 +27,6 @@
     "la" = "ls -A";
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.kyle = {
-    isNormalUser = true;
-    home = "/home/kyle";
-    description = "kyle";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
-    shell = pkgs.zsh;
-  };
-
-  environment.shells = with pkgs; [ zsh ];
-  
   # Packages installed in system profile
   environment.systemPackages = (with pkgs; 
   [
