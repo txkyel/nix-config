@@ -14,16 +14,43 @@
       ./../../modules/core
     ];
 
-  services.kmonad = {
-    enable = true;
-    keyboards = {
-      laptop-keyboard = {
-        device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
-        config = builtins.readFile ./laptop.kbd;
+  programs.steam.enable = true;
+  programs.gamemode.enable = true;
+
+  powerManagement.enable = true;
+
+  services = {
+    kmonad = {
+      enable = true;
+      keyboards = {
+        laptop-keyboard = {
+          device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
+          config = builtins.readFile ./laptop.kbd;
+        };
+      };
+    };
+    upower = {
+      enable = true;
+      percentageLow = 20;
+      percentageCritical = 5;
+      percentageAction = 2;
+      criticalPowerAction = "PowerOff";
+    };
+    tlp = {
+      enable = true;
+      settings = {
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+        CPU_MIN_PERF_ON_AC = 0;
+        CPU_MAX_PERF_ON_AC = 100;
+
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+        CPU_MIN_PERF_ON_BAT = 0;
+        CPU_MAX_PERF_ON_BAT = 50;
+        START_CHARGE_THRESH_BAT0 = 40;
+        STOP_CHARGE_THRESH_BAT0 = 80;
       };
     };
   };
-
-  programs.steam.enable = true;
-  programs.gamemode.enable = true;
 }
