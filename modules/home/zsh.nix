@@ -1,11 +1,10 @@
 { config, pkgs, ... }:
-
 {
   programs.zsh = {
     enable = true;
-    dotDir = ".config/zsh";
-    autocd = true;
     enableCompletion = true;
+    autocd = true;
+    dotDir = ".config/zsh";
     completionInit = ''
       autoload -U compinit && compinit
       zstyle ':completion:*' menu select

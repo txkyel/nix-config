@@ -62,7 +62,6 @@
         extraSpecialArgs = { inherit inputs; };
         modules = [
           # TODO: Determine how to make modules host independent
-          ./home
           ./modules/home
         ];
       };

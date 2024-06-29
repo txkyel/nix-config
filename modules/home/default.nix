@@ -3,6 +3,7 @@
   imports = [
     ./neovim
     ./git.nix
+    ./zsh.nix
   ];
 
   home.username = "kyle";
