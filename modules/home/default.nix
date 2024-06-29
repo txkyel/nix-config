@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./hyprland
     ./neovim
     ./git.nix
     ./zsh.nix
