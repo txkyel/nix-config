@@ -47,4 +47,9 @@
     hyprlock.enable = true;
     waybar.enable = true;
   };
+
+  home.file.".config/hypr" = {
+    source = ./configs;
+    recursive = true;
+  };
 }
