@@ -4,6 +4,7 @@
     ./hyprland
     ./neovim
     ./git.nix
+    ./programs.nix
     ./zsh.nix
   ];
 
@@ -11,12 +12,4 @@
   home.homeDirectory = "/home/kyle";
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
-
-  home.packages = with pkgs; [
-    brave
-    google-chrome
-    (discord.override {
-      withVencord = true;
-    })
-  ];
 }
