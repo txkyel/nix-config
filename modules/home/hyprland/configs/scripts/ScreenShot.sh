@@ -14,10 +14,9 @@ notify_screenshot() {
     # Exit early if image failed to save
     [ ! -f "$1" ] && notify-send "Screenshot captured but did not save" && exit 1
 
-    notify_cmd_base="notify-send -u low -i ${1}"
-    # If default action is taken for notification, 
-    ret=$(notify-send -u low -i ${1} --action="default=Mark up image" "$2" "Click to markup image")
-    [ "default" == "$ret" ] && swappy -f - <"$1"
+    # If default action is taken for notification, execute swappy with image
+    ret=$(notify-send -u low -t 1 -i $1 --action="default=Mark up image" "$2" "Click to markup image")
+    [ "default" == "$ret" ] && swappy -f "$1"
 }
 
 shotnow() {
@@ -39,8 +38,9 @@ shotarea() {
 }
 
 shotactive() {
-    hyprctl -j activewindow | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' | grim -g - "${active_window_file}"
-    notify_screenshot "${active_window_file}" "Captured screenshot of ${active_window_class}" "active"
+    hyprctl -j activewindow | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' \
+        | grim -g "${active_window_file}"
+    notify_screenshot "${active_window_file}" "Captured screenshot of ${active_window_class}"
 }
 
 
