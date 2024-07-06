@@ -3,9 +3,8 @@
   home.packages = with pkgs; [
     brave
     google-chrome
-    (discord.override {
-      withVencord = true;
-    })
+    vesktop
+    webcord
     (mpv.override {
       scripts = [ mpvScripts.mpris ];
     })
