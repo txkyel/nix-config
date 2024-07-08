@@ -17,6 +17,9 @@
   programs.steam.enable = true;
   programs.gamemode.enable = true;
 
+  hardware.logitech.wireless.enable = true;
+  hardware.logitech.wireless.enableGraphical = true;
+
   powerManagement.enable = true;
 
   services = {
