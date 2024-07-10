@@ -1,5 +1,6 @@
 {
   imports = [
+    ./bluetooth.nix
     ./bootloader.nix
     ./hardware.nix
     ./pipewire.nix
