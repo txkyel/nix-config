@@ -6,6 +6,7 @@
     ./pipewire.nix
     ./programs.nix
     ./network.nix
+    ./qmk.nix
     ./security.nix
     ./services.nix
     ./system.nix
