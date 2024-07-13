@@ -4,6 +4,7 @@
     ./hyprland
     ./neovim
     ./git.nix
+    ./gtk.nix
     ./programs.nix
     ./zsh.nix
   ];
