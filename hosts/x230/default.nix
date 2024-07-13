@@ -10,7 +10,6 @@
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x230
       inputs.kmonad.nixosModules.default
       ./hardware-configuration.nix
-      ./../common.nix # Remove after migration to modules is complete
       ./../../modules/core
     ];
 

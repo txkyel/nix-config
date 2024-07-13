@@ -5,6 +5,18 @@
     enableCompletion = true;
     autocd = true;
     dotDir = ".config/zsh";
+
+    shellAliases = {
+      # Color aliases
+      "ls" = "ls --color=auto --group-directories-first";
+      "grep" = "grep --color=auto";
+      "diff" = "diff --color=auto";
+      "ip" = "ip -color=auto";
+      # Misc
+      "ll" = "ls -alF";
+      "la" = "ls -A";
+    };
+
     completionInit = ''
       autoload -U compinit && compinit
       zstyle ':completion:*' menu select
