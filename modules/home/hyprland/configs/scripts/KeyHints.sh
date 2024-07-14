@@ -40,7 +40,7 @@ yad --width=$dynamic_width --height=$dynamic_height \
 "ESC" "close this app" "" "=" "SUPER KEY (Windows Key)" "(SUPER KEY)" \
 " enter" "Terminal" "(kitty)" \
 " SHIFT enter" "DropDown Terminal" "(kitty-pyprland)" \
-" A" "Desktop Overview" "(AGS Overview)" \
+" " "App Launcher" "(rofi-wayland)" \
 " D" "App Launcher" "(rofi-wayland)" \
 " T" "Open File Manager" "(Thunar)" \
 " S" "Google Search" "(rofi)" \
@@ -64,12 +64,11 @@ yad --width=$dynamic_width --height=$dynamic_height \
 "CTRL ALT Del" "Hyprland Exit" "(SAVE YOUR WORK!!!)" \
 " F" "Fullscreen" "Toggles to full screen" \
 " ALT L" "Toggle Dwindle | Master Layout" "Hyprland Layout" \
-" Shift F" "Toggle float" "single window" \
-" ALT F" "Toggle all windows to float" "all windows" \
+" T" "Toggle float" "single window" \
+" ALT T" "Toggle all windows to float" "all windows" \
 " Shift B" "Toggle Blur" "normal or less blur" \
 " ALT E" "Rofi Emoticons" "Emoticon" \
 " ALT V" "Clipboard Manager" "cliphist" \
 " H" "Launch this app" "" \
-" E" "View or EDIT Keybinds, Settings, Monitor" "" \
 "" "" "" \
 "More tips:" "https://github.com/JaKooLit/Hyprland-Dots/wiki" ""\
