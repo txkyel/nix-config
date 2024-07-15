@@ -580,11 +580,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1719199629,
-        "narHash": "sha256-KTtOPwxXDGQQA41PgCv02OYBb+wUj07RsUbLuNbJyu0=",
+        "lastModified": 1721014101,
+        "narHash": "sha256-0BS+dWBTK0q1ojM5DsWcJ9PiwYeg0057bsV+cMm5i9U=",
         "ref": "dev",
-        "rev": "a60ebe16d97aa0632801e6bc10a2e0d63c5ed5fe",
-        "revCount": 967,
+        "rev": "d242982a27d11d55451ff5f354d881df9ced51d0",
+        "revCount": 969,
         "type": "git",
         "url": "https://codeberg.org/explosion-mental/wallust"
       },
