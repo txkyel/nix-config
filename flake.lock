@@ -224,11 +224,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1721160190,
-        "narHash": "sha256-dnC7b/C8QRPoGs2H2cAYWmrTRVhN5m1xDpyrNTqV8r8=",
+        "lastModified": 1721248202,
+        "narHash": "sha256-VAhuQQ4EKbw/6z7K2IoR83+gXUdMksLWFQOhJNhSvQE=",
         "ref": "refs/heads/main",
-        "rev": "293e687389a19b369f312c5c335c9afe7c886be1",
-        "revCount": 4929,
+        "rev": "300228b503b36e5977b0d58713c5b4cf1f07b8a9",
+        "revCount": 4930,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -353,11 +353,11 @@
       },
       "locked": {
         "dir": "nix",
-        "lastModified": 1720421296,
-        "narHash": "sha256-Pl8n7CkrurvRFGyWV6oi9jmxRHDcsrcM4AlUMYG0rwU=",
+        "lastModified": 1721281642,
+        "narHash": "sha256-VPAwWheNIof1oce7Z1QWCHGIeUEZHstNcKaTpWR1MLI=",
         "owner": "kmonad",
         "repo": "kmonad",
-        "rev": "97a3dea051a3565e97f2bdde60473a2d78182b07",
+        "rev": "5de0e59fdc3d37810ed20186822c018972aa0c76",
         "type": "github"
       },
       "original": {
@@ -465,11 +465,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1721042250,
-        "narHash": "sha256-CEOGzI9WFGezwJ3lok0F//1UEq5crzE2kZDLQK2EtfE=",
+        "lastModified": 1721224205,
+        "narHash": "sha256-W0+l7HNzZfEmIx/1Yp3Tow/GZILVjrMjWfTt1Mos7mI=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "b9ed90003273f0a75151b32948e16b44891f403c",
+        "rev": "55bda0cc3b230255d271e5eef82f3279dae9f859",
         "type": "github"
       },
       "original": {
@@ -580,11 +580,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1721014101,
-        "narHash": "sha256-0BS+dWBTK0q1ojM5DsWcJ9PiwYeg0057bsV+cMm5i9U=",
+        "lastModified": 1721277499,
+        "narHash": "sha256-1x1REdL/pgzBWj/BnIbiRPJBiHxvwvhChRjjCWYEfHk=",
         "ref": "dev",
-        "rev": "d242982a27d11d55451ff5f354d881df9ced51d0",
-        "revCount": 969,
+        "rev": "432c491131a1569cad79277811660c7e25ce0908",
+        "revCount": 970,
         "type": "git",
         "url": "https://codeberg.org/explosion-mental/wallust"
       },
