@@ -45,6 +45,7 @@
         specialArgs = { host = "x230"; inherit inputs; };
         modules = [
           ./hosts/x230
+          ./modules
         ];
       };
       vm = nixpkgs.lib.nixosSystem {
@@ -52,6 +53,7 @@
         specialArgs = { host = "vm"; inherit inputs; };
         modules = [
           ./hosts/vm
+          ./modules
         ];
       };
     };

@@ -5,8 +5,8 @@
 - [flake.nix](flake.nix) base of the configuration
 - [hosts](hosts) 🌳 per-host configurations that contain machine specific configurations
 - [modules](modules) 🍱 modularized NixOS configurations
-  - [core](modules/core/) ⚙️ Core NixOS configuration
-  - [homes](modules/home/) 🏠 my [Home-Manager](https://github.com/nix-community/home-manager) config
+  - [system](modules/system/) system configuration
+  - [apps](modules/apps/) application configurations
  
 ### Dependencies
 
