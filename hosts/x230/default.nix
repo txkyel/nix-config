@@ -10,21 +10,11 @@
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x230
       inputs.kmonad.nixosModules.default
       ./hardware-configuration.nix
+      ../game.nix
     ];
-
-  programs.steam.enable = true;
-  programs.gamemode.enable = true;
 
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;
-
-  hardware = {
-      enableRedistributableFirmware = true;
-      graphics = {
-          enable = true;
-          enable32Bit = true;
-      };
-  };
 
   powerManagement.enable = true;
 
