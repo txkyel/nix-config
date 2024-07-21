@@ -36,11 +36,14 @@ shotnow() {
 shotarea() {
     tmpfile=$(mktemp)
     grim -g "$(slurp)" - >"$tmpfile"
-    # Exit early if no image captured
-    [ -s $tmpfile ] || rm "$tmpfile" && exit 1
-    wl-copy <"$tmpfile"
-    mv "$tmpfile" "$file"
-    notify_screenshot "${file}" "Captured screenshot of area"
+    if [ -s "$tmpfile" ]; then
+        wl-copy <"$tmpfile"
+        mv "$tmpfile" "$file"
+        notify_screenshot "${file}" "Captured screenshot of area"
+    else
+        rm "$tmpfile"
+        exit 1
+    fi
 }
 
 shotactive() {
