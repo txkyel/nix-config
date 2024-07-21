@@ -37,7 +37,7 @@ shotarea() {
     tmpfile=$(mktemp)
     grim -g "$(slurp)" - >"$tmpfile"
     # Exit early if no image captured
-    [ -s $tmpfile ] || exit 1
+    [ -s $tmpfile ] || rm "$tmpfile" && exit 1
     wl-copy <"$tmpfile"
     mv "$tmpfile" "$file"
     notify_screenshot "${file}" "Captured screenshot of area"
