@@ -1,13 +1,5 @@
 { inputs, pkgs, ... }:
 {
-    # Idk where to put these
-    time.timeZone = "America/Toronto";
-    i18n.defaultLocale = "en_US.UTF-8";
-    services.xserver = {
-        enable = true;
-        xkb.layout = "us";
-    };
-
     nix.settings = {
         # Enable flakes
         experimental-features = [ "nix-command" "flakes" ];

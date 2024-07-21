@@ -4,6 +4,7 @@
         ./bootloader.nix
         ./fonts.nix
         ./hyprland.nix
+        ./localization.nix
         ./network.nix
         ./nixos-configuration.nix
         ./screen.nix
