@@ -3,7 +3,7 @@ name: Bump flake.lock
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "0 6 */2 * *"
 
   workflow_dispatch:
 
@@ -16,7 +16,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: cachix/install-nix-action@v20
+      - uses: cachix/install-nix-action@v27
 
       - run: nix flake update
 
