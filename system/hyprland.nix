@@ -1,11 +1,15 @@
 { inputs, pkgs, ... }:
+let
+    hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    xdg-desktop-portal-hyprland = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+in
 {
     # TODO: Move back to home-manager module
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
     programs.hyprland = {
         enable = true;
-        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-        portalPackage = pkgs.xdg-desktop-portal-hyprland;
+        package = hyprland;
+        portalPackage = xdg-desktop-portal-hyprland;
         xwayland.enable = true;
     };
     xdg.portal = {
