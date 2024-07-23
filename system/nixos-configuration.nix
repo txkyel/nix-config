@@ -17,15 +17,16 @@
         options = "--delete-older-than 7d";
         persistent = true;
     };
-    system.autoUpgrade = {
-        enable = true;
-        flake = "github:txkyel/nix-config";
-        flags = [
-            "--show-trace"
-            "-L"
-        ];
-        persistent = true;
-    };
+    # Turn off auto upgrade until hyprland is fixed https://github.com/hyprwm/Hyprland/issues/6973
+    #system.autoUpgrade = {
+    #    enable = true;
+    #    flake = "github:txkyel/nix-config";
+    #    flags = [
+    #        "--show-trace"
+    #        "-L"
+    #    ];
+    #    persistent = true;
+    #};
 
     # This should match the version you used to install nixos
     system.stateVersion = "24.05";
