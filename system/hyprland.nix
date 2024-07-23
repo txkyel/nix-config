@@ -1,7 +1,11 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, host, ... }:
 let
-    hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    xdg-desktop-portal-hyprland = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+    hyprland =
+    if (host == "x230") then
+        inputs.hyprland.packages.${pkgs.system}.hyprland.override { legacyRenderer = true; }
+    else
+        inputs.hyprland.packages.${pkgs.system}.hprland;
+    xdph = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
 in
 {
     # TODO: Move back to home-manager module
@@ -9,7 +13,7 @@ in
     programs.hyprland = {
         enable = true;
         package = hyprland;
-        portalPackage = xdg-desktop-portal-hyprland;
+        portalPackage = xdph;
         xwayland.enable = true;
     };
     xdg.portal = {
