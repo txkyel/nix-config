@@ -1,5 +1,6 @@
 { inputs, pkgs, ... }:
 {
+    # TODO: Move back to home-manager module
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
     programs.hyprland = {
         enable = true;

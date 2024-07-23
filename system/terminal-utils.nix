@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+    # TODO: Move/reorganize, this file has too vague of a scope
+    programs.zsh.enable = true;
     environment.systemPackages = with pkgs; [
         git
         curl
