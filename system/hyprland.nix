@@ -43,7 +43,6 @@ in
         swww
 
         # Additional window manager utils
-        waybar
         wlogout
         xdg-user-dirs
         xdg-utils
@@ -55,6 +54,5 @@ in
 
     programs = {
         hyprlock.enable = true;
-        waybar.enable = true;
     };
 }
