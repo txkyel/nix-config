@@ -9,20 +9,4 @@
         gvfs.enable = true;
         udev.enable = true;
     };
-
-    environment.systemPackages = with pkgs; [
-        # Clipboard
-        cliphist
-        wl-clipboard
-
-        # Notifications
-        libnotify
-        swaynotificationcenter
-
-        # Media control
-        playerctl
-
-        # Menu
-        rofi-wayland
-    ];
 }

@@ -33,6 +33,12 @@ in
         yad
 
         # Additional window manager utils
+        cliphist
+        wl-clipboard
+        libnotify
+        swaynotificationcenter
+        playerctl
+        rofi-wayland
         wlogout
         yad # Used for keybind hints
     ];

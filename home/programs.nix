@@ -9,6 +9,7 @@
         xdg-user-dirs
         xdg-utils
 
+        # User apps
         brave
         google-chrome
         qbittorrent
