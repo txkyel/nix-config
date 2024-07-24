@@ -23,14 +23,4 @@ in
             xdg-desktop-portal-gtk
         ];
     };
-
-    # Hyprland packages
-    environment.systemPackages = with pkgs; [
-        # Additional window manager utils
-        xdg-user-dirs
-        xdg-utils
-
-        # Terminal
-        kitty
-    ];
 }

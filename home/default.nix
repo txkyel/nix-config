@@ -9,10 +9,4 @@
         ./programs.nix
         ./zsh.nix
     ];
-
-    home.packages = with pkgs; [
-        btop
-        cava
-        jq
-    ];
 }
