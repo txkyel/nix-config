@@ -33,14 +33,18 @@ in
         yad
 
         # Additional window manager utils
+        grim
+        slurp
+        swappy
         cliphist
         wl-clipboard
         libnotify
         swaynotificationcenter
-        playerctl
         rofi-wayland
         wlogout
         yad # Used for keybind hints
+        brightnessctl
+        playerctl
     ];
 
     programs.hyprlock.enable = true;
