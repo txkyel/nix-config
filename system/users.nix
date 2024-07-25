@@ -6,6 +6,7 @@
         useUserPackages = true;
         extraSpecialArgs = { inherit inputs host username; };
         users.${username} = {
+            # This is the home modules entry point
             imports = [ ./../home ];
             home.username = "${username}";
             home.homeDirectory = "/home/${username}";
