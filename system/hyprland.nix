@@ -23,4 +23,6 @@ in
             xdg-desktop-portal-gtk
         ];
     };
+    # GDM
+    services.xserver.displayManager.gdm.enable = true;
 }
