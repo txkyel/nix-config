@@ -40,6 +40,19 @@
     in
     {
         nixosConfigurations = {
+            desktop = nixpkgs.lib.nixosSystem {
+                inherit system;
+                specialArgs = {
+                    host = "desktop";
+                    username = "kyle";
+                    inherit inputs;
+                };
+                modules = [
+                    ./hosts/desktop
+                    ./system
+                ];
+            };
+
             x230 = nixpkgs.lib.nixosSystem {
                 inherit system;
                 specialArgs = {
