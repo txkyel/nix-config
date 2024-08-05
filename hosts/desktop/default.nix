@@ -7,9 +7,18 @@
 {
     imports = [
         ./hardware-configuration.nix
-        ../game.nix
     ];
 
     hardware.logitech.wireless.enable = true;
     hardware.logitech.wireless.enableGraphical = true;
+
+    # Graphics
+    services.xserver.videoDrivers = [ "amdgpu" ];
+    hardware = {
+        enableRedistributableFirmware = true;
+        graphics = {
+            enable = true;
+            enable32Bit = true;
+        };
+    };
 }

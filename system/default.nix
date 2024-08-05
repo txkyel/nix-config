@@ -3,6 +3,7 @@
         ./bluetooth.nix
         ./bootloader.nix
         ./fonts.nix
+        ./games.nix
         ./hyprland.nix
         ./localization.nix
         ./network.nix
