@@ -5,12 +5,11 @@
 { pkgs, lib, inputs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../game.nix
+    imports = [
+        ./hardware-configuration.nix
+        ../game.nix
     ];
 
-  hardware.logitech.wireless.enable = true;
-  hardware.logitech.wireless.enableGraphical = true;
+    hardware.logitech.wireless.enable = true;
+    hardware.logitech.wireless.enableGraphical = true;
 }
