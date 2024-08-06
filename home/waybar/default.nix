@@ -1,8 +1,6 @@
-{ config, username, pkgs, ... }:
+{ config, pkgs, ... }:
 let
-    # TODO: figure out how to unhardcode this, and make it dynamically determine where
-    # the project source is located
-    configPath = /home/${username}/nix-config/home/waybar/waybar;
+    configPath = "${config.home.homeDirectory}/nix-config/home/waybar/waybar";
 in
 {
     xdg.configFile.waybar.source = config.lib.file.mkOutOfStoreSymlink configPath;

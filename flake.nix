@@ -37,6 +37,7 @@
             inherit system;
             config.allowUnfree = true;
         };
+        username = "kyle";
     in
     {
         nixosConfigurations = {
@@ -44,8 +45,7 @@
                 inherit system;
                 specialArgs = {
                     host = "desktop";
-                    username = "kyle";
-                    inherit inputs;
+                    inherit inputs username;
                 };
                 modules = [
                     ./hosts/desktop
@@ -57,8 +57,7 @@
                 inherit system;
                 specialArgs = {
                     host = "x230";
-                    username = "kyle";
-                    inherit inputs;
+                    inherit inputs username;
                 };
                 modules = [
                     ./hosts/x230
@@ -70,8 +69,7 @@
                 inherit system;
                 specialArgs = {
                     host = "vm";
-                    username = "kyle";
-                    inherit inputs;
+                    inherit inputs username;
                 };
                 modules = [
                     ./hosts/vm

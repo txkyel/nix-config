@@ -1,8 +1,6 @@
-{ inputs, pkgs, config, username, host, ... }:
+{ inputs, pkgs, config, host, ... }:
 let
-    # TODO: figure out how to unhardcode this, and make it dynamically determine where
-    # the project source is located
-    configPath = /home/${username}/nix-config/home/hyprland/hypr;
+    configPath = "${config.home.homeDirectory}/nix-config/home/hyprland/hypr";
     hyprland =
     if (host == "x230") then
         inputs.hyprland.packages.${pkgs.system}.hyprland.override { legacyRenderer = true; }
