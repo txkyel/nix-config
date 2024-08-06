@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
     imports = [
@@ -21,4 +21,9 @@
             enable32Bit = true;
         };
     };
+
+    # Enable zenpower sensors
+    boot.blacklistedKernelModules = [ "k10temp" ];
+    boot.kernelModules = [ "zenpower" ];
+    boot.extraModulePackages = [ config.boot.kernelPackages.zenpower ];
 }
