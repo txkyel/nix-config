@@ -19,7 +19,7 @@
         isNormalUser = true;
         home = "/home/${username}";
         description = "${username}";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [ "gamemode" "networkmanager" "wheel" ];
         shell = pkgs.zsh;
     };
 }
