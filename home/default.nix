@@ -9,6 +9,6 @@
         ./git.nix
         ./gtk.nix
         ./programs.nix
-        ./zsh.nix
+        ./shell.nix
     ];
 }
