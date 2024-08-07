@@ -25,13 +25,11 @@ shotnow() {
     notify_screenshot "${file}" "Captured screenshot"
 }
 
-# TODO: Replace with shotmonitor method
-# shotwin() {
-#    w_pos=$(hyprctl activewindow | grep 'at:' | cut -d':' -f2 | tr -d ' ' | tail -n1)
-#    w_size=$(hyprctl activewindow | grep 'size:' | cut -d':' -f2 | tr -d ' ' | tail -n1 | sed s/,/x/g)
-#    grim -g "$w_pos $w_size" - | tee "$file" | wl-copy
-#    notify_screenshot "${file}"
-# }
+shotmonitor() {
+    monitor=$(hyprctl -j activeworkspace | jq -r '(.monitor)')
+    grim -o $monitor - | tee "$file" | wl-copy
+    notify_screenshot "${file}" "Captured screenshot of monitor ${monitor}"
+}
 
 shotarea() {
     tmpfile=$(mktemp)
@@ -55,14 +53,14 @@ shotactive() {
 
 if [[ "$1" == "--now" ]]; then
     shotnow
-elif [[ "$1" == "--win" ]]; then
-    shotwin
+elif [[ "$1" == "--monitor" ]]; then
+    shotmonitor
 elif [[ "$1" == "--area" ]]; then
     shotarea
 elif [[ "$1" == "--active" ]]; then
     shotactive
 else
-    echo -e "Available Options : --now --win --area --active"
+    echo -e "Available Options : --now --monitor --area --active"
 fi
 
 exit 0
