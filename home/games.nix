@@ -9,7 +9,10 @@
         enable = true;
         settings = {
             gpu_power = true;
+            gpu_temp = true;
             cpu_power = true;
+            cpu_temp = true;
+            table_columns = 5;
         };
     };
 
