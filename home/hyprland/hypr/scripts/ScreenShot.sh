@@ -47,8 +47,8 @@ shotarea() {
 }
 
 shotactive() {
-    hyprctl -j activewindow | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' \
-        | grim -g "${active_window_file}"
+    window_region=$(hyprctl -j activewindow | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')
+    grim -g "${window_region}" - | tee "${active_window_file}" | wl-copy
     notify_screenshot "${active_window_file}" "Captured screenshot of ${active_window_class}"
 }
 
