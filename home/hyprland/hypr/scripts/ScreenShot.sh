@@ -33,7 +33,7 @@ shotmonitor() {
 
 shotarea() {
     tmpfile=$(mktemp)
-    grim -g "$(slurp)" - >"$tmpfile"
+    grim -g "$(slurp -w 0)" - >"$tmpfile"
     if [ -s "$tmpfile" ]; then
         wl-copy <"$tmpfile"
         mv "$tmpfile" "$file"

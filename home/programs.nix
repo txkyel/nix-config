@@ -8,6 +8,7 @@
         jq
         xdg-user-dirs
         xdg-utils
+        libqalculate
 
         # User apps
         brave
