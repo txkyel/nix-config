@@ -1,12 +1,6 @@
-{ inputs, pkgs, config, host, ... }:
+{ pkgs, config, ... }:
 let
     configPath = "${config.home.homeDirectory}/nix-config/home/hyprland/hypr";
-    hyprland =
-    if (host == "x230") then
-        inputs.hyprland.packages.${pkgs.system}.hyprland.override { legacyRenderer = true; }
-    else
-        inputs.hyprland.packages.${pkgs.system}.hprland;
-    xdph = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
 in
 {
     # Link config files to project files
@@ -38,7 +32,6 @@ in
         wl-clipboard
         libnotify
         swaynotificationcenter
-        rofi-wayland
         wlogout
         yad # Used for keybind hints
         brightnessctl
