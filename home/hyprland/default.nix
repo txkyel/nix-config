@@ -26,6 +26,7 @@ in
         yad
 
         # Additional window manager utils
+        grimblast
         grim
         slurp
         swappy

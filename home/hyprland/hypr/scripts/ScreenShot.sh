@@ -21,32 +21,24 @@ notify_screenshot() {
 }
 
 shotnow() {
-    grim - | tee "$file" | wl-copy
+    grimblast copysave screen "${file}"
     notify_screenshot "${file}" "Captured screenshot"
 }
 
 shotmonitor() {
-    monitor=$(hyprctl -j activeworkspace | jq -r '(.monitor)')
-    grim -o $monitor - | tee "$file" | wl-copy
-    notify_screenshot "${file}" "Captured screenshot of monitor ${monitor}"
+    grimblast copysave output "${file}"
+    notify_screenshot "${file}" "Captured screenshot of monitor"
 }
 
 shotarea() {
-    tmpfile=$(mktemp)
-    grim -g "$(slurp -w 0)" - >"$tmpfile"
-    if [ -s "$tmpfile" ]; then
-        wl-copy <"$tmpfile"
-        mv "$tmpfile" "$file"
+    grimblast --freeze copysave area "${file}"
+    if [ -s "$file" ]; then
         notify_screenshot "${file}" "Captured screenshot of area"
-    else
-        rm "$tmpfile"
-        exit 1
     fi
 }
 
 shotactive() {
-    window_region=$(hyprctl -j activewindow | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')
-    grim -g "${window_region}" - | tee "${active_window_file}" | wl-copy
+    grimblast copysave active "${active_window_file}"
     notify_screenshot "${active_window_file}" "Captured screenshot of ${active_window_class}"
 }
 
