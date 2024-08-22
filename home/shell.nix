@@ -9,6 +9,9 @@ let
         # Misc
         "ll" = "ls -alF";
         "la" = "ls -A";
+        "ytd" = "noglob yt-dlp --embed-metadata --embed-thumbnail -i";
+        "yta" = "ytd -x -f bestaudio/best";
+        "ytarchive" = "noglob ytarchive --merge -t -w";
     };
 in
 {

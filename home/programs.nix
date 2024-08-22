@@ -15,6 +15,8 @@
         google-chrome
         qbittorrent
         vesktop
+        ytarchive
+        yt-dlp
         (mpv.override { scripts = [ mpvScripts.mpris ]; })
     ];
 }
