@@ -3,10 +3,10 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, lib, inputs, ... }:
-
 {
     imports = [
         ./hardware-configuration.nix
+        ./rgb.nix
     ];
 
     hardware.logitech.wireless.enable = true;
@@ -26,4 +26,6 @@
     boot.blacklistedKernelModules = [ "k10temp" ];
     boot.kernelModules = [ "zenpower" ];
     boot.extraModulePackages = [ config.boot.kernelPackages.zenpower ];
+
+    services.hardware.openrgb.enable = true;
 }
