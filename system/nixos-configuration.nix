@@ -1,5 +1,6 @@
 { inputs, pkgs, ... }:
 {
+    nix.package = pkgs.nixVersions.latest;
     nix.settings = {
         # Enable flakes
         experimental-features = [ "nix-command" "flakes" ];
