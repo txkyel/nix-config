@@ -11,8 +11,6 @@
         libqalculate
 
         # User apps
-        brave
-        google-chrome
         qbittorrent
         vesktop
         ytarchive

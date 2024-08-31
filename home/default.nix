@@ -5,6 +5,7 @@
         ./neovim
         ./waybar
         ./session-variables.nix
+        ./browser.nix
         ./games.nix
         ./git.nix
         ./gtk.nix
