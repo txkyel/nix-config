@@ -9,6 +9,7 @@
         ./games.nix
         ./git.nix
         ./gtk.nix
+        ./mpv.nix
         ./programs.nix
         ./shell.nix
     ];

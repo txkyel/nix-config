@@ -15,6 +15,5 @@
         vesktop
         ytarchive
         yt-dlp
-        (mpv.override { scripts = [ mpvScripts.mpris ]; })
     ];
 }
