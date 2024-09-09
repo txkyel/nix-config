@@ -1,16 +1,17 @@
 { pkgs, ... }:
 {
     imports = [
+        ./session-variables.nix
+        ./shell.nix
         ./hyprland
         ./neovim
         ./waybar
-        ./session-variables.nix
+        ./anki.nix
         ./browser.nix
         ./games.nix
         ./git.nix
         ./gtk.nix
         ./mpv.nix
         ./programs.nix
-        ./shell.nix
     ];
 }
