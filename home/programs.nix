@@ -2,7 +2,6 @@
 {
     home.packages = with pkgs; [
         # Terminal utils/apps
-        kitty
         btop
         cava
         jq

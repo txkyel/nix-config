@@ -11,6 +11,7 @@
         ./games.nix
         ./git.nix
         ./gtk.nix
+        ./kitty.nix
         ./mpv.nix
         ./programs.nix
     ];
