@@ -1,10 +1,6 @@
-{ inputs, pkgs, host, ... }:
+{ inputs, pkgs, ... }:
 let
-    hyprland =
-    if (host == "x230") then
-        inputs.hyprland.packages.${pkgs.system}.hyprland.override { legacyRenderer = true; }
-    else
-        inputs.hyprland.packages.${pkgs.system}.hyprland;
+    hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
     xdph = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
 in
 {
