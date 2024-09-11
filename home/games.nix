@@ -3,6 +3,7 @@
     home.packages = with pkgs; [
         mangohud
         r2modman
+        snes9x-gtk
     ];
 
     programs.mangohud = {
