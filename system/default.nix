@@ -2,6 +2,7 @@
     imports = [
         ./bluetooth.nix
         ./bootloader.nix
+        ./file-manager.nix
         ./fonts.nix
         ./games.nix
         ./hyprland.nix
@@ -12,7 +13,6 @@
         ./security.nix
         ./services.nix
         ./sound.nix
-        ./thunar.nix
         ./users.nix
     ];
 }
