@@ -12,7 +12,7 @@
             "/share/nautilus-python/extensions"
         ];
     
-        systemPackages = with pkgs.gnome; [
+        systemPackages = with pkgs; [
             nautilus
             nautilus-python
         ];
