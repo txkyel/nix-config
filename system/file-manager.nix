@@ -19,4 +19,7 @@
     };
 
     services.gvfs.enable = true;
+
+    # mime type associations
+    xdg.mime.defaultApplications."inode/directory" = "org.gnome.Nautilus.desktop";
 }
