@@ -5,6 +5,9 @@
         bindings = {
             MBTN_LEFT = "cycle pause";
         };
+        config = {
+            keep-open = "yes";
+        };
         scripts = with pkgs.mpvScripts; [
             modernx-zydezu
             mpris
@@ -17,8 +20,4 @@
         compactmode=no
         showontop=no
     '';
-
-    # TODO: Enable single instance.
-    # Like this with desktop entry and as default app
-    # https://www.reddit.com/r/pop_os/comments/ox6t7n/run_mpv_in_single_instance/i1ojqw4/
 }
