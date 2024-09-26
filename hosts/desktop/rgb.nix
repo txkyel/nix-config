@@ -24,4 +24,6 @@ in {
       wantedBy = [ "multi-user.target" ];
     };
   };
+
+  services.hardware.openrgb.enable = true;
 }

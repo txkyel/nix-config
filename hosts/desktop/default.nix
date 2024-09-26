@@ -6,7 +6,7 @@
 {
     imports = [
         ./hardware-configuration.nix
-        ./rgb.nix
+        #./rgb.nix
     ];
 
     hardware.logitech.wireless.enable = true;
@@ -26,6 +26,4 @@
     boot.blacklistedKernelModules = [ "k10temp" ];
     boot.kernelModules = [ "zenpower" ];
     boot.extraModulePackages = [ config.boot.kernelPackages.zenpower ];
-
-    services.hardware.openrgb.enable = true;
 }
