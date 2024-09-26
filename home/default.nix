@@ -3,6 +3,7 @@
     imports = [
         ./session-variables.nix
         ./shell.nix
+        ./theme.nix
         ./hyprland
         ./neovim
         ./waybar
@@ -10,7 +11,6 @@
         ./browser.nix
         ./games.nix
         ./git.nix
-        ./gtk.nix
         ./kitty.nix
         ./mpv.nix
         ./programs.nix

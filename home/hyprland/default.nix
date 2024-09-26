@@ -16,14 +16,7 @@ in
         pyprland
 
         # Theming
-        qt5ct
-        qt6ct
-        qt6.qtwayland
-        libsForQt5.qtstyleplugin-kvantum # kvantum
-        qt6Packages.qtstyleplugin-kvantum # kvantum
-        nwg-look
         swww
-        yad
 
         # Additional window manager utils
         grimblast
