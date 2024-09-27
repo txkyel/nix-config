@@ -27,7 +27,10 @@
             submodules = true;
         };
 
-        wallust.url = "git+https://codeberg.org/explosion-mental/wallust?ref=dev";
+        wallust = {
+            url = "git+https://codeberg.org/explosion-mental/wallust?ref=dev";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { self, nixpkgs, ... }@inputs:
