@@ -2,22 +2,11 @@
 let
     cursor-theme-name = "Bibata-Modern-Ice";
     cursor-theme-pkg = pkgs.bibata-cursors;
-    icon-theme-name = "Papirus-Dark";
-    icon-theme-pkg = pkgs.catppuccin-papirus-folders.override {
-        accent = "blue";
-        flavor = "frappe";
-    };
-    gtk-theme-name = "catppuccin-frappe-blue-standard";
-    gtk-theme-pkg = pkgs.catppuccin-gtk.override {
-        accents = ["blue"];
-        size = "standard";
-        variant = "frappe";
-    };
-    kvantum-theme-name = "Catppuccin-Frappe-Blue";
-    kvantum-theme-pkg = pkgs.catppuccin-kvantum.override {
-        accent = "Blue";
-        variant = "Frappe";
-    };
+    icon-theme-name = "Tela-blue-dark";
+    icon-theme-pkg = pkgs.tela-icon-theme;
+    gtk-theme-name = "Layan-Dark-Solid";
+    gtk-theme-pkg = pkgs.layan-gtk-theme;
+    kvantum-theme-pkg = pkgs.layan-kde;
 in
 {
     # Enable modules
@@ -51,9 +40,8 @@ in
     qt.style.name = "kvantum";
     home.packages = [ kvantum-theme-pkg ];
     xdg.configFile = {
-        "Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" { General.theme = kvantum-theme-name; };
-        "Kvantum/${kvantum-theme-name}/${kvantum-theme-name}.kvconfig".source = "${kvantum-theme-pkg}/share/Kvantum/${kvantum-theme-name}/${kvantum-theme-name}.kvconfig";
-        "Kvantum/${kvantum-theme-name}/${kvantum-theme-name}.svg".source = "${kvantum-theme-pkg}/share/Kvantum/${kvantum-theme-name}/${kvantum-theme-name}.svg";
+        "Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" { General.theme = "LayanSolidDark"; };
+        "Kvantum/LayanSolid".source = "${kvantum-theme-pkg}/share/Kvantum/LayanSolid";
     };
 
     # Desktop dark mode
