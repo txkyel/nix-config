@@ -5,7 +5,14 @@ let
     icon-theme-name = "Tela-blue-dark";
     icon-theme-pkg = pkgs.tela-icon-theme;
     gtk-theme-name = "Layan-Dark-Solid";
-    gtk-theme-pkg = pkgs.layan-gtk-theme;
+    gtk-theme-pkg = pkgs.layan-gtk-theme.overrideAttrs (old: {
+        src = pkgs.fetchFromGitHub {
+            owner = "vinceliuice";
+            repo = "layan-gtk-theme";
+            rev = "2133179e31c1958478d3d57c01e844d32e71774e";
+            sha256 = "sha256-4m98j9jpx6xri11P0wYdWIhCdVWJX3IbZ7Y4eTObCsE=";
+        };
+    });
     kvantum-theme-pkg = pkgs.layan-kde;
 in
 {
@@ -40,7 +47,7 @@ in
     qt.style.name = "kvantum";
     home.packages = [ kvantum-theme-pkg ];
     xdg.configFile = {
-        "Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" { General.theme = "LayanSolidDark"; };
+        "Kvantum/kvantum.kvconfig".text = "[General]\ntheme=LayanSolidDark";
         "Kvantum/LayanSolid".source = "${kvantum-theme-pkg}/share/Kvantum/LayanSolid";
     };
 
