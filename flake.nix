@@ -4,6 +4,7 @@
     inputs = {
         nixpkgs.url = "nixpkgs/nixos-unstable";
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+        hyprland.url = "github:hyprwm/Hyprland?submodules=1";
 
         home-manager = {
             url = "github:nix-community/home-manager";
@@ -18,13 +19,6 @@
         nixvim = {
             url = "github:nix-community/nixvim";
             inputs.nixpkgs.follows = "nixpkgs";
-        };
-
-        # Hyprland inputs
-        hyprland = {
-            type = "git";
-            url = "https://github.com/hyprwm/Hyprland";
-            submodules = true;
         };
 
         wallust = {
