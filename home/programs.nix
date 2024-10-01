@@ -10,6 +10,7 @@
         libqalculate
 
         # User apps
+        obs-studio
         qbittorrent
         vesktop
         ytarchive
