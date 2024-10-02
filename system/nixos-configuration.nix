@@ -26,6 +26,7 @@
             "-L"
         ];
         persistent = true;
+        randomizedDelaySec = "10min";
     };
 
     # This should match the version you used to install nixos
