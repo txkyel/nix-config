@@ -20,11 +20,6 @@
             url = "github:nix-community/nixvim";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-
-        wallust = {
-            url = "git+https://codeberg.org/explosion-mental/wallust?ref=dev";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
     };
 
     outputs = { self, nixpkgs, ... }@inputs:

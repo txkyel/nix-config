@@ -17,6 +17,7 @@ in
 
         # Theming
         swww
+        wallust
 
         # Additional window manager utils
         grimblast
