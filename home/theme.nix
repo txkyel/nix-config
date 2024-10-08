@@ -45,7 +45,11 @@ in
     # QT Theme
     qt.platformTheme.name = "qtct";
     qt.style.name = "kvantum";
-    home.packages = [ kvantum-theme-pkg ];
+    home.packages = with pkgs; [
+        kvantum-theme-pkg
+        libsForQt5.qtstyleplugin-kvantum
+        qt6Packages.qtstyleplugin-kvantum
+    ];
     xdg.configFile = {
         "Kvantum/kvantum.kvconfig".text = "[General]\ntheme=LayanSolidDark";
         "Kvantum/LayanSolid".source = "${kvantum-theme-pkg}/share/Kvantum/LayanSolid";
