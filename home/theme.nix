@@ -2,8 +2,8 @@
 let
     cursor-theme-name = "Bibata-Modern-Ice";
     cursor-theme-pkg = pkgs.bibata-cursors;
-    icon-theme-name = "Tela-blue-dark";
-    icon-theme-pkg = pkgs.tela-icon-theme;
+    icon-theme-name = "Papirus-Dark";
+    icon-theme-pkg = pkgs.papirus-icon-theme.override { color = "indigo"; };
     gtk-theme-name = "Layan-Dark-Solid";
     gtk-theme-pkg = pkgs.layan-gtk-theme.overrideAttrs (old: {
         src = pkgs.fetchFromGitHub {
