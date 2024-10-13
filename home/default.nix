@@ -3,7 +3,7 @@
     imports = [
         ./session-variables.nix
         ./shell.nix
-        ./theme.nix
+        ./theme
         ./hyprland
         ./neovim
         ./waybar

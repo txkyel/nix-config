@@ -13,7 +13,6 @@ let
             sha256 = "sha256-4m98j9jpx6xri11P0wYdWIhCdVWJX3IbZ7Y4eTObCsE=";
         };
     });
-    kvantum-theme-pkg = pkgs.layan-kde;
 in
 {
     # Enable modules
@@ -46,13 +45,15 @@ in
     qt.platformTheme.name = "qtct";
     qt.style.name = "kvantum";
     home.packages = with pkgs; [
-        kvantum-theme-pkg
         libsForQt5.qtstyleplugin-kvantum
         qt6Packages.qtstyleplugin-kvantum
     ];
     xdg.configFile = {
         "Kvantum/kvantum.kvconfig".text = "[General]\ntheme=LayanSolidDark";
-        "Kvantum/LayanSolid".source = "${kvantum-theme-pkg}/share/Kvantum/LayanSolid";
+        "Kvantum" = {
+            source = "${./Kvantum}";
+            recursive = true;
+        };
     };
 
     # Desktop dark mode
