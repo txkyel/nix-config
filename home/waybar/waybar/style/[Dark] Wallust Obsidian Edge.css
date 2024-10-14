@@ -13,7 +13,8 @@ font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
 
 window#waybar {
-    background: black;
+    background: @color0;
+    color: @foreground;
 	border-radius: 12px;
 }
 
@@ -31,7 +32,7 @@ window#waybar.empty #window {
 
 tooltip {
 	color: @foreground;
-    background: rgba(0, 0, 0, 0.8);
+    background: @color0;
     border-radius: 10px;
 }
 
@@ -90,17 +91,17 @@ tooltip label {
 }
 
 #workspaces button.focused {
-    color: #d8dee9;
+    color: @color7;
 }
 
 #workspaces button.urgent {
-    color: #11111b;
+    color: @color9;
     border-radius: 10px;
 }
 
 #taskbar button:hover,
 #workspaces button:hover {
-    color: @color9;
+    color: @color7;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
