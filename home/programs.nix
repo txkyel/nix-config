@@ -13,6 +13,7 @@
         obs-studio
         qbittorrent
         vesktop
+        whatsapp-for-linux
         ytarchive
         yt-dlp
     ];
