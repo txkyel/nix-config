@@ -42,7 +42,8 @@ in
     };
 
     # QT Theme
-    qt.platformTheme.name = "qtct";
+    # TODO: fix qt6 theming
+    qt.platformTheme.name = "qt6ct";
     qt.style.name = "kvantum";
     home.packages = with pkgs; [
         libsForQt5.qtstyleplugin-kvantum
