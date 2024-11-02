@@ -12,6 +12,10 @@
     hardware.logitech.wireless.enable = true;
     hardware.logitech.wireless.enableGraphical = true;
 
+    # Games
+    # TODO: Make games into a module enablable by the host
+    programs.steam.enable = true;
+
     # Graphics
     services.xserver.videoDrivers = [ "amdgpu" ];
     hardware = {

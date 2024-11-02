@@ -15,15 +15,6 @@
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;
 
-  # Graphics
-  hardware = {
-      enableRedistributableFirmware = true;
-      graphics = {
-          enable = true;
-          enable32Bit = true;
-      };
-  };
-
   powerManagement.enable = true;
 
   services = {
