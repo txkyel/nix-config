@@ -10,6 +10,7 @@
         libqalculate
 
         # User apps
+        bambu-studio
         obs-studio
         qbittorrent
         vesktop
