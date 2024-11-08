@@ -13,8 +13,7 @@ in
         hyprcursor
         hypridle
         hyprlock
-# Disabled until aiofiles dependency issue is resolved
-#        pyprland
+        pyprland
 
         # Theming
         swww
