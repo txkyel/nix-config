@@ -1,6 +1,6 @@
-{ pkgs, pkgs-stable, ... }:
+{ pkgs, ... }:
 {
-    home.packages = (with pkgs; [
+    home.packages = with pkgs; [
         # Terminal utils/apps
         btop
         cava
@@ -10,13 +10,12 @@
         libqalculate
 
         # User apps
+#        bambu-studio
         obs-studio
         qbittorrent
         vesktop
         whatsapp-for-linux
         ytarchive
         yt-dlp
-    ]) ++ (with pkgs-stable; [
-        bambu-studio
-    ]);
+    ];
 }
