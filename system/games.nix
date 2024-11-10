@@ -4,7 +4,6 @@ let
     MangoHudConf = "${home}/.config/MangoHud/MangoHud.conf";
 in
 {
-    # TODO: make this into a module that is enabled by the host
     programs.steam = {
         enable = true;
         remotePlay.openFirewall = true;

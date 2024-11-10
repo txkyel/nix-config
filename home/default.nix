@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, host, ... }:
 {
     imports = [
         ./session-variables.nix
@@ -9,10 +9,11 @@
         ./waybar
         ./anki.nix
         ./browser.nix
-        ./games.nix
         ./git.nix
         ./kitty.nix
         ./mpv.nix
         ./programs.nix
+    ] ++ lib.optionals (host != "x230") [
+        ./games.nix
     ];
 }
