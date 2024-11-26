@@ -18,16 +18,6 @@
         options = "--delete-older-than 7d";
         persistent = true;
     };
-    system.autoUpgrade = {
-        enable = true;
-        flake = "github:txkyel/nix-config";
-        flags = [
-            "--show-trace"
-            "-L"
-        ];
-        persistent = true;
-        randomizedDelaySec = "10min";
-    };
 
     # This should match the version you used to install nixos
     system.stateVersion = "24.05";
