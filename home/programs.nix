@@ -3,7 +3,6 @@
     home.packages = with pkgs; [
         # Terminal utils/apps
         btop
-        cava
         jq
         xdg-user-dirs
         xdg-utils
