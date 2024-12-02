@@ -8,6 +8,6 @@
         jetbrains-mono
         font-awesome
         terminus_font
-        (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+        nerd-fonts.jetbrains-mono
     ];
 }
