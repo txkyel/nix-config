@@ -1,4 +1,4 @@
-{ config, username, ... }:
+{ pkgs, config, username, ... }:
 let
     home = config.users.users.${username}.home;
     MangoHudConf = "${home}/.config/MangoHud/MangoHud.conf";
@@ -10,6 +10,9 @@ in
         dedicatedServer.openFirewall = true;
         localNetworkGameTransfers.openFirewall = true;
     };
+    environment.systemPackages = with pkgs; [
+        steamtinkerlaunch
+    ];
     programs.gamemode.enable = true;
     programs.gamescope = {
         enable = true;
