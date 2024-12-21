@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
     programs.dconf.enable = true;
     services = {
@@ -6,11 +5,6 @@
         envfs.enable = true; # For shebang execution
         fstrim.enable = true;
         gvfs.enable = true;
-        printing.enable = true;
-        printing.drivers = with pkgs; [
-            gutenprint
-            samsung-unified-linux-driver
-            splix
-        ];
+        input-remapper.enable = true;
     };
 }
