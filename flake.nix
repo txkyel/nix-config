@@ -3,7 +3,6 @@
 
     inputs = {
         nixpkgs.url = "nixpkgs/nixos-unstable";
-        nixpkgs-stable.url = "nixpkgs/nixos-24.11";
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
         hyprland.url = "github:hyprwm/Hyprland?submodules=1";
 
@@ -23,14 +22,10 @@
         };
     };
 
-    outputs = { self, nixpkgs, nixpkgs-stable, ... }@inputs:
+    outputs = { self, nixpkgs, ... }@inputs:
     let
         system = "x86_64-linux";
         pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-        };
-        pkgs-stable = import nixpkgs-stable {
             inherit system;
             config.allowUnfree = true;
         };
@@ -42,7 +37,7 @@
                 inherit system;
                 specialArgs = {
                     host = "desktop";
-                    inherit inputs username pkgs-stable;
+                    inherit inputs username;
                 };
                 modules = [
                     ./hosts/desktop
@@ -54,7 +49,7 @@
                 inherit system;
                 specialArgs = {
                     host = "x230";
-                    inherit inputs username pkgs-stable;
+                    inherit inputs username;
                 };
                 modules = [
                     ./hosts/x230
@@ -66,7 +61,7 @@
                 inherit system;
                 specialArgs = {
                     host = "vm";
-                    inherit inputs username pkgs-stable;
+                    inherit inputs username;
                 };
                 modules = [
                     ./hosts/vm
