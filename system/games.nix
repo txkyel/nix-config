@@ -10,9 +10,6 @@ in
         dedicatedServer.openFirewall = true;
         localNetworkGameTransfers.openFirewall = true;
     };
-    environment.systemPackages = with pkgs; [
-        steamtinkerlaunch
-    ];
     programs.gamemode.enable = true;
     programs.gamescope = {
         enable = true;
@@ -20,12 +17,12 @@ in
             MANGOHUD_CONFIGFILE = MangoHudConf;
         };
     };
+    environment.systemPackages = with pkgs; [
+        steamtinkerlaunch  # Additional mods and games
+        wlx-overlay-s
+    ];
 
     # VR
-#    services.monado = {
-#        enable = true;
-#        defaultRuntime = true;
-#    };
     systemd.user.services.monado.environment = {
         STEAMVR_LH_ENABLE = "1";
         XRT_COMPOSITOR_COMPUTE = "1";
