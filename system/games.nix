@@ -19,13 +19,19 @@ in
     };
     environment.systemPackages = with pkgs; [
         steamtinkerlaunch  # Additional mods and games
-        wlx-overlay-s
     ];
 
     # VR
     systemd.user.services.monado.environment = {
         STEAMVR_LH_ENABLE = "1";
         XRT_COMPOSITOR_COMPUTE = "1";
+    };
+    programs.corectrl = {
+        enable = true;
+        gpuOverclock = {
+            enable = true;
+            ppfeaturemask = "0xffffffff";
+        };
     };
     services.wivrn = {
       enable = true;
