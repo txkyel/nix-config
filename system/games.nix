@@ -19,6 +19,7 @@ in
     };
     environment.systemPackages = with pkgs; [
         steamtinkerlaunch  # Additional mods and games
+        wlx-overlay-s  # VR overlay
     ];
 
     # VR
