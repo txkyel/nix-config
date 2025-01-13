@@ -561,7 +561,7 @@
         "type": "github"
       }
     },
-    "nixpkgs-envision-fix": {
+    "nixpkgs-envision": {
       "locked": {
         "lastModified": 1736393403,
         "narHash": "sha256-yhQgmjDaRs9X8A82T4Wig28KgnpmgOrgT6F61ZWkqJQ=",
@@ -710,7 +710,7 @@
         "kmonad": "kmonad",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-envision-fix": "nixpkgs-envision-fix",
+        "nixpkgs-envision": "nixpkgs-envision",
         "nixvim": "nixvim",
         "ow-mod-man": "ow-mod-man"
       }
