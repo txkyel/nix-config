@@ -9,6 +9,7 @@
         trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
     nixpkgs.config.allowUnfree = true;
+    nixpkgs.overlays = [ inputs.ow-mod-man.overlays.default ];
 
     # Storage optimisation
     nix.settings.auto-optimise-store = true;

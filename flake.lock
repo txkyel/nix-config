@@ -643,6 +643,26 @@
         "type": "github"
       }
     },
+    "ow-mod-man": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1736174470,
+        "narHash": "sha256-n3UdsDg8mNvNcH3dRM46GoJq0v+X/Wre1nAr0DRVxV8=",
+        "owner": "ow-mods",
+        "repo": "ow-mod-man",
+        "rev": "1799d111b56a1de34242edb59417f6c3777bd6be",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ow-mods",
+        "repo": "ow-mod-man",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -674,7 +694,8 @@
         "kmonad": "kmonad",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "ow-mod-man": "ow-mod-man"
       }
     },
     "systems": {

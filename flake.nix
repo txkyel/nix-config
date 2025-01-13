@@ -20,6 +20,11 @@
             url = "github:nix-community/nixvim";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        ow-mod-man = {
+            url = "github:ow-mods/ow-mod-man";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { self, nixpkgs, ... }@inputs:
