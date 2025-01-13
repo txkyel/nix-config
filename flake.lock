@@ -561,6 +561,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-envision-fix": {
+      "locked": {
+        "lastModified": 1736393403,
+        "narHash": "sha256-yhQgmjDaRs9X8A82T4Wig28KgnpmgOrgT6F61ZWkqJQ=",
+        "owner": "Pandapip1",
+        "repo": "nixpkgs",
+        "rev": "0e5f06c6af75f464d924c31126059d9081787355",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Pandapip1",
+        "ref": "envision-libnotify-dep",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1730741070,
@@ -694,6 +710,7 @@
         "kmonad": "kmonad",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
+        "nixpkgs-envision-fix": "nixpkgs-envision-fix",
         "nixvim": "nixvim",
         "ow-mod-man": "ow-mod-man"
       }

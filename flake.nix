@@ -3,6 +3,7 @@
 
     inputs = {
         nixpkgs.url = "nixpkgs/nixos-unstable";
+        nixpkgs-envision-fix.url = "github:Pandapip1/nixpkgs/envision-libnotify-dep";
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
         hyprland.url = "github:hyprwm/Hyprland?submodules=1";
 
