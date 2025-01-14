@@ -35,6 +35,10 @@
             inherit system;
             config.allowUnfree = true;
         };
+        pkgs-envision = import inputs.nixpkgs-envision {
+            inherit system;
+            config.allowUnfree = true;
+        };
         username = "kyle";
     in
     {
@@ -44,6 +48,7 @@
                 specialArgs = {
                     host = "desktop";
                     inherit inputs username;
+                    inherit pkgs-envision;
                 };
                 modules = [
                     ./hosts/desktop

@@ -1,4 +1,4 @@
-{ pkgs, config, username, ... }:
+{ pkgs, pkgs-envision, config, username, ... }:
 let
     home = config.users.users.${username}.home;
     MangoHudConf = "${home}/.config/MangoHud/MangoHud.conf";
@@ -31,8 +31,8 @@ in
             ppfeaturemask = "0xffffffff";
         };
     };
-    programs.alvr = {
+    programs.envision = {
         enable = true;
-        openFirewall = true;
+        package = pkgs-envision.envision;
     };
 }
