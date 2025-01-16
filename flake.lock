@@ -561,6 +561,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-envision": {
+      "locked": {
+        "lastModified": 1737058958,
+        "narHash": "sha256-JncsuuyVEkxx3jXJVlCiZtc4LQIhreBRJY3SOpBsnK0=",
+        "owner": "Pandapip1",
+        "repo": "nixpkgs",
+        "rev": "d1aedcf81e1d7d57d3165e797051a2ed52fbec6b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Pandapip1",
+        "ref": "mixxing-gdk-pixbuf",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1730741070,
@@ -694,6 +710,7 @@
         "kmonad": "kmonad",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
+        "nixpkgs-envision": "nixpkgs-envision",
         "nixvim": "nixvim",
         "ow-mod-man": "ow-mod-man"
       }
