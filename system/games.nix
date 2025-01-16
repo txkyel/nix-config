@@ -21,9 +21,11 @@ in
         steamtinkerlaunch  # Additional mods and games
         wlx-overlay-s  # VR overlay
         owmods-gui
+        sidequest
     ];
 
     # VR
+    programs.adb.enable = true;
     programs.corectrl = {
         enable = true;
         gpuOverclock = {
@@ -31,7 +33,8 @@ in
             ppfeaturemask = "0xffffffff";
         };
     };
-    programs.envision = {
+    programs.alvr = {
         enable = true;
+        openFirewall = true;
     };
 }
