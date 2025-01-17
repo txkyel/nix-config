@@ -41,6 +41,7 @@ in
         autoStart = true;
         config.enable = true;
         config.json = {
+            scale = 0.5;
             bitrate = 150000000;
             application = [ pkgs.wlx-overlay-s ];
             encoders = [
