@@ -3,7 +3,7 @@
 
     inputs = {
         nixpkgs.url = "nixpkgs/nixos-unstable";
-        nixpkgs-envision.url = "github:Pandapip1/nixpkgs/mixxing-gdk-pixbuf";
+        nixpkgs-envision.url = "github:Pandapip1/nixpkgs/how-many-freaking-dependencies-is-wivrn-missing-wth";
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
         hyprland.url = "github:hyprwm/Hyprland?submodules=1";
 

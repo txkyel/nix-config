@@ -563,16 +563,16 @@
     },
     "nixpkgs-envision": {
       "locked": {
-        "lastModified": 1737058958,
-        "narHash": "sha256-JncsuuyVEkxx3jXJVlCiZtc4LQIhreBRJY3SOpBsnK0=",
+        "lastModified": 1737071726,
+        "narHash": "sha256-XdwTUZCK5cjnKNYvN1Sf+GPCj19xyPuQQ1przAmYQAo=",
         "owner": "Pandapip1",
         "repo": "nixpkgs",
-        "rev": "d1aedcf81e1d7d57d3165e797051a2ed52fbec6b",
+        "rev": "edfcedcabb5152362e2b6b4d03e719a1e7c22d0d",
         "type": "github"
       },
       "original": {
         "owner": "Pandapip1",
-        "ref": "mixxing-gdk-pixbuf",
+        "ref": "how-many-freaking-dependencies-is-wivrn-missing-wth",
         "repo": "nixpkgs",
         "type": "github"
       }
