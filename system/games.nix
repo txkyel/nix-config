@@ -33,9 +33,13 @@ in
             ppfeaturemask = "0xffffffff";
         };
     };
+    systemd.user.services.monado.environment = {
+        STEAMVR_LH_ENABLE = "1";
+        XRT_COMPOSITOR_COMPUTE = "1";
+    };
     services.wivrn = {
         # Use wivrn in case envision breaks
-        enable = false;
+        enable = true;
         openFirewall = true;
         defaultRuntime = true;
         autoStart = true;
@@ -76,7 +80,7 @@ in
         };
     };
     programs.envision = {
-        enable = true;
+        enable = false;
         package = pkgs-envision.envision;
     };
 }
