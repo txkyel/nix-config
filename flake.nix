@@ -3,7 +3,6 @@
 
     inputs = {
         nixpkgs.url = "nixpkgs/nixos-unstable";
-        nixpkgs-envision.url = "github:Pandapip1/nixpkgs/how-many-freaking-dependencies-is-wivrn-missing-wth";
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
         hyprland.url = "github:hyprwm/Hyprland?submodules=1";
 
@@ -35,10 +34,6 @@
             inherit system;
             config.allowUnfree = true;
         };
-        pkgs-envision = import inputs.nixpkgs-envision {
-            inherit system;
-            config.allowUnfree = true;
-        };
         username = "kyle";
     in
     {
@@ -48,7 +43,6 @@
                 specialArgs = {
                     host = "desktop";
                     inherit inputs username;
-                    inherit pkgs-envision;
                 };
                 modules = [
                     ./hosts/desktop

@@ -1,4 +1,4 @@
-{ pkgs, pkgs-envision, config, username, ... }:
+{ pkgs, config, username, ... }:
 let
     home = config.users.users.${username}.home;
     MangoHudConf = "${home}/.config/MangoHud/MangoHud.conf";
@@ -36,6 +36,9 @@ in
     systemd.user.services.monado.environment = {
         STEAMVR_LH_ENABLE = "1";
         XRT_COMPOSITOR_COMPUTE = "1";
+    };
+    programs.envision = {
+        enable = false;
     };
     services.wivrn = {
         # Use wivrn in case envision breaks
@@ -78,9 +81,5 @@ in
                 }
             ];
         };
-    };
-    programs.envision = {
-        enable = false;
-        package = pkgs-envision.envision;
     };
 }
