@@ -45,7 +45,6 @@ in
         enable = true;
         openFirewall = true;
         defaultRuntime = true;
-        autoStart = true;
         config.enable = true;
         config.json = {
             scale = 0.5;
