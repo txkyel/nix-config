@@ -13,6 +13,7 @@
         ./kitty.nix
         ./mpv.nix
         ./programs.nix
+        ./desktop-entries.nix
     ] ++ lib.optionals (host != "x230") [
         ./games.nix
     ];
