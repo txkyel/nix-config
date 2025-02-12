@@ -4,7 +4,7 @@
         (google-chrome.override {
             commandLineArgs = [
                 "--enable-features=AllowWindowDragUsingSystemDragDrop"
-                "--enable-blink-test-features=MiddleClickAutoscroll"
+                "--enable-blink-features=MiddleClickAutoscroll"
             ];
         })
     ];
@@ -17,7 +17,7 @@
         ];
         commandLineArgs = [
             "--enable-features=AllowWindowDragUsingSystemDragDrop"
-            "--enable-blink-test-features=MiddleClickAutoscroll"
+            "--enable-blink-features=MiddleClickAutoscroll"
         ];
     };
 }
