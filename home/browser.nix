@@ -1,6 +1,13 @@
 { pkgs, ... }:
 {
-    home.packages = with pkgs; [ google-chrome ];
+    home.packages = with pkgs; [
+        (google-chrome.override {
+            commandLineArgs = [
+                "--enable-features=AllowWindowDragUsingSystemDragDrop"
+                "--enable-blink-test-features=MiddleClickAutoscroll"
+            ];
+        })
+    ];
 
     programs.chromium = {
         enable = true;
@@ -9,9 +16,8 @@
             { id = "bdioigkngoclklbmmgegppmmekffpgdh"; }
         ];
         commandLineArgs = [
-            "--enable-features=UseOzonePlatform"
-            "--ozone-platform=wayland"
-            "--enable-wayland-ime"
+            "--enable-features=AllowWindowDragUsingSystemDragDrop"
+            "--enable-blink-test-features=MiddleClickAutoscroll"
         ];
     };
 }
