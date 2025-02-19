@@ -18,6 +18,7 @@ in
         };
     };
     environment.systemPackages = with pkgs; [
+        protonup-qt
         steamtinkerlaunch  # Additional mods and games
         wlx-overlay-s  # VR overlay
         owmods-gui
