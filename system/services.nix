@@ -5,5 +5,6 @@
         envfs.enable = true; # For shebang execution
         fstrim.enable = true;
         gvfs.enable = true;
+        flatpak.enable = true;
     };
 }
