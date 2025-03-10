@@ -3,8 +3,9 @@ name: Bump flake.lock
 
 on:
   schedule:
-    # Update every 2nd Tuesday of the month
-    - cron: "0 0 8-14 * 2"
+    # Update every Tuesday
+    # I wish doing 2#2 worked to have this run every 2nd Tuesday
+    - cron: "0 0 * * 2"
 
   workflow_dispatch:
 
