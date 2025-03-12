@@ -11,16 +11,19 @@ let
           autoindent = true;
           expandtab = true;
           shiftwidth = 4;
-          smartindent = true;
           tabstop = 4;
         };
 
         languages = {
           enableLSP = true;
           enableFormat = true;
+          enableTreesitter = true;
 
           nix.enable = true;
-          python.enable = true;
+          python = {
+            enable = true;
+            lsp.server = "pyright";
+          };
         };
 
         autocomplete.nvim-cmp.enable = true;
@@ -29,7 +32,9 @@ let
         treesitter = {
           enable = true;
           context.enable = true;
-          indent.enable = false;
+          indent.enable = true;
+          # TODO: Fix jank nix indentation
+          indent.disable = ["nix"];
         };
         visuals = {
           indent-blankline.enable = true;
