@@ -11,10 +11,11 @@ let
 
           languages = {
             enableLSP = true;
+            enableFormat = true;
             enableTreesitter = true;
 
-            languages.nix.enable = true;
-            languages.python.enable = true;
+            nix.enable = true;
+            python.enable = true;
           };
         };
       }
