@@ -1,14 +1,28 @@
-{ inputs, ... }:
-{
-  imports = [
-    inputs.nixvim.homeManagerModules.nixvim
-    ./options.nix
-  ];
+{ inputs, pkgs, ... }:
+let
+  customNeovim = inputs.nvf.lib.neovimConfiguration {
+    inherit pkgs;
+    modules = [
+      {
+        config.vim = {
+          autocomplete.nvim-cmp.enable = true;
+          statusline.lualine.enable = true;
+          telescope.enable = true;
 
-  programs.nixvim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
+          languages = {
+            enableLSP = true;
+            enableTreesitter = true;
+
+            languages.nix.enable = true;
+            languages.python.enable = true;
+          };
+        };
+      }
+    ];
   };
+in
+{
+  home.packages = [
+    customNeovim.neovim
+  ];
 }
