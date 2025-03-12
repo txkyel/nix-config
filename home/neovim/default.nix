@@ -27,6 +27,7 @@ let
         };
 
         autocomplete.nvim-cmp.enable = true;
+        autopairs.nvim-autopairs.enable = true;
         statusline.lualine.enable = true;
         telescope.enable = true;
         treesitter = {
