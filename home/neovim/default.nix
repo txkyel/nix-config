@@ -6,6 +6,7 @@ let
       config.vim = {
         viAlias = true;
         vimAlias = true;
+        useSystemClipboard = true;
 
         options = {
           autoindent = true;
