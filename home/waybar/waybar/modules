@@ -300,7 +300,7 @@
 	"tooltip": true,
 	"tooltip-format": "{timeTo} {power}w",
 	"on-click-middle": "~/.config/hypr/scripts/ChangeBlur.sh",
-	"on-click-right": "~/.config/hypr/scripts/Wlogout.sh",
+	"on-click-right": "pkill wlogout || wlogout",
 },
 "bluetooth": {
 	"format": "",
@@ -668,7 +668,7 @@
 },
 "custom/power": {
 	"format": "⏻ ",
-	"on-click": "~/.config/hypr/scripts/Wlogout.sh",
+	"on-click": "pkill wlogout || wlogout",
 	"on-click-right": "~/.config/hypr/scripts/ChangeBlur.sh",
 	"tooltip": true,
 	"tooltip-format": "Left Click: Logout Menu\nRight Click: Change Blur",
