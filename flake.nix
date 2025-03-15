@@ -68,19 +68,6 @@
             ./system
           ];
         };
-
-        vm = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            host = "vm";
-            inherit inputs username;
-          };
-          modules = [
-            ./modules
-            ./hosts/vm
-            ./system
-          ];
-        };
       };
     };
 }
