@@ -26,7 +26,4 @@
     options = "--delete-older-than 7d";
     persistent = true;
   };
-
-  # This should match the version you used to install nixos
-  system.stateVersion = "24.05";
 }

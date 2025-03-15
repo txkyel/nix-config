@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   pkgs,
   host,
   username,
@@ -16,7 +17,7 @@
       imports = [ ./../home ];
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
-      home.stateVersion = "24.05";
+      home.stateVersion = config.system.stateVersion;
       programs.home-manager.enable = true;
     };
   };
