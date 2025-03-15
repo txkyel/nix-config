@@ -2,7 +2,8 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   customNeovim = inputs.nvf.lib.neovimConfiguration {
     inherit pkgs;
     modules = [
@@ -28,7 +29,11 @@
             enableFormat = true;
             enableTreesitter = true;
 
-            nix.enable = true;
+            nix = {
+              enable = true;
+              lsp.server = "nixd";
+              format.type = "nixfmt";
+            };
             python = {
               enable = true;
               lsp.server = "pyright";
@@ -51,4 +56,7 @@
       }
     ];
   };
-in {home.packages = [customNeovim.neovim];}
+in
+{
+  home.packages = [ customNeovim.neovim ];
+}
