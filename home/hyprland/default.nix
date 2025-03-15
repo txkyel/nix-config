@@ -25,9 +25,8 @@
     hyprlock
     pyprland
 
-    # Theming
+    # Wallpaper daemon
     swww
-    wallust
 
     # Additional window manager utils
     grimblast

@@ -6,7 +6,6 @@
 wallDIR="$HOME/Pictures/wallpapers"
 
 # variables
-SCRIPTSDIR="$HOME/.config/hypr/scripts"
 focused_monitor=$(hyprctl monitors | awk '/^Monitor/{name=$2} /focused: yes/{print name}')
 
 # swww transition config
@@ -90,7 +89,3 @@ fi
 
 main
 
-sleep 0.5
-${SCRIPTSDIR}/WallustSwww.sh
-sleep 0.2
-${SCRIPTSDIR}/Refresh.sh
