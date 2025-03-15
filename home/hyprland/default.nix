@@ -6,6 +6,7 @@
   imports = [
     ./hypridle.nix
     ./hyprlock.nix
+    ./xdph.nix
   ];
 
   # TODO: Use files as source instead of linking to repo
