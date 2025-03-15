@@ -38,7 +38,6 @@
     wl-clipboard
     libnotify
     swaynotificationcenter
-    rofi-wayland
     wlogout
     brightnessctl
     playerctl

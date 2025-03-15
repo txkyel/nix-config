@@ -14,5 +14,6 @@
     ./programs.nix
     ./desktop-entries.nix
     ./scripts
+    ./rofi.nix
   ];
 }
