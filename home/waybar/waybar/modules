@@ -636,10 +636,9 @@
 },
 "custom/lock": {
 	"format": "󰌾",
-	"on-click": "~/.config/hypr/scripts/LockScreen.sh",
+	"on-click": "hyprlock -q",
 	"tooltip": true,
 	"tooltip-format": "󰷛 Screen Lock",
-
 },
 "custom/menu": {
 	"format": "",
