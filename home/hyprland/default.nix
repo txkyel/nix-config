@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./hypridle.nix
+    ./hyprlock.nix
   ];
 
   # TODO: Use files as source instead of linking to repo
