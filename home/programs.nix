@@ -6,12 +6,12 @@
     jq
     xdg-user-dirs
     xdg-utils
-    libqalculate
 
     # User apps
     bambu-studio
     obs-studio
     qbittorrent
+    qalculate-qt
     whatsapp-for-linux
     vesktop
     ytarchive
