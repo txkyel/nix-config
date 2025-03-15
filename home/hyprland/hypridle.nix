@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  ...
 }: let
   lock = "${pkgs.systemd}/bin/loginctl lock-session";
   brightnessctl = lib.getExe pkgs.brightnessctl;

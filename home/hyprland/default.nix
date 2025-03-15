@@ -2,18 +2,23 @@
   pkgs,
   config,
   ...
-}: let
-  configPath = "${config.home.homeDirectory}/nix-config/home/hyprland/hypr";
-in {
+}: {
+  imports = [
+    ./hypridle.nix
+  ];
+
   # TODO: Use files as source instead of linking to repo
-  # Link config files to project files
-  xdg.configFile.hypr.source = config.lib.file.mkOutOfStoreSymlink configPath;
+
+  home.file."${config.xdg.configHome}/hypr" = {
+    enable = true;
+    source = ./hypr;
+    recursive = true;
+  };
 
   # Package
   home.packages = with pkgs; [
     # Hyprland utils
     hyprcursor
-    hypridle
     hyprlock
     pyprland
 
