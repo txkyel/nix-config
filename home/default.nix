@@ -13,5 +13,6 @@
     ./mpv.nix
     ./programs.nix
     ./desktop-entries.nix
+    ./scripts
   ];
 }
