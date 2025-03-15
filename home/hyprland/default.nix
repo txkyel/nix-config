@@ -40,7 +40,6 @@
     swaynotificationcenter
     rofi-wayland
     wlogout
-    yad # Used for keybind hints
     brightnessctl
     playerctl
   ];
