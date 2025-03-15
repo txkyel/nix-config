@@ -704,17 +704,6 @@
 	"tooltip": true,
 	"tooltip-format": "Left Click: Update System\nArch Linux Only",
 },
-"custom/weather": {
-	"format": "{}",
-	"format-alt": "{alt}: {}",
-	"format-alt-click": "click",
-	"interval": 3600,
-	"return-type": "json",
-	"exec": "~/.config/hypr/UserScripts/Weather.sh",
-	//"exec": "~/.config/hypr/UserScripts/Weather.py",
-	"exec-if": "ping wttr.in -c1",
-	"tooltip": true,
-},
 // Separators
 "custom/separator#dot": {
 	"format": "",
