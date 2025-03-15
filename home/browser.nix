@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     (google-chrome.override {
       commandLineArgs = [
@@ -12,7 +13,7 @@
     enable = true;
     package = pkgs.brave;
     extensions = [
-      {id = "bdioigkngoclklbmmgegppmmekffpgdh";}
+      { id = "bdioigkngoclklbmmgegppmmekffpgdh"; }
     ];
     commandLineArgs = [
       "--enable-features=AllowWindowDragUsingSystemDragDrop"

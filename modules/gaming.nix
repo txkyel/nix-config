@@ -4,12 +4,14 @@
   pkgs,
   username,
   ...
-}: let
+}:
+let
   inherit (lib) mkIf mkEnableOption optionals;
   cfg = config.modules.gaming;
 
   MangoHudConf = "${config.users.users.${username}.home}/.config/MangoHud/MangoHud.conf";
-in {
+in
+{
   options.modules.gaming = {
     enable = mkEnableOption "The default gaming profile";
     enableVR = mkEnableOption "Enabling VR";
@@ -37,7 +39,8 @@ in {
       };
     };
 
-    environment.systemPackages = with pkgs;
+    environment.systemPackages =
+      with pkgs;
       [
         protonup-qt
         steamtinkerlaunch # Additional mods and games

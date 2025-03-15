@@ -2,11 +2,12 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cursor-theme-name = "Bibata-Modern-Ice";
   cursor-theme-pkg = pkgs.bibata-cursors;
   icon-theme-name = "Papirus-Dark";
-  icon-theme-pkg = pkgs.papirus-icon-theme.override {color = "indigo";};
+  icon-theme-pkg = pkgs.papirus-icon-theme.override { color = "indigo"; };
   gtk-theme-name = "Layan-Dark-Solid";
   gtk-theme-pkg = pkgs.layan-gtk-theme.overrideAttrs (old: {
     src = pkgs.fetchFromGitHub {
@@ -16,7 +17,8 @@
       sha256 = "sha256-4m98j9jpx6xri11P0wYdWIhCdVWJX3IbZ7Y4eTObCsE=";
     };
   });
-in {
+in
+{
   gtk.enable = true;
 
   # Cursor

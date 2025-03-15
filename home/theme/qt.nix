@@ -3,7 +3,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   qt = {
     enable = true;
     platformTheme.name = "qtct";
@@ -18,14 +19,14 @@
   ];
 
   xdg.configFile = {
-    "Kvantum/kvantum.kvconfig".text = lib.generators.toINI {} {
+    "Kvantum/kvantum.kvconfig".text = lib.generators.toINI { } {
       General.theme = "LayanSolidDark";
     };
     "Kvantum" = {
       source = "${./Kvantum}";
       recursive = true;
     };
-    "qt5ct/qt5ct.conf".text = lib.generators.toINI {} {
+    "qt5ct/qt5ct.conf".text = lib.generators.toINI { } {
       Apprearance = {
         custom_palette = false;
         icon_theme = config.gtk.iconTheme.name;

@@ -27,57 +27,60 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
-    username = "kyle";
-  in {
-    nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
+  outputs =
+    {
+      self,
+      nixpkgs,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
         inherit system;
-        specialArgs = {
-          host = "desktop";
-          inherit inputs username;
-        };
-        modules = [
-          ./modules
-          ./hosts/desktop
-          ./system
-        ];
+        config.allowUnfree = true;
       };
+      username = "kyle";
+    in
+    {
+      nixosConfigurations = {
+        desktop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            host = "desktop";
+            inherit inputs username;
+          };
+          modules = [
+            ./modules
+            ./hosts/desktop
+            ./system
+          ];
+        };
 
-      x230 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          host = "x230";
-          inherit inputs username;
+        x230 = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            host = "x230";
+            inherit inputs username;
+          };
+          modules = [
+            ./modules
+            ./hosts/x230
+            ./system
+          ];
         };
-        modules = [
-          ./modules
-          ./hosts/x230
-          ./system
-        ];
-      };
 
-      vm = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          host = "vm";
-          inherit inputs username;
+        vm = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            host = "vm";
+            inherit inputs username;
+          };
+          modules = [
+            ./modules
+            ./hosts/vm
+            ./system
+          ];
         };
-        modules = [
-          ./modules
-          ./hosts/vm
-          ./system
-        ];
       };
     };
-  };
 }

@@ -2,10 +2,12 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   xdph = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
-in {
+in
+{
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   programs.hyprland = {
     enable = true;
@@ -29,9 +31,9 @@ in {
   ];
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
     description = "polkit-gnome-authentication-agent-1";
-    wantedBy = ["graphical-session.target"];
-    wants = ["graphical-session.target"];
-    after = ["graphical-session.target"];
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
     serviceConfig = {
       Type = "simple";
       ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";

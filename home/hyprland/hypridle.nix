@@ -3,10 +3,12 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   lock = "${pkgs.systemd}/bin/loginctl lock-session";
   brightnessctl = lib.getExe pkgs.brightnessctl;
-in {
+in
+{
   services.hypridle = {
     enable = true;
     settings = {

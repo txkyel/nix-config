@@ -2,9 +2,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   configPath = "${config.home.homeDirectory}/nix-config/home/waybar/waybar";
-in {
+in
+{
   xdg.configFile.waybar.source = config.lib.file.mkOutOfStoreSymlink configPath;
 
   home.packages = with pkgs; [

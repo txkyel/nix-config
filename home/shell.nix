@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   aliases = {
     # Color aliases
     "ls" = "ls --color=auto --group-directories-first";
@@ -16,7 +17,8 @@
     "yta" = "ytd -x -f bestaudio/best";
     "ytarchive" = "noglob ytarchive --merge -t -w";
   };
-in {
+in
+{
   programs.zsh = {
     enable = true;
     enableCompletion = true;

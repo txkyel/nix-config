@@ -1,7 +1,8 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{config, ...}: {
+{ config, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     #./rgb.nix
@@ -11,7 +12,7 @@
   hardware.logitech.wireless.enableGraphical = true;
 
   # Graphics
-  services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
   hardware = {
     enableRedistributableFirmware = true;
     graphics = {
@@ -21,9 +22,9 @@
   };
 
   # Enable zenpower sensors
-  boot.blacklistedKernelModules = ["k10temp"];
-  boot.kernelModules = ["zenpower"];
-  boot.extraModulePackages = [config.boot.kernelPackages.zenpower];
+  boot.blacklistedKernelModules = [ "k10temp" ];
+  boot.kernelModules = [ "zenpower" ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.zenpower ];
 
   modules.gaming.enable = true;
   modules.gaming.enableVR = true;

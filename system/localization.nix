@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   time.timeZone = "America/Toronto";
   # This currently does not work
   #services.localtimed.enable = true;

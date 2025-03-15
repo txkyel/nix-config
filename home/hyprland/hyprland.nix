@@ -2,13 +2,14 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   wayland.windowManager.hyprland = {
     enable = true;
     packages = null;
     portalPackage = null;
 
-    systemd.variables = ["--all"];
+    systemd.variables = [ "--all" ];
 
     settings = {
       "$mod" = "SUPER";

@@ -4,15 +4,16 @@
   host,
   username,
   ...
-}: {
-  imports = [inputs.home-manager.nixosModules.home-manager];
+}:
+{
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = {inherit inputs host username;};
+    extraSpecialArgs = { inherit inputs host username; };
     users.${username} = {
       # This is the home modules entry point
-      imports = [./../home];
+      imports = [ ./../home ];
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
       home.stateVersion = "24.05";
@@ -24,7 +25,10 @@
     isNormalUser = true;
     home = "/home/${username}";
     description = "${username}";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
   };
 }
