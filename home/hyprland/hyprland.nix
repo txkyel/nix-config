@@ -43,6 +43,27 @@
         "corectrl --minimize-systray"
       ];
 
+      input = {
+        kb_layout = "us";
+        repeat_delay = 300;
+        follow_mouse = 2;
+        float_switch_override_focus = false;
+        scroll_factor = 0.8;
+        accel_profile = "flat";
+        touchpad.natural_scroll = false;
+      };
+
+      "device[ploopy-corporation-ploopy-adept-trackball-mouse]" = {
+        accel_profile = "adaptive";
+        sensitivity = -0.25;
+      };
+
+      # Figure out how to make this device specific
+      monitors = [
+        "DP-3, 2560x1440@144, 1920x0, 1"
+        "HDMI-A-1, 1920x1080, 0x0, 1"
+      ];
+
       general = {
         layout = "master";
         resize_on_border = true;
