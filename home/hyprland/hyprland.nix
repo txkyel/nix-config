@@ -1,3 +1,6 @@
+let
+  menu = "pkill rofi || rofi -show drun -modi drun,filebrowser,run,window";
+in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -173,6 +176,19 @@
       layerrule = [
         "ignorezero, rofi"
         "blur, rofi"
+      ];
+
+      bind = [
+        # Applications
+        "$mod, Return, exec, kitty"
+        "$mod ALT, C, exec, qalculate-qt"
+
+        # rofi
+        "$mod, D, exec, ${menu}"
+
+        # pyprland
+        "$mod SHIFT, Return, exec, pypr toggle term"
+        "$mod, Z, exec, pypr zoom"
       ];
     };
   };
