@@ -125,5 +125,34 @@
         pass_mouse_when_bound = false;
       };
     };
+
+    windowrulesv2 = [
+      "fullscreenstate 0 2, title:(code-server)" # For work
+      "idleinhibit fullscreen, fullscreen:1"
+      "workspace 4, class:^(com.obsproject.Studio)$"
+      "workspace 7 silent, class:^([Dd]iscord|[Ww]ebCord|[Vv]esktop)$"
+      "float, class:(xdg-desktop-portal-gtk)"
+      "float, class:^(pavucontrol|org.pulseaudio.pavucontrol)$"
+      "float, class:^(qt5ct|qt6ct)$"
+      "float, title:(Kvantum Manager)"
+      "float, class:^(mpv)$"
+      "float, class:^(nm-applet|nm-connection-editor)$"
+      "float, class:(\.blueman-manager-wrapped)"
+      "float, class:^([Ss]team)$"
+      "float, class:^(q[Bb]ittorrent|org.qbittorrent.q[Bb]ittorrent)$"
+      "float, class:^(org.corectrl.CoreCtrl)$"
+      "float, class:^(org.gabmus.envision.Devel)$"
+      "float, class:^(io.github.Qalculate.qalculate-qt)$"
+      # Float all windows except the main Anki app
+      "float, class:^([Aa]nki)$, title:^((?!User 1 - [Aa]nki).*)$"
+      "nodim 1, fullscreen:1"
+      "nodim 1, class:^(brave-browser), title:^(.*YouTube.*)"
+      "opaque 1, class:^(brave-browser), title:^(.*YouTube.*)"
+    ];
+
+    layerrule = [
+      "ignorezero, rofi"
+      "blur, rofi"
+    ];
   };
 }
