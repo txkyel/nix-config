@@ -5,9 +5,6 @@
 # WALLPAPERS PATH
 wallDIR="$HOME/Pictures/wallpapers"
 
-# variables
-focused_monitor=$(hyprctl monitors | awk '/^Monitor/{name=$2} /focused: yes/{print name}')
-
 # swww transition config
 FPS=60
 TYPE="any"
@@ -28,6 +25,10 @@ RANDOM_PIC_NAME=". random"
 # Rofi command
 rofi_command="rofi -i -show -dmenu -config ~/.config/rofi/config-wallpaper.rasi"
 
+set_wallpaper() {
+    swww img "${1}" $SWWW_PARAMS
+    ln -sf "${1}" "$HOME/.cache/.current_wallpaper"
+}
 
 # Sorting Wallpapers
 menu() {
@@ -59,7 +60,7 @@ main() {
   # Random choice case
   if [ "$choice" = "$RANDOM_PIC_NAME" ]; then
     RANDOM_PIC="${PICS[$((RANDOM % ${#PICS[@]}))]}"
-    swww img -o $focused_monitor "${RANDOM_PIC}" $SWWW_PARAMS
+    set_wallpaper "${RANDOM_PIC}" $SWWW_PARAMS
     exit 0
   fi
 
@@ -74,7 +75,7 @@ main() {
   done
 
   if [[ $pic_index -ne -1 ]]; then
-    swww img -o $focused_monitor "${PICS[$pic_index]}" $SWWW_PARAMS
+    set_wallpaper "${PICS[$pic_index]}"
   else
     echo "Image not found."
     exit 1
