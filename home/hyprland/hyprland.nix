@@ -179,16 +179,104 @@ in
       ];
 
       bind = [
+        # General window management
+        "CTRL ALT, Delete, exec, hyprctl dispatch exit 0"
+        "$mod, Q, killactive,"
+        "ALT F4, Q, killactive,"
+        "$mod CTRL, Q, forcekillactive,"
+        "$mod, F, exec, hyprctl dispatch fullscreenstate \"$([ $(hyprctl -j activewindow | jq '(.fullscreen)') -lt 2 ] && echo '2 2' || echo '0 0')\""
+        "$mod CTRL, F, fullscreenstate, -1 2"
+        "$mod, T, togglefloating,"
+        "$mod ALT, T, exec, hyprctl dispatch workspaceopt allfloat"
+        "CTRL ALT, L, exec, hyprlock -q"
+        "CTRL ALT, P, exec, pkill wlogout || wlogout"
+        "ALT, Tab, cyclenext"
+        "ALT, Tab, bringactivetotop"
+        "$mod CTRL, left, movewindow, l"
+        "$mod CTRL, right, movewindow, r"
+        "$mod CTRL, up, movewindow, u"
+        "$mod CTRL, down, movewindow, d"
+        "$mod, left, movefocus, l"
+        "$mod, right, movefocus, r"
+        "$mod, up, movefocus, u"
+        "$mod, down, movefocus, d"
+
+        # Monitor management
+        "$mod, comma, focusmonitor, -1"
+        "$mod, period, focusmonitor, +1"
+
+        # Workspace management
+        "$mod SHIFT, U, movetoworkspace, special"
+        "$mod, U, togglespecialworkspace,"
+
+        # Switch workspaces with mainMod + [0-9]
+        "$mod, code:10, exec, workspace-qtile 1"
+        "$mod, code:11, exec, workspace-qtile 2"
+        "$mod, code:12, exec, workspace-qtile 3"
+        "$mod, code:13, exec, workspace-qtile 4"
+        "$mod, code:14, exec, workspace-qtile 5"
+        "$mod, code:15, exec, workspace-qtile 6"
+        "$mod, code:16, exec, workspace-qtile 7"
+        "$mod, code:17, exec, workspace-qtile 8"
+        "$mod, code:18, exec, workspace-qtile 9"
+        "$mod, code:19, exec, workspace-qtile 10"
+
+        # Move active window and follow to workspace mainMod + SHIFT [0-9]
+        "$mod SHIFT, code:10, exec, workspace-qtile 1 switch"
+        "$mod SHIFT, code:11, exec, workspace-qtile 2 switch"
+        "$mod SHIFT, code:12, exec, workspace-qtile 3 switch"
+        "$mod SHIFT, code:13, exec, workspace-qtile 4 switch"
+        "$mod SHIFT, code:14, exec, workspace-qtile 5 switch"
+        "$mod SHIFT, code:15, exec, workspace-qtile 6 switch"
+        "$mod SHIFT, code:16, exec, workspace-qtile 7 switch"
+        "$mod SHIFT, code:17, exec, workspace-qtile 8 switch"
+        "$mod SHIFT, code:18, exec, workspace-qtile 9 switch"
+        "$mod SHIFT, code:19, exec, workspace-qtile 10 switch"
+
+        # Move active window to a workspace silently mainMod + CTRL [0-9]
+        "$mod CTRL, code:10, movetoworkspacesilent, 1"
+        "$mod CTRL, code:11, movetoworkspacesilent, 2"
+        "$mod CTRL, code:12, movetoworkspacesilent, 3"
+        "$mod CTRL, code:13, movetoworkspacesilent, 4"
+        "$mod CTRL, code:14, movetoworkspacesilent, 5"
+        "$mod CTRL, code:15, movetoworkspacesilent, 6"
+        "$mod CTRL, code:16, movetoworkspacesilent, 7"
+        "$mod CTRL, code:17, movetoworkspacesilent, 8"
+        "$mod CTRL, code:18, movetoworkspacesilent, 9"
+        "$mod CTRL, code:19, movetoworkspacesilent, 10"
+
+        # Runtime theming
+        "$mod, W, exec, wallpaper"
+        "$mod, B, exec, pkill waybar || waybar"
+
         # Applications
         "$mod, Return, exec, kitty"
+        "$mod SHIFT, N, exec, swaync-client -t -sw"
         "$mod ALT, C, exec, qalculate-qt"
 
         # rofi
         "$mod, D, exec, ${menu}"
+        "$mod ALT, E, exec, pkill rofi || rofi -show emoji -modi emoji -config ~/.config/rofi/config-emoji.rasi"
+        "$mod ALT, V, exec, clip-menu"
 
         # pyprland
         "$mod SHIFT, Return, exec, pypr toggle term"
         "$mod, Z, exec, pypr zoom"
+
+        # screenshots
+        ", Print, exec, screenshot --now"
+        "$mod CTRL, Print, exec, screenshot --monitor"
+        "$mod SHIFT, S, exec, screenshot --area"
+
+        # Master Layout
+        "$mod, J, layoutmsg, cyclenext"
+        "$mod, J, bringactivetotop"
+        "$mod, K, layoutmsg, cycleprev"
+        "$mod, K, bringactivetotop"
+        "$mod CTRL, J, layoutmsg, swapnext"
+        "$mod CTRL, K, layoutmsg, swapprev"
+        "$mod, HOME, layoutmsg, focusmaster"
+        "$mod, M, fullscreenstate, 1 -1" # Monocle-ish layout
       ];
 
       # Special keys
@@ -197,6 +285,27 @@ in
         ", xf86KbdBrightnessUp, exec, brightnessctl -d *::kbd_backlight set +30%"
         ", xf86MonBrightnessDown, exec, brightnessctl set 10%-"
         ", xf86MonBrightnessUp, exec, brightnessctl set +10%"
+      ];
+      bindel = [
+        ", xf86audioraisevolume, exec, volume --inc"
+        ", xf86audiolowervolume, exec, volume --dec"
+      ];
+      bindl = [
+        ", xf86AudioMicMute, exec, volume --toggle-mic #mute mic"
+        ", xf86audiomute, exec, volume --toggle"
+        ", xf86Sleep, exec, systemctl suspend  # sleep button "
+        ", xf86Rfkill, exec, airplane-mode"
+        ", xf86AudioPlayPause, exec, playerctl play-pause"
+        ", xf86AudioPause, exec, playerctl play-pause"
+        ", xf86AudioPlay, exec, playerctl play-pause"
+        ", xf86AudioNext, exec, playerctl next"
+        ", xf86AudioPrev, exec, playerctl previous"
+        ", xf86audiostop, exec, playerctl stop"
+      ];
+
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
       ];
     };
   };
