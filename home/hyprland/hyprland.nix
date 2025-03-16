@@ -42,6 +42,88 @@
         "pypr"
         "corectrl --minimize-systray"
       ];
+
+      general = {
+        layout = "master";
+        resize_on_border = true;
+
+        border_size = 2;
+        gaps_in = 6;
+        gaps_out = 8;
+        "col.active_border" = "$color0 $color2 $color9 $color12 $color15 90deg";
+        "col.inactive_border" = "$background";
+      };
+
+      master = {
+        new_status = "master";
+        new_on_top = 1;
+        inherit_fullscreen = true;
+      };
+
+      xwayland.force_zero_scaling = true;
+
+      misc = {
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+        vfr = true;
+        mouse_move_enables_dpms = true;
+        enable_swallow = true;
+        swallow_regex = "^(kitty)$";
+        swallow_exception_regex = "^(Yazi.*)$";
+        initial_workspace_tracking = 0;
+        middle_click_paste = false;
+        new_window_takes_over_fullscreen = 1;
+        # TODO: Determine how to make this apply to monocle mode only
+        exit_window_retains_fullscreen = true;
+      };
+
+      decoration = {
+        rounding = 4;
+
+        active_opacity = 1.0;
+        inactive_opacity = 0.9;
+        fullscreen_opacity = 1.0;
+
+        dim_inactive = true;
+        dim_strength = 0.1;
+        dim_special = 0.8;
+
+        shadow = {
+          render_power = 1;
+          color = "$color12";
+          color_inactive = "0x50000000";
+        };
+      };
+
+      animations = {
+        enabled = true;
+
+        # Animations taken from https://github.com/end-4/dots-hyprland
+        bezier = [
+          "md3_decel, 0.05, 0.7, 0.1, 1"
+          "md3_accel, 0.3, 0, 0.8, 0.15"
+          "menu_decel, 0.1, 1, 0, 1"
+          "menu_accel, 0.38, 0.04, 1, 0.07"
+        ];
+
+        animation = [
+          # Animation configs
+          "windows, 1, 3, md3_decel, popin 60%"
+          "windowsIn, 1, 3, md3_decel, popin 60%"
+          "windowsOut, 1, 3, md3_accel, popin 60%"
+          "border, 1, 10, default"
+          "fade, 1, 3, md3_decel"
+          "layersIn, 1, 3, menu_decel"
+          "layersOut, 1, 1.6, menu_accel"
+          "workspaces, 1, 7, menu_decel, slide"
+          "specialWorkspace, 1, 3, md3_decel, slidevert"
+        ];
+      };
+
+      binds = {
+        allow_workspace_cycles = true;
+        pass_mouse_when_bound = false;
+      };
     };
   };
 }
