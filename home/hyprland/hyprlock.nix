@@ -8,7 +8,7 @@
       };
 
       background = {
-        path = "${config.xdg.configHome}/hypr/wallpaper_effects/.wallpaper_current";
+        path = "${config.xdg.cacheHome}/.current_wallpaper";
         blur_passes = 1;
       };
 

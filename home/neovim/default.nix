@@ -12,12 +12,14 @@ let
           viAlias = true;
           vimAlias = true;
           useSystemClipboard = true;
+          undoFile.enable = true;
 
           options = {
             autoindent = true;
             expandtab = true;
             shiftwidth = 4;
             tabstop = 4;
+            wrap = false;
           };
 
           lsp = {

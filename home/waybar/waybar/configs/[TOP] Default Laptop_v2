@@ -22,8 +22,6 @@
 	"group/mobo_drawer",
 	"custom/separator#blank",
 	"group/laptop",
-	"custom/separator#dot-line",
-	"custom/weather",
 	],
 
 "modules-center": [
