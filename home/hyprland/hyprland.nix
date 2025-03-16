@@ -190,6 +190,14 @@ in
         "$mod SHIFT, Return, exec, pypr toggle term"
         "$mod, Z, exec, pypr zoom"
       ];
+
+      # Special keys
+      binde = [
+        ", xf86KbdBrightnessDown, exec, brightnessctl -d *::kbd_backlight set 30%-"
+        ", xf86KbdBrightnessUp, exec, brightnessctl -d *::kbd_backlight set +30%"
+        ", xf86MonBrightnessDown, exec, brightnessctl set 10%-"
+        ", xf86MonBrightnessUp, exec, brightnessctl set +10%"
+      ];
     };
   };
 }
