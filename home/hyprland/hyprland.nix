@@ -4,7 +4,7 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    packages = null;
+    package = null;
     portalPackage = null;
 
     systemd.variables = [ "--all" ];
@@ -61,8 +61,8 @@ in
         sensitivity = -0.25;
       };
 
-      # Figure out how to make this device specific
-      monitors = [
+      # Figure out how to make this host specific
+      monitor = [
         "DP-3, 2560x1440@144, 1920x0, 1"
         "HDMI-A-1, 1920x1080, 0x0, 1"
       ];
@@ -149,7 +149,7 @@ in
         pass_mouse_when_bound = false;
       };
 
-      windowrulesv2 = [
+      windowrulev2 = [
         "fullscreenstate 0 2, title:(code-server)" # For work
         "idleinhibit fullscreen, fullscreen:1"
         "workspace 4, class:^(com.obsproject.Studio)$"

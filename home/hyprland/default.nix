@@ -5,18 +5,18 @@
 }:
 {
   imports = [
+    ./hyprland.nix
     ./hypridle.nix
     ./hyprlock.nix
     ./xdph.nix
   ];
 
   # TODO: Use files as source instead of linking to repo
-
-  home.file."${config.xdg.configHome}/hypr" = {
-    enable = true;
-    source = ./hypr;
-    recursive = true;
-  };
+  # home.file."${config.xdg.configHome}/hypr" = {
+  #   enable = true;
+  #   source = ./hypr;
+  #   recursive = true;
+  # };
 
   # Package
   home.packages = with pkgs; [
