@@ -8,7 +8,7 @@
       size = 16;
     };
     settings = {
-      background_opacity = "0.5";
+      background_opacity = "0.8";
       confirm_os_window_close = 0;
       linux_display_server = "auto";
       scrollback_lines = 2000;
