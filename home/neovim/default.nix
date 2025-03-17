@@ -54,6 +54,19 @@ let
           visuals = {
             indent-blankline.enable = true;
           };
+
+          # To get proper indentation for nix https://github.com/NotAShelf/nvf/pull/567
+          pluginRC.nix = ''
+            vim.api.nvim_create_autocmd("FileType", {
+              pattern = "nix",
+              callback = function(opts)
+                local bo = vim.bo[opts.buf]
+                bo.tabstop = 2
+                bo.shiftwidth = 2
+                bo.softtabstop = 2
+              end
+            })
+          '';
         };
       }
     ];
