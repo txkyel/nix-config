@@ -24,6 +24,10 @@ let
 
           lsp = {
             formatOnSave = true;
+            lightbulb.enable = true;
+            trouble.enable = true;
+            lspSignature.enable = true;
+            lsplines.enable = true;
           };
 
           languages = {
@@ -31,6 +35,7 @@ let
             enableFormat = true;
             enableTreesitter = true;
 
+            bash.enable = true;
             nix = {
               enable = true;
               lsp.server = "nixd";
@@ -44,12 +49,37 @@ let
 
           autocomplete.nvim-cmp.enable = true;
           autopairs.nvim-autopairs.enable = true;
-          statusline.lualine.enable = true;
+          binds = {
+            whichKey.enable = true;
+            cheatsheet.enable = true;
+          };
+          comments = {
+            comment-nvim.enable = true;
+          };
+          git = {
+            enable = true;
+            gitsigns.enable = true;
+            gitsigns.codeActions.enable = false;
+          };
+          spellcheck.enable = true;
+          statusline.lualine = {
+            enable = true;
+            theme = "gruvbox";
+          };
           telescope.enable = true;
+          theme = {
+            enable = true;
+            name = "gruvbox";
+            style = "dark";
+          };
           treesitter = {
             enable = true;
             context.enable = true;
             indent.enable = true;
+          };
+          utility = {
+            surround.enable = true;
+            surround.useVendoredKeybindings = false;
           };
           visuals = {
             indent-blankline.enable = true;
