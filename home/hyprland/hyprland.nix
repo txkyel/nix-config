@@ -58,7 +58,7 @@ in
 
       "device[ploopy-corporation-ploopy-adept-trackball-mouse]" = {
         accel_profile = "adaptive";
-        sensitivity = -0.25;
+        sensitivity = 0;
       };
 
       # Figure out how to make this host specific
