@@ -32,11 +32,10 @@ in
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
-        # Fix suspend not working
-        # {
-        #   timeout = 600;
-        #   on-timeout = "systemctl suspend";
-        # }
+        {
+          timeout = 600;
+          on-timeout = "systemctl suspend";
+        }
       ];
     };
   };
