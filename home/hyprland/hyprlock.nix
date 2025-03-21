@@ -3,7 +3,14 @@
   programs.hyprlock = {
     enable = true;
     settings = {
+      animations = {
+        animation = [
+          "fadeIn, 0, 1, default"
+        ];
+      };
+
       general = {
+        disable_loading_bar = true;
         hide_cursor = false;
       };
 
@@ -29,7 +36,6 @@
 
         dots_spacing = 0.2;
         dots_center = true;
-        dots_fade_time = 100;
 
         shadow_color = "rgba(0, 0, 0, 0.1)";
         shadow_size = 7;
