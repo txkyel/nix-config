@@ -1,11 +1,13 @@
 { pkgs, ... }:
+let
+  commandLineArgs = [
+    "--enable-features=AllowWindowDragUsingSystemDragDrop"
+  ];
+in
 {
   home.packages = with pkgs; [
     (google-chrome.override {
-      commandLineArgs = [
-        "--enable-features=AllowWindowDragUsingSystemDragDrop"
-        "--enable-blink-features=MiddleClickAutoscroll"
-      ];
+      commandLineArgs = commandLineArgs;
     })
   ];
 
@@ -15,9 +17,6 @@
     extensions = [
       { id = "bdioigkngoclklbmmgegppmmekffpgdh"; }
     ];
-    commandLineArgs = [
-      "--enable-features=AllowWindowDragUsingSystemDragDrop"
-      "--enable-blink-features=MiddleClickAutoscroll"
-    ];
+    commandLineArgs = commandLineArgs;
   };
 }
