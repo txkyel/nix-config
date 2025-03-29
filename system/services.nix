@@ -6,5 +6,7 @@
     fstrim.enable = true;
     gvfs.enable = true;
     flatpak.enable = true;
+    # Reduce journald disk usage for faster boot time
+    journald.extraConfig = "SystemMaxUse=50M";
   };
 }
