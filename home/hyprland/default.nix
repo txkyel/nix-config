@@ -15,7 +15,6 @@
   home.packages = with pkgs; [
     # Hyprland utils
     hyprcursor
-    hyprlock
 
     # Wallpaper daemon
     swww
