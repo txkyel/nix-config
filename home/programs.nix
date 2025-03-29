@@ -8,8 +8,8 @@
     xdg-utils
 
     # User apps
-    bambu-studio
     obs-studio
+    orca-slicer
     qbittorrent
     qalculate-qt
     whatsapp-for-linux
