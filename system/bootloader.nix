@@ -5,9 +5,8 @@
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
-      timeout = 1;
+      timeout = 0;
       systemd-boot.enable = true;
-      systemd-boot.configurationLimit = 10;
     };
 
     # Silent Boot
