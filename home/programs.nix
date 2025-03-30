@@ -8,6 +8,7 @@
     xdg-utils
 
     # User apps
+    appimage-run
     obs-studio
     orca-slicer
     qbittorrent
