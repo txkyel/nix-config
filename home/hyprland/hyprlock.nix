@@ -10,14 +10,18 @@
     package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
     settings = {
       animations = {
+        bezier = [
+          "md3_decel, 0.05, 0.7, 0.1, 1"
+        ];
         animation = [
-          "fadeIn, 0, 1, default"
+          "fade, 1, 3, md3_decel"
         ];
       };
 
       general = {
         disable_loading_bar = true;
         hide_cursor = false;
+        grace = 1;
       };
 
       background = {

@@ -32,6 +32,4 @@
     brightnessctl
     playerctl
   ];
-
-  programs.hyprlock.enable = true;
 }
