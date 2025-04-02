@@ -61,12 +61,6 @@ in
         sensitivity = 0;
       };
 
-      # Figure out how to make this host specific
-      monitor = [
-        "DP-3, 2560x1440@144, 1920x0, 1"
-        "HDMI-A-1, 1920x1080, 0x0, 1"
-      ];
-
       general = {
         layout = "master";
         resize_on_border = true;

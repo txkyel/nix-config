@@ -3,6 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   inputs,
+  username,
   ...
 }:
 {
@@ -16,6 +17,11 @@
 
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;
+
+  home-manager.users.${username}.wayland.windowManager.hyprland.settings.monitor = [
+    "LVDS-1, 1366x768, 277x1080, 1"
+    "DP-1, 1920x1080, 0x0, 1"
+  ];
 
   powerManagement.enable = true;
 
