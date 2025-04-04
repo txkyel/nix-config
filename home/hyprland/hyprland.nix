@@ -143,7 +143,7 @@ in
         pass_mouse_when_bound = false;
       };
 
-      windowrulev2 = [
+      windowrule = [
         "fullscreenstate 0 2, title:(code-server)" # For work
         "idleinhibit fullscreen, fullscreen:1"
         "workspace 4, class:^(com.obsproject.Studio)$"
@@ -157,14 +157,15 @@ in
         "float, class:(\.blueman-manager-wrapped)"
         "float, class:^([Ss]team)$"
         "float, class:^(q[Bb]ittorrent|org.qbittorrent.q[Bb]ittorrent)$"
-        "float, class:^(org.corectrl.CoreCtrl)$"
-        "float, class:^(org.gabmus.envision.Devel)$"
         "float, class:^(io.github.Qalculate.qalculate-qt)$"
         # Float all windows except the main Anki app
         "float, class:^([Aa]nki)$, title:^((?!User 1 - [Aa]nki).*)$"
         "nodim 1, fullscreen:1"
         "nodim 1, class:^(brave-browser), title:^(.*YouTube.*)"
         "opaque 1, class:^(brave-browser), title:^(.*YouTube.*)"
+
+        "dimaround, class:^(xdg-desktop-portal-gtk)$"
+        "dimaround, class:^(polkit-gnome-authentication-agent-1)$"
       ];
 
       layerrule = [
