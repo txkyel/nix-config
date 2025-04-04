@@ -88,6 +88,7 @@ in
       environment.systemPackages = with pkgs; [
         wlx-overlay-s # VR overlay
         sidequest
+        bs-manager
       ];
 
       users.users.${username}.extraGroups = [
