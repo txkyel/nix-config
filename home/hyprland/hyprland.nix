@@ -87,7 +87,7 @@ in
         mouse_move_enables_dpms = true;
         enable_swallow = true;
         swallow_regex = "^(kitty)$";
-        swallow_exception_regex = "^(Yazi.*)$";
+        swallow_exception_regex = "^([Yy]azi.*)$";
         initial_workspace_tracking = 0;
         middle_click_paste = false;
         new_window_takes_over_fullscreen = 1;
