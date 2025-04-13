@@ -12,9 +12,11 @@
       animations = {
         bezier = [
           "md3_decel, 0.05, 0.7, 0.1, 1"
+          "md3_accel, 0.3, 0, 0.8, 0.15"
         ];
         animation = [
-          "fade, 1, 3, md3_decel"
+          "fadeIn, 1, 3, md3_accel"
+          "fadeOut, 1, 3, md3_decel"
         ];
       };
 
