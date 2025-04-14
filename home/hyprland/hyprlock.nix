@@ -15,7 +15,7 @@
           "md3_accel, 0.3, 0, 0.8, 0.15"
         ];
         animation = [
-          "fadeIn, 1, 3, md3_accel"
+          "fadeIn, 1, 2, md3_accel"
           "fadeOut, 1, 3, md3_decel"
         ];
       };
