@@ -8,6 +8,7 @@
     ./hypridle.nix
     ./hyprlock.nix
     ./pyprland.nix
+    ./wlogout.nix
     ./xdph.nix
   ];
 
