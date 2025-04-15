@@ -18,6 +18,18 @@
   modules.gaming.enable = true;
   modules.gaming.enableVR = true;
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [
+      8080
+      8081
+    ];
+    allowedUDPPorts = [
+      8080
+      8081
+    ];
+  };
+
   home-manager.users.${username}.wayland.windowManager.hyprland.settings.monitor = [
     "DP-3, 2560x1440@144, 1920x0, 1"
     "HDMI-A-1, 1920x1080, 0x0, 1"
