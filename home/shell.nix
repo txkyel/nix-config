@@ -4,6 +4,7 @@
   ...
 }:
 let
+  download_title = "[%(upload_date)s] %(title)s [%(id)s]";
   aliases = {
     # Color aliases
     "ls" = "ls --color=auto --group-directories-first";
@@ -13,9 +14,9 @@ let
     # Misc
     "ll" = "ls -alF";
     "la" = "ls -A";
-    "ytd" = "noglob yt-dlp --embed-metadata --embed-thumbnail -i";
+    "ytd" = "noglob yt-dlp --embed-metadata --embed-thumbnail -i -o \"${download_title}.%(ext)s\"";
     "yta" = "ytd -x -f bestaudio/best";
-    "ytarchive" = "noglob ytarchive --merge -t -w";
+    "ytarchive" = "noglob ytarchive --merge -t -w -o \"${download_title}\"";
   };
 in
 {
