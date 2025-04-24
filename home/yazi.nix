@@ -55,7 +55,7 @@
               "application/x-rar"
               "application/x-xz"
               "application/xz"
-            ] "mediainfo";
+            ] "ouch";
         };
     };
   };
