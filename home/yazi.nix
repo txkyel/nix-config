@@ -40,7 +40,7 @@
             "audio/*"
             "video/*"
             "image/*"
-            "appliation/subrip"
+            "application/subrip"
           ];
         in
         {
