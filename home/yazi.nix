@@ -1,8 +1,15 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [ xdragon ];
+  home.packages = with pkgs; [
+    mediainfo
+    ouch
+    xdragon
+  ];
   programs.yazi = {
     enable = true;
+    plugins = {
+      inherit (pkgs.yaziPlugins) mediainfo ouch;
+    };
     keymap = {
       manager = {
         prepend_keymap = [
@@ -11,8 +18,45 @@
             run = "shell 'dragon-drop -x -i -T \"$1\"'";
             desc = "Drag and drop files";
           }
+          {
+            on = [ "C" ];
+            run = "plugin ouch";
+            desc = "Compress with ouch";
+          }
         ];
       };
+    };
+    settings = {
+      plugin =
+        let
+          generateMimePreviewers =
+            mimeTypes: plugin:
+            map (mime: {
+              inherit mime;
+              run = plugin;
+            }) mimeTypes;
+
+          mediainfoMimeTypes = [
+            "audio/*"
+            "video/*"
+            "image/*"
+            "appliation/subrip"
+          ];
+        in
+        {
+          prepend_preloaders = generateMimePreviewers mediainfoMimeTypes "mediainfo";
+          prepend_previewers =
+            generateMimePreviewers mediainfoMimeTypes "mediainfo"
+            ++ generateMimePreviewers [
+              "application/*zip"
+              "application/x-tar"
+              "application/x-bzip2"
+              "application/x-7z-compressed"
+              "application/x-rar"
+              "application/x-xz"
+              "application/xz"
+            ] "mediainfo";
+        };
     };
   };
 }
