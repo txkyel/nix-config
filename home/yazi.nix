@@ -1,7 +1,4 @@
-{ lib, pkgs, ... }:
-let
-  inherit (lib.modules) mkMerge;
-in
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     mediainfo
@@ -29,58 +26,48 @@ in
         ];
       };
     };
-    settings = mkMerge [
-      {
-        open.rules = [
-          {
-            # Upstream bug identifies zip files as application/octet-stream
-            # https://github.com/sxyazi/yazi/issues/2075#issuecomment-2557978774
-            name = "*.zip";
-            use = [
-              "extract"
-              "reveal"
+    settings = {
+      open.rules = [
+        {
+          # Upstream bug identifies zip files as application/octet-stream
+          # https://github.com/sxyazi/yazi/issues/2075#issuecomment-2557978774
+          name = "*.zip";
+          use = [
+            "extract"
+            "reveal"
+          ];
+        }
+      ];
+      plugin =
+        let
+          mediainfoMimeTypes = [
+            "{audio,video,image}/*"
+            "application/subrip"
+          ];
+        in
+        {
+          prepend_preloaders = map (mime: {
+            inherit mime;
+            run = "mediainfo";
+          }) mediainfoMimeTypes;
+          prepend_previewers =
+            map (mime: {
+              inherit mime;
+              run = "mediainfo";
+            }) mediainfoMimeTypes
+            ++ [
+              {
+                mime = "application/{*zip,x-tar,x-bzip2,x-7z-compressed,x-rar,x-xz,xz}";
+                run = "ouch";
+              }
+              # Upstream bug identifies zip files as application/octet-stream
+              # https://github.com/sxyazi/yazi/issues/2075#issuecomment-2557978774
+              {
+                name = "*.zip";
+                run = "ouch";
+              }
             ];
-          }
-        ];
-        plugin =
-          let
-            generateMimePreviewers =
-              mimeTypes: plugin:
-              map (mime: {
-                inherit mime;
-                run = plugin;
-              }) mimeTypes;
-
-            mediainfoMimeTypes = [
-              "audio/*"
-              "video/*"
-              "image/*"
-              "application/subrip"
-            ];
-          in
-          {
-            prepend_preloaders = generateMimePreviewers mediainfoMimeTypes "mediainfo";
-            prepend_previewers =
-              generateMimePreviewers mediainfoMimeTypes "mediainfo"
-              ++ generateMimePreviewers [
-                "application/*zip"
-                "application/x-tar"
-                "application/x-bzip2"
-                "application/x-7z-compressed"
-                "application/x-rar"
-                "application/x-xz"
-                "application/xz"
-              ] "ouch"
-              ++ [
-                # Upstream bug identifies zip files as application/octet-stream
-                # https://github.com/sxyazi/yazi/issues/2075#issuecomment-2557978774
-                {
-                  name = "*.zip";
-                  run = "ouch";
-                }
-              ];
-          };
-      }
-    ];
+        };
+    };
   };
 }
