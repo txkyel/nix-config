@@ -27,7 +27,6 @@ let
             lightbulb.enable = true;
             trouble.enable = true;
             lspSignature.enable = true;
-            lsplines.enable = true;
           };
 
           languages = {
