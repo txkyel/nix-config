@@ -73,7 +73,7 @@ in
       bindkey -M menuselect 'l' vi-forward-char
     '';
 
-    initExtra = ''
+    initContent = ''
       PROMPT="%F{blue}%~ %(?.%F{green}.%F{red})%#%f "
       bindkey '^[OA' history-substring-search-up
       bindkey '^[[A' history-substring-search-up
