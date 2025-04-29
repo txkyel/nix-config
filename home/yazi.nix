@@ -1,10 +1,14 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   home.packages = with pkgs; [
     mediainfo
     ouch
     xdragon
+    file-patched
   ];
+  home.sessionVariables = {
+    YAZI_FILE_ONE = "${lib.getExe pkgs.file-patched}";
+  };
   programs.yazi = {
     enable = true;
     plugins = {
@@ -27,17 +31,6 @@
       };
     };
     settings = {
-      open.rules = [
-        {
-          # Upstream bug identifies zip files as application/octet-stream
-          # https://github.com/sxyazi/yazi/issues/2075#issuecomment-2557978774
-          name = "*.zip";
-          use = [
-            "extract"
-            "reveal"
-          ];
-        }
-      ];
       plugin =
         let
           mediainfoMimeTypes = [
@@ -58,12 +51,6 @@
             ++ [
               {
                 mime = "application/{*zip,x-tar,x-bzip2,x-7z-compressed,x-rar,x-xz,xz}";
-                run = "ouch";
-              }
-              # Upstream bug identifies zip files as application/octet-stream
-              # https://github.com/sxyazi/yazi/issues/2075#issuecomment-2557978774
-              {
-                name = "*.zip";
                 run = "ouch";
               }
             ];
