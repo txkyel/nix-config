@@ -123,9 +123,10 @@ layout {
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
     }
-
-    // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
-    // preset-window-heights { }
+    preset-window-heights {
+        proportion 0.25
+        proportion 0.5
+    }
 
     // You can change the default width of the new windows.
     default-column-width { proportion 0.5; }
@@ -364,14 +365,16 @@ binds {
 
     Mod+Q { close-window; }
 
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-right; }
-    Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Mod+L     { focus-column-right; }
+    Mod+Left      { focus-column-left; }
+    Mod+Down      { focus-window-down; }
+    Mod+Up        { focus-window-up; }
+    Mod+Right     { focus-column-right; }
+    Mod+H         { focus-column-left; }
+    Mod+J         { focus-window-down; }
+    Mod+K         { focus-window-up; }
+    Mod+L         { focus-column-right; }
+    Alt+Tab       { focus-window-down-or-column-right; }
+    Alt+Shift+Tab { focus-window-up-or-column-left; }
 
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Down  { move-window-down; }
@@ -514,17 +517,18 @@ binds {
     // Expel the bottom window from the focused column to the right.
     Mod+Ctrl+BracketRight { expel-window-from-column; }
 
+    // Column/Window size
     Mod+R { switch-preset-column-width; }
+    Mod+Ctrl+R { expand-column-to-available-width; }
     Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
-    Mod+F { fullscreen-window; }
-    Mod+Shift+F { maximize-column; }
+    Mod+Shift+Ctrl+R { reset-window-height; }
+
+    // Fullscreen binds
+    Mod+F { maximize-column; }
+    Mod+Ctrl+F { fullscreen-window; }
+    F11 { fullscreen-window; }
     // Next release keybind
     // Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
-
-    // Expand the focused column to space not taken up by other fully visible columns.
-    // Makes the column "fill the rest of the space".
-    Mod+Ctrl+F { expand-column-to-available-width; }
 
     Mod+C { center-column; }
 
