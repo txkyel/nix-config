@@ -9,6 +9,7 @@ let
 in
 {
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  programs.niri.enable = true;
   programs.hyprland = {
     enable = true;
     package = hyprland;

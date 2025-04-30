@@ -8,5 +8,7 @@
     wget
     zip
     unzip
+    alacritty
+    fuzzel
   ];
 }
