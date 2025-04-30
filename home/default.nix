@@ -4,6 +4,7 @@
     ./shell.nix
     ./theme
     ./hyprland
+    ./niri
     ./neovim
     ./waybar
     ./anki.nix
