@@ -10,5 +10,6 @@
     unzip
     alacritty
     fuzzel
+    xwayland-satellite
   ];
 }
