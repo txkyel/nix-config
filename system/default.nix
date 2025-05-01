@@ -5,6 +5,7 @@
     ./file-manager.nix
     ./fonts.nix
     ./hyprland.nix
+    ./niri.nix
     ./localization.nix
     ./network.nix
     ./nixos-configuration.nix
