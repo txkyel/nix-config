@@ -3,10 +3,8 @@
     ./session-variables.nix
     ./shell.nix
     ./theme
-    ./hyprland
-    ./niri
+    ./wayland
     ./neovim
-    ./waybar
     ./anki.nix
     ./browser.nix
     ./git.nix
