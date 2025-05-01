@@ -4,7 +4,7 @@
   ...
 }:
 let
-  configPath = "${config.home.homeDirectory}/nix-config/home/waybar/waybar";
+  configPath = "${config.home.homeDirectory}/nix-config/home/wayland/waybar/waybar";
 in
 {
   xdg.configFile.waybar.source = config.lib.file.mkOutOfStoreSymlink configPath;
