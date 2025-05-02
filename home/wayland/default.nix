@@ -7,7 +7,7 @@
     ./hyprland
     ./niri
     ./waybar
-    ./wlogout
+    ./wlogout.nix
   ];
 
   home.packages = with pkgs; [
