@@ -7,6 +7,7 @@
     ./hyprland
     ./niri
     ./waybar
+    ./wlogout
   ];
 
   home.packages = with pkgs; [
@@ -15,7 +16,6 @@
     wl-clipboard
     libnotify
     swaynotificationcenter
-    wlogout
     brightnessctl
     playerctl
   ];
