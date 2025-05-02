@@ -1,3 +1,9 @@
+// Check the wiki for a full description of the configuration:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
+
+// Input device configuration.
+// Find the full list of options on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 input {
     keyboard {
         xkb { layout "us"; }
@@ -14,12 +20,17 @@ input {
     }
 }
 
+// You can configure outputs by their name, which you can find
+// by running `niri msg outputs` while inside a niri instance.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 output "DP-3" {
     mode "2560x1440@143.972" // cursed framerate
 }
 
-prefer-no-csd
-
+// Settings that influence how windows are positioned and sized.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     center-focused-column "never"
 
@@ -59,6 +70,27 @@ layout {
     }
 }
 
+prefer-no-csd
+
+hotkey-overlay { skip-at-startup; }
+environment { DISPLAY ":0"; }  // Xwayland
+
+// Note that running niri as a session supports xdg-desktop-autostart,
+// which may be more convenient to use.
+spawn-at-startup "sh" "-c" "swww-daemon --format xrgb"
+spawn-at-startup "sh" "-c" "wl-paste --type text --watch cliphist store"
+spawn-at-startup "sh" "-c" "wl-paste --type image --watch cliphist store"
+spawn-at-startup "sh" "-c" "waybar"
+spawn-at-startup "sh" "-c" "nm-applet --indicator"
+spawn-at-startup "sh" "-c" "fcitx5 -d -r"
+spawn-at-startup "sh" "-c" "xwayland-satellite"
+spawn-at-startup "sh" "-c" "corectrl --minimize-systray"
+
+screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
+
+// Animation settings.
+// The wiki explains how to configure individual animations:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
     // Animation source
     // https://github.com/greed-d/.dotfiles/blob/4a87aa62427d24742b6bef2985748f9e0891a4db/niri.bak/.config/niri/config.kdl#L113
@@ -116,7 +148,31 @@ animations {
     }
 }
 
+// Window rules let you adjust behavior for individual windows.
+// You can find window app id and titles by running `niri msg windows`
+// while inside a niri instance.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+window-rule {
+    geometry-corner-radius 4
+    clip-to-geometry true
+}
+window-rule {
+    match title="^[Pp]icture[- ]in[- ][Pp]icture$"
+    open-floating true
+}
+
 binds {
+    // Keys consist of modifiers separated by + signs, followed by an XKB key name
+    // in the end. To find an XKB name for a particular key, you may use a program
+    // like wev.
+    //
+    // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
+    // when running as a winit window.
+    //
+    // Most actions that you can bind here can also be invoked programmatically with
+    // `niri msg action do-something`.
+
     Mod+Shift+Slash  { show-hotkey-overlay; }
     Mod+Return       { spawn "sh" "-c" "kitty"; }
     Mod+D            { spawn "sh" "-c" "pkill rofi || rofi -show drun -modi drun,filebrowser,run,window"; }
@@ -223,26 +279,14 @@ binds {
     Mod+Ctrl+8 { move-column-to-workspace 8; }
     Mod+Ctrl+9 { move-column-to-workspace 9; }
     
+    // Applications such as remote-desktop clients and software KVM switches may
+    // request that niri stops processing the keyboard shortcuts defined here
+    // so they may, for example, forward the key presses as-is to a remote machine.
+    // It's a good idea to bind an escape hatch to toggle the inhibitor,
+    // so a buggy application can't hold your session hostage.
+    //
+    // The allow-inhibiting=false property can be applied to other binds as well,
+    // which ensures niri always processes them, even when an inhibitor is active.
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }   
-}
-
-hotkey-overlay { skip-at-startup; }
-environment { DISPLAY ":0"; }
-spawn-at-startup "sh" "-c" "swww-daemon --format xrgb"
-spawn-at-startup "sh" "-c" "wl-paste --type text --watch cliphist store"
-spawn-at-startup "sh" "-c" "wl-paste --type image --watch cliphist store"
-spawn-at-startup "sh" "-c" "waybar"
-spawn-at-startup "sh" "-c" "nm-applet --indicator"
-spawn-at-startup "sh" "-c" "fcitx5 -d -r"
-spawn-at-startup "sh" "-c" "xwayland-satellite"
-spawn-at-startup "sh" "-c" "corectrl --minimize-systray"
-
-window-rule {
-    geometry-corner-radius 4
-    clip-to-geometry true
-}
-window-rule {
-    match title="^[Pp]icture[- ]in[- ][Pp]icture$"
-    open-floating true
 }
 
