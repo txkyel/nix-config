@@ -1,5 +1,48 @@
 {
-  description = "My flake";
+  description = "Kyle's NixOS flake";
+
+  outputs =
+    {
+      nixpkgs,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      username = "kyle";
+    in
+    {
+      nixosConfigurations = {
+        desktop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            host = "desktop";
+            inherit inputs username;
+          };
+          modules = [
+            ./modules
+            ./hosts/desktop
+            ./system
+          ];
+        };
+
+        x230 = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            host = "x230";
+            inherit inputs username;
+          };
+          modules = [
+            ./modules
+            ./hosts/x230
+            ./system
+          ];
+        };
+      };
+    };
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -52,48 +95,4 @@
       url = "github:ow-mods/ow-mod-man";
     };
   };
-
-  outputs =
-    {
-      self,
-      nixpkgs,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      username = "kyle";
-    in
-    {
-      nixosConfigurations = {
-        desktop = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            host = "desktop";
-            inherit inputs username;
-          };
-          modules = [
-            ./modules
-            ./hosts/desktop
-            ./system
-          ];
-        };
-
-        x230 = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            host = "x230";
-            inherit inputs username;
-          };
-          modules = [
-            ./modules
-            ./hosts/x230
-            ./system
-          ];
-        };
-      };
-    };
 }
