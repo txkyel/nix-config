@@ -7,14 +7,16 @@
       ...
     }@inputs:
     let
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "aarch64-linux"
+        "x86_64-linux"
+      ];
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
       username = "kyle";
     in
     {
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
+
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
