@@ -1,3 +1,4 @@
+# Inspired by https://github.com/sioodmy/dotfiles/blob/d82f7db5080d0ff4d4920a11378e08df365aeeec/flake.nix
 {
   description = "Kyle's NixOS flake";
 
@@ -11,39 +12,17 @@
         "aarch64-linux"
         "x86_64-linux"
       ];
-      system = "x86_64-linux";
-      username = "kyle";
     in
     {
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
 
-      nixosConfigurations = {
-        desktop = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            host = "desktop";
-            inherit inputs username;
-          };
-          modules = [
-            ./modules
-            ./hosts/desktop
-            ./system
-          ];
-        };
+      nixosModules = {
+        # This module is not meant to be imported by anyone but me
+        # it's just so I can easily avoid ../../../../../ mess
+        system = import ./system;
+      } // import ./modules;
 
-        x230 = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            host = "x230";
-            inherit inputs username;
-          };
-          modules = [
-            ./modules
-            ./hosts/x230
-            ./system
-          ];
-        };
-      };
+      nixosConfigurations = import ./hosts inputs;
     };
 
   inputs = {

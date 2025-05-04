@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -41,6 +42,9 @@ in
         };
       };
 
+      nixpkgs.overlays = [
+        inputs.ow-mod-man.overlays.default
+      ];
       environment.systemPackages = with pkgs; [
         protonup-qt
         steamtinkerlaunch # Additional mods and games
