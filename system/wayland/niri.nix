@@ -1,6 +1,5 @@
 { inputs, pkgs, ... }:
 {
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
   imports = [ inputs.niri.nixosModules.niri ];
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
 

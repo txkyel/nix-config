@@ -4,8 +4,7 @@
     ./bootloader.nix
     ./file-manager.nix
     ./fonts.nix
-    ./hyprland.nix
-    ./niri.nix
+    ./wayland
     ./localization.nix
     ./network.nix
     ./nixos-configuration.nix
