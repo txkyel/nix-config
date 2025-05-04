@@ -9,8 +9,11 @@ let
   mkHost =
     name: system:
     nixpkgs.lib.nixosSystem {
-      inherit system;
       modules = [
+        {
+          networking.hostName = name;
+          nixpkgs.hostPlatform = system;
+        }
         ./${name}
       ] ++ builtins.attrValues self.nixosModules;
 

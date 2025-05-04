@@ -2,7 +2,6 @@
   inputs,
   config,
   pkgs,
-  host,
   username,
   ...
 }:
@@ -11,7 +10,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs host username; };
+    extraSpecialArgs = { inherit inputs username; };
     users.${username} = {
       # This is the home modules entry point
       imports = [ ./../home ];
