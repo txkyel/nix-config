@@ -17,7 +17,7 @@
 
       nixosModules = {
         system = import ./system;
-      };
+      } // import ./modules;
 
       nixosConfigurations = import ./hosts inputs;
     };

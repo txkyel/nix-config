@@ -11,7 +11,6 @@ let
     nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        ../modules
         ./${name}
       ] ++ builtins.attrValues self.nixosModules;
 
