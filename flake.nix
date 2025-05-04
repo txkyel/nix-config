@@ -1,3 +1,4 @@
+# Inspired by https://github.com/sioodmy/dotfiles/blob/d82f7db5080d0ff4d4920a11378e08df365aeeec/flake.nix
 {
   description = "Kyle's NixOS flake";
 
@@ -16,6 +17,8 @@
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
 
       nixosModules = {
+        # This module is not meant to be imported by anyone but me
+        # it's just so I can easily avoid ../../../../../ mess
         system = import ./system;
       } // import ./modules;
 
