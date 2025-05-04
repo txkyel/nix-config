@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   ...
 }:
@@ -14,7 +13,6 @@
   };
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
-    inputs.ow-mod-man.overlays.default
     (self: super: {
       file-patched = super.file.overrideAttrs (old: {
         patches = old.patches or [ ] ++ [
