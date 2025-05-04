@@ -14,5 +14,6 @@
     ./desktop-entries.nix
     ./scripts
     ./rofi.nix
+    ./yazi.nix
   ];
 }
