@@ -20,6 +20,7 @@
         # This module is not meant to be imported by anyone but me
         # it's just so I can easily avoid ../../../../../ mess
         system = import ./system;
+        packages = import ./packages;
       } // import ./modules;
 
       nixosConfigurations = import ./hosts inputs;
