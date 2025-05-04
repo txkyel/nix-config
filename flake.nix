@@ -11,39 +11,15 @@
         "aarch64-linux"
         "x86_64-linux"
       ];
-      system = "x86_64-linux";
-      username = "kyle";
     in
     {
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
 
-      nixosConfigurations = {
-        desktop = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            host = "desktop";
-            inherit inputs username;
-          };
-          modules = [
-            ./modules
-            ./hosts/desktop
-            ./system
-          ];
-        };
-
-        x230 = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            host = "x230";
-            inherit inputs username;
-          };
-          modules = [
-            ./modules
-            ./hosts/x230
-            ./system
-          ];
-        };
+      nixosModules = {
+        system = import ./system;
       };
+
+      nixosConfigurations = import ./hosts inputs;
     };
 
   inputs = {
