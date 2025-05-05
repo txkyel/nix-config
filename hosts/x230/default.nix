@@ -9,7 +9,6 @@
 {
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x230
-    inputs.kmonad.nixosModules.default
     ./hardware-configuration.nix
   ];
 

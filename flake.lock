@@ -568,28 +568,6 @@
         "type": "github"
       }
     },
-    "kmonad": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "dir": "nix",
-        "lastModified": 1745943271,
-        "narHash": "sha256-PwQ/1yPHAisngQN/4J9TzPjvpuLOK9yq81LCHF3XK3Y=",
-        "owner": "kmonad",
-        "repo": "kmonad",
-        "rev": "4c0314638a604b8c61cf9bdc0f40e1ebc2c6fa8c",
-        "type": "github"
-      },
-      "original": {
-        "dir": "nix",
-        "owner": "kmonad",
-        "repo": "kmonad",
-        "type": "github"
-      }
-    },
     "mnw": {
       "locked": {
         "lastModified": 1745705214,
@@ -940,7 +918,6 @@
         "hypridle": "hypridle",
         "hyprland": "hyprland",
         "hyprlock": "hyprlock",
-        "kmonad": "kmonad",
         "niri": "niri",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
