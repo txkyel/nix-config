@@ -231,9 +231,9 @@ binds {
     XF86AudioStop  { spawn "sh" "-c" "playerctl stop"; }
     
     XF86MonBrightnessUp    { spawn "sh" "-c" "brightnessctl set +10%"; }
-    XF86MonBrightnessDown  { spawn "sh" "-c" "brightnessctl set +10%"; }
-    XF86KbdBrightnessDown  { spawn "sh" "-c" "brightnessctl -d *::kbd_backlight set 30%-"; }
+    XF86MonBrightnessDown  { spawn "sh" "-c" "brightnessctl set 10%-"; }
     XF86KbdBrightnessUp    { spawn "sh" "-c" "brightnessctl -d *::kbd_backlight set +30%"; }
+    XF86KbdBrightnessDown  { spawn "sh" "-c" "brightnessctl -d *::kbd_backlight set 30%-"; }
 
     Mod+O { toggle-overview; }
     
