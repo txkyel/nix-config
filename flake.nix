@@ -66,9 +66,5 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    ow-mod-man = {
-      url = "github:ow-mods/ow-mod-man";
-    };
   };
 }

@@ -781,22 +781,6 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_4": {
-      "locked": {
-        "lastModified": 1737717945,
-        "narHash": "sha256-ET91TMkab3PmOZnqiJQYOtSGvSTvGeHoegAv4zcTefM=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "ecd26a469ac56357fd333946a99086e992452b6a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nvf": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -819,24 +803,6 @@
       "original": {
         "owner": "notashelf",
         "repo": "nvf",
-        "type": "github"
-      }
-    },
-    "ow-mod-man": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_4"
-      },
-      "locked": {
-        "lastModified": 1737809378,
-        "narHash": "sha256-NIg8heytWUshpoUbaH+RFIvwPBQGXL6yaGKvUuGnxg8=",
-        "owner": "ow-mods",
-        "repo": "ow-mod-man",
-        "rev": "c15a09abb379f16c9d39652c8e3768fe2179d6eb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ow-mods",
-        "repo": "ow-mod-man",
         "type": "github"
       }
     },
@@ -922,7 +888,6 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
         "nvf": "nvf",
-        "ow-mod-man": "ow-mod-man",
         "pyprland": "pyprland"
       }
     },
