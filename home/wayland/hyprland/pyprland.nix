@@ -1,6 +1,6 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
-  home.packages = [ inputs.pyprland.packages.${pkgs.system}.pyprland ];
+  home.packages = [ pkgs.pyprland ];
 
   xdg.configFile."hypr/pyprland.toml".text = ''
     [pyprland]
