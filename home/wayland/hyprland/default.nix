@@ -5,8 +5,6 @@
 {
   imports = [
     ./hyprland.nix
-    ./hypridle.nix
-    ./hyprlock.nix
     ./pyprland.nix
     ./xdph.nix
   ];

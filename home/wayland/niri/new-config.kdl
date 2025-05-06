@@ -208,7 +208,7 @@ binds {
     Mod+Return       { spawn "sh" "-c" "kitty"; }
     Mod+D            { spawn "sh" "-c" "pkill rofi || rofi -show drun -modi drun,filebrowser,run,window"; }
     Ctrl+Alt+P       { spawn "sh" "-c" "pkill wlogout || wlogout"; }
-    Ctrl+Alt+L       { spawn "sh" "-c" "pgrep hyprlock || hyprlock -q"; }
+    Ctrl+Alt+L       { spawn "sh" "-c" "loginctl lock-session"; }
     Mod+Q            { close-window; }
     Ctrl+Alt+Delete  { quit; }
     

@@ -13,7 +13,7 @@ in
     enable = true;
     settings = {
       general = {
-        lock_cmd = "pgrep hyprlock || ${lib.getExe config.programs.hyprlock.package}";
+        lock_cmd = "pgrep hyprlock || niri msg action do-screen-transition && ${lib.getExe config.programs.hyprlock.package}";
         before_sleep_cmd = lock;
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
