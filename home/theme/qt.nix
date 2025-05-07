@@ -12,6 +12,7 @@
   };
 
   home.packages = with pkgs; [
+    colloid-kde
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qt5ct
     qt6Packages.qtstyleplugin-kvantum
@@ -20,10 +21,10 @@
 
   xdg.configFile = {
     "Kvantum/kvantum.kvconfig".text = lib.generators.toINI { } {
-      General.theme = "LayanSolidDark";
+      General.theme = "ColloidDark";
     };
     "Kvantum" = {
-      source = "${./Kvantum}";
+      source = "${pkgs.colloid-kde}/share/Kvantum";
       recursive = true;
     };
     "qt5ct/qt5ct.conf".text = lib.generators.toINI { } {
