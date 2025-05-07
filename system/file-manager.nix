@@ -15,9 +15,7 @@
     systemPackages = with pkgs; [
       nautilus
       nautilus-python
-      # video thumbnails
-      ffmpegthumbnailer
-      totem # I hate this
+      totem # I hate this but this is how we get audio/video thumbnails
     ];
   };
 
