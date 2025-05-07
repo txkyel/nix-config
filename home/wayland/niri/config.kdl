@@ -34,6 +34,8 @@ output "DP-3" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     center-focused-column "never"
+    always-center-single-column
+    empty-workspace-above-first
 
     gaps 10
     struts {
