@@ -35,7 +35,7 @@ output "DP-3" {
 layout {
     center-focused-column "never"
 
-    gaps 8
+    gaps 10
     struts {
         // left 64
         // right 64
@@ -55,12 +55,12 @@ layout {
     }
     default-column-width { proportion 0.5; }
 
-    focus-ring {
-        width 2
+    focus-ring { off; }
+    border {
+        width 4
         active-color "#7fc8ff"
-        inactive-color "#505050"
+        inactive-color "#0000"
     }
-    border { off; }
 
     shadow {
         on
@@ -155,7 +155,7 @@ animations {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 window-rule {
-    geometry-corner-radius 4
+    geometry-corner-radius 8
     clip-to-geometry true
 }
 window-rule {
@@ -184,7 +184,7 @@ layer-rule {
 }
 window-rule {  // Indicate screencasted windows with red colors
     match is-window-cast-target=true
-    focus-ring {
+    border {
         active-color "#f38ba8"
         inactive-color "#7d0d2d"
     }
