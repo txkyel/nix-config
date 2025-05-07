@@ -58,8 +58,12 @@ layout {
     focus-ring { off; }
     border {
         width 3
-        active-color "#7fc8ff"
+        active-color "#3c84f7"
         inactive-color "#5559"
+    }
+
+    insert-hint {
+        color "#3c84f780"
     }
 
     shadow {
@@ -190,11 +194,11 @@ layer-rule {
 window-rule {  // Indicate screencasted windows with red colors
     match is-window-cast-target=true
     border {
-        active-color "#f38ba8"
-        inactive-color "#7d0d2d"
+        active-color "#fd5f51"
+        inactive-color "#e53935"
     }
     shadow {
-        color "#7d0d2d70"
+        color "#fd5f5180"
     }
 }
 
