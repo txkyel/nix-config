@@ -181,6 +181,11 @@ window-rule {
     match app-id="mpv"
     opacity 1.0
 }
+window-rule { // Float all qbittorrent windows except the main client
+    match app-id="q[bB]ittorrent"
+    exclude title="q[bB]ittorrent"
+    open-floating true
+}
 
 // screencast rules
 window-rule {
