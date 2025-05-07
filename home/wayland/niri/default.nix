@@ -1,3 +1,3 @@
 {
-  xdg.configFile."niri/config.kdl".source = ./new-config.kdl;
+  xdg.configFile."niri/config.kdl".source = ./config.kdl;
 }
