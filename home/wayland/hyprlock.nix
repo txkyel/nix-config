@@ -7,13 +7,8 @@
     enable = true;
     settings = {
       animations = {
-        bezier = [
-          "md3_decel, 0.05, 0.7, 0.1, 1"
-          "md3_accel, 0.3, 0, 0.8, 0.15"
-        ];
         animation = [
-          "fadeIn, 1, 2, md3_accel"
-          "fadeOut, 1, 3, md3_decel"
+          "fade, 0"
         ];
       };
 
