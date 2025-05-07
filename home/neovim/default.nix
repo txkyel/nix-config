@@ -46,6 +46,11 @@ let
             };
           };
 
+          diagnostics = {
+            enable = true;
+            config.virtual_lines = true;
+          };
+
           autocomplete.nvim-cmp.enable = true;
           autopairs.nvim-autopairs.enable = true;
           binds = {
