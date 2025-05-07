@@ -17,6 +17,7 @@
       nautilus-python
       # video thumbnails
       ffmpegthumbnailer
+      totem # I hate this
     ];
   };
 
