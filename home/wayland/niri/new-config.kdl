@@ -172,6 +172,11 @@ window-rule {  // Steam notifs in the bottom right
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
     default-floating-position x=10 y=10 relative-to="bottom-right"
 }
+window-rule {
+    match title="[Yy]ou[Tt]ube"
+    match app-id="mpv"
+    opacity 1.0
+}
 
 // screencast rules
 window-rule {
