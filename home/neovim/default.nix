@@ -108,4 +108,19 @@ let
 in
 {
   home.packages = [ customNeovim.neovim ];
+
+  # Work around for the exec being `nvim "%F"` screwing with how files open
+  xdg.desktopEntries.nvim = {
+    name = "Neovim";
+    icon = "nvim";
+    exec = "nvim %F";
+    comment = "Edit text files";
+    categories = [ "TextEditor" ];
+    terminal = true;
+    mimeType = [ "text/plain" ];
+    settings = {
+      TryExec = "nvim";
+      Keywords = "Text;editor;";
+    };
+  };
 }
