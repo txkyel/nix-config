@@ -8,8 +8,15 @@
     wget
     zip
     unzip
-    alacritty
-    fuzzel
+    kitty
     xwayland-satellite
   ];
+
+  # Set default terminal
+  xdg.terminal-exec = {
+    enable = true;
+    settings = {
+      default = [ "kitty.desktop" ];
+    };
+  };
 }
