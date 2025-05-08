@@ -3,7 +3,7 @@
     {
       vesktop = {
         name = "Vesktop";
-        exec = "vesktop %U --enable-blink-features=MiddleClickAutoscroll";
+        exec = "vesktop %U --wayland-text-input-version=3";
         icon = "vesktop";
         genericName = "Internet Messenger";
         categories = [
