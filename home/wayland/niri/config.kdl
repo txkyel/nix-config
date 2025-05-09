@@ -60,12 +60,12 @@ layout {
     focus-ring { off; }
     border {
         width 3
-        active-color "#3c84f7"
+        active-color "#5b9bf8"
         inactive-color "#5559"
     }
 
     insert-hint {
-        color "#3c84f780"
+        color "#5b9bf880"
     }
 
     shadow {
