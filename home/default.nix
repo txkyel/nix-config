@@ -5,6 +5,7 @@
     ./theme
     ./wayland
     ./neovim
+    ./ags
     ./anki.nix
     ./browser.nix
     ./git.nix
