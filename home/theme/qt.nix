@@ -4,6 +4,16 @@
   lib,
   ...
 }:
+let
+  qtctConf = {
+    Appearance = {
+      custom_palette = false;
+      icon_theme = config.gtk.iconTheme.name;
+      standard_dialogs = "xdgdesktopportal";
+      style = "kvantum";
+    };
+  };
+in
 {
   qt = {
     enable = true;
@@ -27,14 +37,7 @@
       source = "${pkgs.colloid-kde}/share/Kvantum";
       recursive = true;
     };
-    "qt5ct/qt5ct.conf".text = lib.generators.toINI { } {
-      Apprearance = {
-        custom_palette = false;
-        icon_theme = config.gtk.iconTheme.name;
-        standard_dialogs = "xdgdesktopportal";
-        style = "kvantum";
-      };
-    };
-    "qt6ct/qt6ct.conf".text = config.xdg.configFile."qt5ct/qt5ct.conf".text;
+    "qt5ct/qt5ct.conf".text = lib.generators.toINI { } qtctConf;
+    "qt6ct/qt6ct.conf".text = lib.generators.toINI { } qtctConf;
   };
 }
