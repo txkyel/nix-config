@@ -19,4 +19,5 @@ The eventual goal is to build widgets to my custom spec without having to rely o
 
 - https://github.com/Jas-SinghFSU/HyprPanel
 - https://github.com/fufexan/dotfiles/tree/main/home/services/ags
+- https://github.com/end-4/dots-hyprland
 - ...
