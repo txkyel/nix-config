@@ -221,10 +221,10 @@ binds {
     // `niri msg action do-something`.
 
     Mod+Shift+Slash  { show-hotkey-overlay; }
-    Mod+Return       { spawn "sh" "-c" "kitty"; }
-    Mod+D            { spawn "sh" "-c" "pkill rofi || rofi -show drun -modi drun,filebrowser,run,window"; }
+    Mod+Return       { spawn "kitty"; }
+    Mod+D            hotkey-overlay-title="Spawn <span face='monospace' bgcolor='#000000'>rofi</span>" { spawn "sh" "-c" "pkill rofi || rofi -show drun -modi drun,filebrowser,run,window"; }
     Ctrl+Alt+P       { spawn "sh" "-c" "pkill wlogout || wlogout"; }
-    Ctrl+Alt+L       { spawn "sh" "-c" "loginctl lock-session"; }
+    Ctrl+Alt+L       { spawn "loginctl" "lock-session"; }
     Mod+Q            { close-window; }
     Ctrl+Alt+Delete  { quit; }
     
@@ -235,21 +235,21 @@ binds {
     Mod+P        { screenshot-screen; }
     Mod+Ctrl+P   { screenshot-window; }
     
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "sh" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "sh" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
     
-    XF86AudioPlay  { spawn "sh" "-c" "playerctl play-pause"; }
-    XF86AudioPause { spawn "sh" "-c" "playerctl play-pause"; }
-    XF86AudioNext  { spawn "sh" "-c" "playerctl next"; }
-    XF86AudioPrev  { spawn "sh" "-c" "playerctl previous"; }
-    XF86AudioStop  { spawn "sh" "-c" "playerctl stop"; }
+    XF86AudioPlay  { spawn "playerctl" "play-pause"; }
+    XF86AudioPause { spawn "playerctl" "play-pause"; }
+    XF86AudioNext  { spawn "playerctl" "next"; }
+    XF86AudioPrev  { spawn "playerctl" "previous"; }
+    XF86AudioStop  { spawn "playerctl" "stop"; }
     
-    XF86MonBrightnessUp    { spawn "sh" "-c" "brightnessctl set +10%"; }
-    XF86MonBrightnessDown  { spawn "sh" "-c" "brightnessctl set 10%-"; }
-    XF86KbdBrightnessUp    { spawn "sh" "-c" "brightnessctl -d *::kbd_backlight set +30%"; }
-    XF86KbdBrightnessDown  { spawn "sh" "-c" "brightnessctl -d *::kbd_backlight set 30%-"; }
+    XF86MonBrightnessUp    { spawn "brightnessctl" "set" "+10%"; }
+    XF86MonBrightnessDown  { spawn "brightnessctl" "set" "10%-"; }
+    XF86KbdBrightnessUp    { spawn "brightnessctl" "-d" "*::kbd_backlight" "set" "+30%"; }
+    XF86KbdBrightnessDown  { spawn "brightnessctl" "-d" "*::kbd_backlight" "set" "30%-"; }
 
     Mod+O { toggle-overview; }
     
@@ -281,18 +281,18 @@ binds {
     Mod+L               { focus-column-right; }
     Alt+Tab             { focus-window-down-or-column-right; }
     Alt+Shift+Tab       { focus-window-up-or-column-left; }
-    Mod+WheelScrollUp   { focus-column-left; }
-    Mod+WheelScrollDown { focus-column-right; }
-    Mod+Shift+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
-    Mod+Shift+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp           { focus-column-left; }
+    Mod+WheelScrollDown         { focus-column-right; }
+    Mod+Shift+WheelScrollUp     cooldown-ms=150 { focus-workspace-up; }
+    Mod+Shift+WheelScrollDown   cooldown-ms=150 { focus-workspace-down; }
     
     // Move column/window in or between workspace
     Mod+Ctrl+H                { move-column-left; }
     Mod+Ctrl+J                { move-window-down-or-to-workspace-down; }
     Mod+Ctrl+K                { move-window-up-or-to-workspace-up; }
     Mod+Ctrl+L                { move-column-right; }
-    Mod+Ctrl+WheelScrollUp    { move-column-left; }
-    Mod+Ctrl+WheelScrollDown  { move-column-right; }
+    Mod+Ctrl+WheelScrollUp          { move-column-left; }
+    Mod+Ctrl+WheelScrollDown        { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp    cooldown-ms=150 { move-column-to-workspace-up; }
     Mod+Ctrl+Shift+WheelScrollDown  cooldown-ms=150 { move-column-to-workspace-down; }
     
