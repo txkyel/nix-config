@@ -9,7 +9,7 @@
     # Reduce journald disk usage for faster boot time
     journald.extraConfig = "SystemMaxUse=50M";
     udev.extraRules = ''
-      KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="plugdev"
+      KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", TAG+="uaccess", TAG+="udev-acl"
     '';
   };
 }
