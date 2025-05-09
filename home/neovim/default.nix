@@ -20,6 +20,7 @@ let
             shiftwidth = 4;
             tabstop = 4;
             wrap = false;
+            scrolloff = 10;
           };
 
           lsp = {
@@ -35,6 +36,7 @@ let
             enableTreesitter = true;
 
             bash.enable = true;
+            ts.enable = true;
             nix = {
               enable = true;
               lsp.server = "nixd";
