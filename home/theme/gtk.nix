@@ -6,7 +6,7 @@
 let
   cursor-theme-name = "Bibata-Modern-Ice";
   cursor-theme-pkg = pkgs.bibata-cursors;
-  icon-theme-name = "Colloid";
+  icon-theme-name = "Colloid-Dark";
   icon-theme-pkg = pkgs.colloid-icon-theme;
   gtk-theme-name = "Colloid-Dark";
   gtk-theme-pkg = pkgs.colloid-gtk-theme;
