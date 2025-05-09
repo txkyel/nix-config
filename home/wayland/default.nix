@@ -6,7 +6,6 @@
   imports = [
     ./hyprland
     ./niri
-    ./waybar
     ./hypridle.nix
     ./hyprlock.nix
     ./wlogout.nix
