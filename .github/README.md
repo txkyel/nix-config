@@ -7,10 +7,8 @@ I want to improve robustness of my config and reduce general evaluation times.
 To that end, I'd like to reduce my desktop dependencies to as few flakes as possible to
 reduce potential sources of errors.
 
-- [ ] Reduce/remove inputs where possible
-- [ ] Investigate alternatives to home-manager to speed up evaluation times
-- [ ] Look into Astal/AGS to replace waybar
-- [ ] Find alternative to swaync (potentially also Astal/AGS?)
+- Investigate alternatives to home-manager to speed up evaluation times
+- Find alternative to swaync (potentially also Astal/AGS?)
 
 ## Dotfiles references: 
 
