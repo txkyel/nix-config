@@ -87,7 +87,6 @@ environment { DISPLAY ":0"; }  // Xwayland
 spawn-at-startup "sh" "-c" "swww-daemon --format xrgb"
 spawn-at-startup "sh" "-c" "wl-paste --type text --watch cliphist store"
 spawn-at-startup "sh" "-c" "wl-paste --type image --watch cliphist store"
-spawn-at-startup "sh" "-c" "waybar"
 spawn-at-startup "sh" "-c" "nm-applet --indicator"
 spawn-at-startup "sh" "-c" "fcitx5 -d -r"
 spawn-at-startup "sh" "-c" "xwayland-satellite"

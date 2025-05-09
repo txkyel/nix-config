@@ -40,7 +40,6 @@ in
 
       exec-once = [
         "swww-daemon --format xrgb"
-        "waybar"
         "nm-applet --indicator"
         "blueman-applet"
         "swaync"
