@@ -1,6 +1,6 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3";
+import Clock from "./components/Clock";
 import SysTray from "./components/SysTray";
-import Time from "./components/Time";
 
 const Bar = (gdkmonitor: Gdk.Monitor) => {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
@@ -24,7 +24,7 @@ const Bar = (gdkmonitor: Gdk.Monitor) => {
         endWidget={
           <box halign={Gtk.Align.END}>
             <SysTray />
-            <Time />
+            <Clock />
           </box>
         }
       />
