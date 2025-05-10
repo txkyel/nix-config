@@ -11,11 +11,12 @@ const SysTray = () => (
         <menubutton
           tooltipMarkup={bind(item, "tooltipMarkup")}
           menuModel={bind(item, "menuModel")}
-          setup={(self) =>
+          setup={(self) => {
             hook(self, item, "notify::action-group", () =>
               self.insert_action_group("dbusmenu", item.action_group),
-            )
-          }
+            );
+            self.insert_action_group("dbusmenu", item.action_group);
+          }}
         >
           <image gicon={bind(item, "gicon")} />
         </menubutton>
