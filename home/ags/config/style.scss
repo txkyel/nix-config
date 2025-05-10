@@ -2,8 +2,8 @@
 $fg-color: #{"@theme_fg_color"};
 $bg-color: #{"@theme_bg_color"};
 
-icon {
-  font-size: 20px;
+image {
+  -gtk-icon-size: 20px;
 }
 
 button {
