@@ -36,6 +36,7 @@ let
             enableTreesitter = true;
 
             bash.enable = true;
+            css.enable = true;
             ts.enable = true;
             nix = {
               enable = true;
