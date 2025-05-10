@@ -3,22 +3,22 @@ $fg-color: #{"@theme_fg_color"};
 $bg-color: #{"@theme_bg_color"};
 
 icon {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 window.Bar {
-    background: transparent;
-    color: $fg-color;
-    font-weight: bold;
+  background: transparent;
+  color: $fg-color;
+  font-weight: bold;
 
-    >centerbox {
-        background: $bg-color;
-        border-radius: 8px;
-        margin: 8px 8px 0;
-    }
+  >centerbox {
+    background: $bg-color;
+    border-radius: 8px;
+    margin: 8px 8px 0;
+  }
 
-    button {
-        border-radius: 8px;
-        margin: 2px;
-    }
+  button {
+    border-radius: 8px;
+    margin: 2px;
+  }
 }
