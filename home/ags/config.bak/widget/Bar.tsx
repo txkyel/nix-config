@@ -1,32 +1,36 @@
-import { App, Astal, Gtk, Gdk } from "astal/gtk4";
+import { App, Astal, Gtk, Gdk } from "astal/gtk3";
 import Clock from "./components/Clock";
+import SysTray from "./components/SysTray";
 
 const Bar = (gdkmonitor: Gdk.Monitor) => {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
 
   return (
     <window
-      visible
-      cssClasses={["Bar"]}
+      className="Bar"
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={TOP | LEFT | RIGHT}
       application={App}
+      margin={0}
     >
       <centerbox
-        cssName="centerbox"
         startWidget={
-          <button onClicked="echo hello" hexpand halign={Gtk.Align.START}>
+          <button onClicked="echo hello" halign={Gtk.Align.START}>
             Welcome to AGS!
           </button>
         }
         centerWidget={
-          <box hexpand halign={Gtk.Align.CENTER}>
+          <box halign={Gtk.Align.CENTER}>
             <Clock />
           </box>
         }
-        endWidget={<box hexpand halign={Gtk.Align.END} />}
-      ></centerbox>
+        endWidget={
+          <box halign={Gtk.Align.END}>
+            <SysTray />
+          </box>
+        }
+      />
     </window>
   );
 };
