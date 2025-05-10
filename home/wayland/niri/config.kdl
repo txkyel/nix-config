@@ -84,13 +84,13 @@ environment { DISPLAY ":0"; }  // Xwayland
 
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
-spawn-at-startup "sh" "-c" "swww-daemon --format xrgb"
-spawn-at-startup "sh" "-c" "wl-paste --type text --watch cliphist store"
-spawn-at-startup "sh" "-c" "wl-paste --type image --watch cliphist store"
-spawn-at-startup "sh" "-c" "nm-applet --indicator"
-spawn-at-startup "sh" "-c" "fcitx5 -d -r"
-spawn-at-startup "sh" "-c" "xwayland-satellite"
-spawn-at-startup "sh" "-c" "corectrl --minimize-systray"
+spawn-at-startup "swww-daemon" "--format xrgb"
+spawn-at-startup "wl-paste" "--type text" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type image" "--watch" "cliphist" "store"
+spawn-at-startup "nm-applet" "--indicator"
+spawn-at-startup "fcitx5" "-d" "-r"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "corectrl" "--minimize-systray"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 
