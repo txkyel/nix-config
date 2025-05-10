@@ -2,25 +2,24 @@
 $fg-color: #{"@theme_fg_color"};
 $bg-color: #{"@theme_bg_color"};
 
-image {
-  -gtk-icon-size: 20px;
+* {
+  font-weight: bold;
+  font-family: "JetBrainsMono Nerd Font";
+  outline: none; // Disable outline on focusable elements
 }
 
 button {
-  // Figure out where the outline rule is coming from
-  outline: none;
+  background-color: $bg-color;
   border-radius: 8px;
   margin: 2px;
 }
 
 window.Bar {
-  background: transparent;
   color: $fg-color;
-  font-weight: bold;
-  font-family: "JetBrainsMono Nerd Font";
+  background: transparent;
 
   >centerbox {
-    background: $bg-color;
+    background-color: $bg-color;
     border-radius: 8px;
     margin: 8px 8px 0;
   }
