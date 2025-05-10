@@ -20,11 +20,14 @@ const Bar = (gdkmonitor: Gdk.Monitor) => {
             Welcome to AGS!
           </button>
         }
-        centerWidget={undefined}
+        centerWidget={
+          <box halign={Gtk.Align.CENTER}>
+            <Clock />
+          </box>
+        }
         endWidget={
           <box halign={Gtk.Align.END}>
             <SysTray />
-            <Clock />
           </box>
         }
       />
