@@ -40,6 +40,7 @@ in
 
       exec-once = [
         "swww-daemon --format xrgb"
+        "ags run --gtk4"
         "nm-applet --indicator"
         "blueman-applet"
         "swaync"

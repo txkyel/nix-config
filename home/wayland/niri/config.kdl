@@ -85,6 +85,7 @@ environment { DISPLAY ":0"; }  // Xwayland
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 spawn-at-startup "swww-daemon" "--format" "xrgb"
+spawn-at-startup "ags" "run" "--gtk4"
 spawn-at-startup "wl-paste" "--type text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type image" "--watch" "cliphist" "store"
 spawn-at-startup "nm-applet" "--indicator"
