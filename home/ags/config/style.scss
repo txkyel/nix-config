@@ -29,8 +29,8 @@ window.Bar {
     padding: 2px;
 
     .sys-tray {
-      .tray-item {
-        padding: 0;
+      menubutton.tray-item button {
+        padding: 4px;
         margin: 0;
       }
     }
