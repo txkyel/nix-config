@@ -31,7 +31,7 @@ const Bar = (gdkmonitor: Gdk.Monitor) => {
             <SysTray />
           </box>
         }
-      ></centerbox>
+      />
     </window>
   );
 };

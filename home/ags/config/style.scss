@@ -11,16 +11,27 @@ $bg-color: #{"@theme_bg_color"};
 button {
   background-color: $bg-color;
   border-radius: 8px;
-  margin: 2px;
 }
 
 window.Bar {
   color: $fg-color;
   background: transparent;
 
+  image {
+    padding: 0 2px;
+    -gtk-icon-size: 1.25em;
+  }
+
   >centerbox {
     background-color: $bg-color;
     border-radius: 8px;
     margin: 8px 8px 0;
+
+    .sys-tray {
+      .tray-item {
+        padding: 0;
+        margin: 0;
+      }
+    }
   }
 }

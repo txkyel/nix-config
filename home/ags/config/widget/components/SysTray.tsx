@@ -5,10 +5,11 @@ import Tray from "gi://AstalTray";
 const tray = Tray.get_default();
 
 const SysTray = () => (
-  <box>
+  <box cssClasses={["sys-tray"]}>
     {bind(tray, "items").as((items) =>
       items.map((item) => (
         <menubutton
+          cssClasses={["tray-item"]}
           tooltipMarkup={bind(item, "tooltipMarkup")}
           menuModel={bind(item, "menuModel")}
           setup={(self) => {
@@ -18,7 +19,7 @@ const SysTray = () => (
             self.insert_action_group("dbusmenu", item.action_group);
           }}
         >
-          <image gicon={bind(item, "gicon")} />
+          <image cssClasses={["tray-icon"]} gicon={bind(item, "gicon")} />
         </menubutton>
       )),
     )}
