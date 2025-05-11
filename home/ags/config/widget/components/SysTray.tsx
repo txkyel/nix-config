@@ -1,5 +1,5 @@
 import { bind } from "astal";
-import { hook, Gdk, Gtk } from "astal/gtk4";
+import { Gdk, Gtk } from "astal/gtk4";
 import AstalTray from "gi://AstalTray";
 
 const tray = AstalTray.get_default();
@@ -13,10 +13,7 @@ const TrayItem = ({ item }: { item: AstalTray.TrayItem }) => {
       popover={popover}
       cssClasses={["tray-item"]}
       tooltipMarkup={bind(item, "tooltipMarkup")}
-      menuModel={bind(item, "menuModel")}
-      setup={(self) => {
-        self.insert_action_group("dbusmenu", item.action_group);
-      }}
+      setup={(self) => self.insert_action_group("dbusmenu", item.action_group)}
     >
       <image cssClasses={["tray-icon"]} gicon={bind(item, "gicon")} />
     </menubutton>
@@ -48,12 +45,8 @@ const TrayItem = ({ item }: { item: AstalTray.TrayItem }) => {
         return false;
       }
 
-      if (mouseButton == Gdk.BUTTON_PRIMARY) {
-        if (item.is_menu) {
-          button.popup();
-        } else {
-          item.activate(x, y);
-        }
+      if (mouseButton == Gdk.BUTTON_PRIMARY && !item.is_menu) {
+        item.activate(x, y);
       } else if (mouseButton == Gdk.BUTTON_MIDDLE) {
         item.secondary_activate(x, y);
       } else {
