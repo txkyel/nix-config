@@ -6,7 +6,7 @@ const time = Variable("").poll(1000, "date +' %H:%M:%S   %d %b, %a'");
 const Clock = () => (
   <menubutton>
     <label label={time()} />
-    <popover>
+    <popover hasArrow={false}>
       <Gtk.Calendar />
     </popover>
   </menubutton>
