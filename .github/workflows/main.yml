@@ -5,7 +5,7 @@ on:
   schedule:
     # Update every Tuesday
     # I wish doing 2#2 worked to have this run every 2nd Tuesday
-    - cron: "0 0 * * 2"
+    - cron: "0 12 * * 1"
 
   workflow_dispatch:
 
