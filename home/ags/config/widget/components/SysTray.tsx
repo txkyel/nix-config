@@ -8,6 +8,7 @@ const tray = AstalTray.get_default();
 // TODO: understand code and refactor
 const TrayItem = ({ item }: { item: AstalTray.TrayItem }) => {
   const popover = Gtk.PopoverMenu.new_from_model(item.menuModel);
+  popover.has_arrow = false;
   const button = (
     <menubutton
       popover={popover}
