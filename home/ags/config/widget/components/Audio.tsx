@@ -3,8 +3,6 @@ import { Gdk } from "astal/gtk4";
 import AstalWp from "gi://AstalWp";
 import AstalBluetooth from "gi://AstalBluetooth";
 
-const getVolume = (value: number) => Math.min(Math.max(value, 0), 1);
-
 // Copied from https://github.com/Abaan404/dotfiles/blob/b1c5c2ac61be32b8e0a1649f0a17e1a2d323e48b/config/ags/windows/Bar.tsx#L200
 // TODO: understand and simplify code
 const AudioControl = () => {
@@ -35,17 +33,13 @@ const AudioControl = () => {
     return (
       <button
         onScroll={(_1, _2, dy) =>
-          endpoint?.set_volume(getVolume(endpoint.get_volume() - dy / 15))
+          endpoint?.set_volume(
+            Math.min(Math.max(endpoint.get_volume() - dy / 15, 0), 1),
+          )
         }
-        onButtonPressed={(_, e) => {
-          switch (e.get_button()) {
-            case Gdk.BUTTON_MIDDLE:
-              endpoint?.set_mute(!endpoint.get_mute());
-              break;
-
-            default:
-              break;
-          }
+        onButtonPressed={(_, event) => {
+          if (event.get_button() === Gdk.BUTTON_PRIMARY)
+            endpoint?.set_mute(!endpoint.get_mute());
         }}
         onDestroy={() => {
           volume.drop();
@@ -114,7 +108,7 @@ const AudioControl = () => {
   return (
     <box
       cssClasses={class_names()}
-      spacing={3}
+      spacing={4}
       onDestroy={() => {
         speaker_glyph.drop();
         microphone_glyph.drop();

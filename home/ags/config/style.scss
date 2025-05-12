@@ -3,7 +3,6 @@ $fg-color: #{"@theme_fg_color"};
 $bg-color: #{"@theme_bg_color"};
 
 * {
-  font-weight: bold;
   font-family: "JetBrainsMono Nerd Font";
   outline: none; // Disable outline on focusable elements
 }
@@ -17,9 +16,14 @@ window.Bar {
   color: $fg-color;
   background: transparent;
 
+  button {
+    padding: 4px;
+    margin: 0;
+  }
+
   image {
     padding: 0 2px;
-    -gtk-icon-size: 1.25em;
+    -gtk-icon-size: 1.3em;
   }
 
   >centerbox {
@@ -27,12 +31,5 @@ window.Bar {
     border-radius: 8px;
     margin: 8px 8px 0;
     padding: 2px;
-
-    .sys-tray {
-      menubutton.tray-item button {
-        padding: 4px;
-        margin: 0;
-      }
-    }
   }
 }

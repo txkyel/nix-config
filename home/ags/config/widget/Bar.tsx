@@ -28,8 +28,9 @@ const Bar = (gdkmonitor: Gdk.Monitor) => {
           </box>
         }
         endWidget={
-          <box hexpand halign={Gtk.Align.END}>
+          <box spacing={10} hexpand halign={Gtk.Align.END}>
             <AudioControl />
+            <label label={"|"} />
             <SysTray />
           </box>
         }
