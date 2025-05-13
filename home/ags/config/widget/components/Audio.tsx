@@ -1,12 +1,10 @@
 import { bind, Variable } from "astal";
 import { Gdk } from "astal/gtk4";
 import AstalWp from "gi://AstalWp";
-import AstalBluetooth from "gi://AstalBluetooth";
 
 // Copied from https://github.com/Abaan404/dotfiles/blob/b1c5c2ac61be32b8e0a1649f0a17e1a2d323e48b/config/ags/windows/Bar.tsx#L200
 // TODO: understand and simplify code
 const AudioControl = () => {
-  const bluetooth = AstalBluetooth.get_default();
   const audio = AstalWp.get_default()?.get_audio();
 
   function EndpointWidget({
@@ -63,22 +61,11 @@ const AudioControl = () => {
 
   if (audio) {
     if (speaker) {
-      class_names = Variable.derive(
-        [bind(bluetooth, "is_connected"), bind(speaker, "mute")],
-        (is_connected, mute) => {
-          const ret = ["audio"];
-
-          if (is_connected) {
-            ret.push("bluetooth");
-          }
-
-          if (mute) {
-            ret.push("muted");
-          }
-
-          return ret;
-        },
-      );
+      class_names = Variable.derive([bind(speaker, "mute")], (mute) => {
+        const ret = ["audio"];
+        if (mute) ret.push("muted");
+        return ret;
+      });
 
       speaker_glyph = Variable.derive(
         [bind(speaker, "volume"), bind(speaker, "mute")],
