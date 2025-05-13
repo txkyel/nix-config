@@ -9,7 +9,8 @@
     zip
     unzip
     kitty
-    xwayland-satellite
+    qmk-udev-rules
+    vial
   ];
 
   # Set default terminal
