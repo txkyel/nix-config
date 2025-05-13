@@ -47,7 +47,7 @@ const AudioControl = () => {
         }}
       >
         <box cssClasses={["sink"]} spacing={spacing}>
-          <label label={glyph()} />
+          <image icon_name={glyph()} />
           <label label={volume()} visible={visible()} />
         </box>
       </button>
@@ -58,8 +58,8 @@ const AudioControl = () => {
   const microphone = audio?.get_default_microphone();
 
   let class_names = Variable(["audio", "muted"]);
-  let speaker_glyph = Variable("󰖁 ");
-  let microphone_glyph = Variable(" ");
+  let speaker_glyph = Variable("auidio-volume-muted");
+  let microphone_glyph = Variable("");
 
   if (audio) {
     if (speaker) {
@@ -81,26 +81,22 @@ const AudioControl = () => {
       );
 
       speaker_glyph = Variable.derive(
-        [bind(speaker, "icon"), bind(speaker, "volume"), bind(speaker, "mute")],
-        (icon, volume, mute) => {
-          if (icon.includes("headset")) {
-            return " ";
-          } else if (mute) {
-            return "󰝟 ";
-          } else {
-            return ["󰖀 ", "󰕾 "][Math.floor(volume)];
-          }
+        [bind(speaker, "volume"), bind(speaker, "mute")],
+        (volume, mute) => {
+          if (mute) return "audio-volume-muted";
+          return [
+            "audio-volume-low",
+            "audio-volume-medium",
+            "audio-volume-high",
+          ][Math.min(Math.floor(volume * 3), 2)];
         },
       );
     }
 
     if (microphone) {
       microphone_glyph = Variable.derive([bind(microphone, "mute")], (mute) => {
-        if (mute) {
-          return " ";
-        } else {
-          return " ";
-        }
+        if (mute) return "mic-off";
+        return "mic-on";
       });
     }
   }
