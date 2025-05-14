@@ -10,11 +10,9 @@ const AudioControl = () => {
   function EndpointWidget({
     endpoint,
     glyph,
-    spacing,
   }: {
     endpoint?: AstalWp.Endpoint | null;
     glyph: Variable<string>;
-    spacing: number;
   }) {
     let volume = Variable("0%");
     let visible = Variable(false);
@@ -44,7 +42,7 @@ const AudioControl = () => {
           visible.drop();
         }}
       >
-        <box cssClasses={["sink"]} spacing={spacing}>
+        <box cssClasses={["sink"]} spacing={2}>
           <image icon_name={glyph()} />
           <label label={volume()} visible={visible()} />
         </box>
@@ -98,12 +96,8 @@ const AudioControl = () => {
         class_names.drop();
       }}
     >
-      <EndpointWidget endpoint={speaker} glyph={speaker_glyph} spacing={6} />
-      <EndpointWidget
-        endpoint={microphone}
-        glyph={microphone_glyph}
-        spacing={1}
-      />
+      <EndpointWidget endpoint={speaker} glyph={speaker_glyph} />
+      <EndpointWidget endpoint={microphone} glyph={microphone_glyph} />
     </box>
   );
 };
