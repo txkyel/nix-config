@@ -14,8 +14,8 @@ in
   };
 
   home.packages = [ icon-theme-pkg ];
-  xdg.dataFile."icons/Icon-Overrides/apps" = {
-    source = ./app-icons;
+  xdg.dataFile."icons/Icon-Overrides/" = {
+    source = ./icons;
     recursive = true;
   };
   xdg.dataFile."icons/Icon-Overrides/index.theme".text =
