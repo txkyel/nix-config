@@ -6,6 +6,8 @@
 let
   cursor-theme-name = "Bibata-Modern-Ice";
   cursor-theme-pkg = pkgs.bibata-cursors;
+  icon-theme-name = "Colloid-Dark";
+  icon-theme-pkg = pkgs.colloid-icon-theme;
   gtk-theme-name = "Colloid-Dark";
   gtk-theme-pkg = pkgs.colloid-gtk-theme;
 in
@@ -28,6 +30,10 @@ in
   gtk.theme = {
     name = gtk-theme-name;
     package = gtk-theme-pkg;
+  };
+  gtk.iconTheme = {
+    name = icon-theme-name;
+    package = icon-theme-pkg;
   };
 
   # Desktop dark mode
