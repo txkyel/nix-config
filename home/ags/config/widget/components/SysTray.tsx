@@ -1,6 +1,7 @@
 import { bind } from "astal";
 import { Gdk, Gtk } from "astal/gtk4";
 import AstalTray from "gi://AstalTray";
+import { get_icon_override } from "../../utils/icon-overrides";
 
 const tray = AstalTray.get_default();
 
@@ -16,7 +17,12 @@ const TrayItem = ({ item }: { item: AstalTray.TrayItem }) => {
       tooltipMarkup={bind(item, "tooltipMarkup")}
       setup={(self) => self.insert_action_group("dbusmenu", item.action_group)}
     >
-      <image cssClasses={["tray-icon"]} gicon={bind(item, "gicon")} />
+      <image
+        cssClasses={["tray-icon"]}
+        gicon={bind(item, "gicon").as((icon) =>
+          get_icon_override(item.id, icon),
+        )}
+      />
     </menubutton>
   ) as Gtk.MenuButton;
 

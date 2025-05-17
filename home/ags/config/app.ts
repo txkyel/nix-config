@@ -13,6 +13,7 @@ function makeWindowsForMonitor(monitor: Gdk.Monitor) {
 
 App.start({
   css: style,
+  icons: "./icons",
   main() {
     const display = Gdk.Display.get_default()!;
 
