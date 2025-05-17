@@ -3,6 +3,8 @@ import { Gio } from "astal";
 const OVERRIDES = new Map<string, string>([
   ["corectrl", "corectrl-tray"],
   ["obs", "obs-tray"],
+  // TODO: figure out how to determine the icon state
+  ["???", "obs-active-tray"],
 ]);
 
 export const get_icon_override = (key: string, fallback: Gio.Icon) => {
