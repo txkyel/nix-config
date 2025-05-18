@@ -42,6 +42,12 @@ const TrayItem = ({ item }: { item: AstalTray.TrayItem }) => {
         // do this earlier for less flash-of-invalid-content
         item.about_to_show();
       }
+      console.log(item.id);
+      console.log(item.title);
+      console.log(item.icon_name);
+      console.log(item.icon_theme_path);
+      console.log(item.icon_pixbuf);
+      console.log(item.gicon);
     }
 
     if (type == Gdk.EventType.BUTTON_RELEASE) {
