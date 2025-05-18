@@ -9,6 +9,7 @@ const AudioIcon = ({ endpoint }: { endpoint: AstalWp.Endpoint }) => (
     <image iconName={bind(endpoint, "volumeIcon")} pixelSize={16} />
     <label
       label={bind(endpoint, "volume").as((vol) => `${Math.round(vol * 100)}%`)}
+      visible={bind(endpoint, "mute").as((isMuted) => !isMuted)}
     />
   </box>
 );
