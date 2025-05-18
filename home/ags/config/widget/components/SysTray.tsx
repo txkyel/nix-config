@@ -71,7 +71,9 @@ const TrayItem = ({ item }: { item: AstalTray.TrayItem }) => {
 const SysTray = () => (
   <box cssClasses={["sys-tray"]}>
     {bind(tray, "items").as((items) =>
-      items.map((item) => <TrayItem item={item} />),
+      items
+        .toSorted((a, b) => a.title.localeCompare(b.title))
+        .map((item) => <TrayItem item={item} />),
     )}
   </box>
 );
