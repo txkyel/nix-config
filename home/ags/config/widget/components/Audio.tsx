@@ -2,30 +2,19 @@ import { bind, Variable } from "astal";
 import { Gdk } from "astal/gtk4";
 import AstalWp from "gi://AstalWp";
 
-// Copied from https://github.com/Abaan404/dotfiles/blob/b1c5c2ac61be32b8e0a1649f0a17e1a2d323e48b/config/ags/windows/Bar.tsx#L200
-// TODO: understand and simplify code
+const audio = AstalWp.get_default()!.audio;
+
+const AudioIcon = ({ endpoint }: { endpoint: AstalWp.Endpoint }) => (
+  <box spacing={2}>
+    <image iconName={bind(endpoint, "volumeIcon")} />
+    <label
+      label={bind(endpoint, "volume").as((vol) => `${Math.round(vol * 100)}%`)}
+    />
+  </box>
+);
+
 const AudioControl = () => {
-  const audio = AstalWp.get_default()?.get_audio();
-
-  function EndpointWidget({
-    endpoint,
-    glyph,
-  }: {
-    endpoint?: AstalWp.Endpoint | null;
-    glyph: Variable<string>;
-  }) {
-    let volume = Variable("0%");
-    let visible = Variable(false);
-
-    if (endpoint) {
-      volume = Variable.derive(
-        [bind(endpoint, "volume")],
-        (volume) => `${Math.ceil(volume * 100)}%`,
-      );
-
-      visible = Variable.derive([bind(endpoint, "mute")], (mute) => !mute);
-    }
-
+  function EndpointWidget({ endpoint }: { endpoint: AstalWp.Endpoint }) {
     return (
       <button
         onScroll={(_1, _2, dy) =>
@@ -35,69 +24,21 @@ const AudioControl = () => {
         }
         onButtonPressed={(_, event) => {
           if (event.get_button() === Gdk.BUTTON_PRIMARY)
-            endpoint?.set_mute(!endpoint.get_mute());
-        }}
-        onDestroy={() => {
-          volume.drop();
-          visible.drop();
+            endpoint.set_mute(!endpoint.get_mute());
         }}
       >
-        <box cssClasses={["sink"]} spacing={2}>
-          <image icon_name={glyph()} />
-          <label label={volume()} visible={visible()} />
-        </box>
+        <AudioIcon endpoint={endpoint} />
       </button>
     );
   }
 
-  const speaker = audio?.get_default_speaker();
-  const microphone = audio?.get_default_microphone();
-
-  let class_names = Variable(["audio", "muted"]);
-  let speaker_glyph = Variable("auidio-volume-muted");
-  let microphone_glyph = Variable("");
-
-  if (audio) {
-    if (speaker) {
-      class_names = Variable.derive([bind(speaker, "mute")], (mute) => {
-        const ret = ["audio"];
-        if (mute) ret.push("muted");
-        return ret;
-      });
-
-      speaker_glyph = Variable.derive(
-        [bind(speaker, "volume"), bind(speaker, "mute")],
-        (volume, mute) => {
-          if (mute) return "audio-volume-muted";
-          return [
-            "audio-volume-low",
-            "audio-volume-medium",
-            "audio-volume-high",
-          ][Math.min(Math.floor(volume * 3), 2)];
-        },
-      );
-    }
-
-    if (microphone) {
-      microphone_glyph = Variable.derive([bind(microphone, "mute")], (mute) => {
-        if (mute) return "mic-off";
-        return "mic-on";
-      });
-    }
-  }
+  const speaker = audio.default_speaker;
+  const microphone = audio.default_microphone;
 
   return (
-    <box
-      cssClasses={class_names()}
-      spacing={4}
-      onDestroy={() => {
-        speaker_glyph.drop();
-        microphone_glyph.drop();
-        class_names.drop();
-      }}
-    >
-      <EndpointWidget endpoint={speaker} glyph={speaker_glyph} />
-      <EndpointWidget endpoint={microphone} glyph={microphone_glyph} />
+    <box spacing={4}>
+      <EndpointWidget endpoint={speaker} />
+      <EndpointWidget endpoint={microphone} />
     </box>
   );
 };
