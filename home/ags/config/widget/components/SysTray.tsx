@@ -22,6 +22,7 @@ const TrayItem = ({ item }: { item: AstalTray.TrayItem }) => {
         gicon={bind(item, "gicon").as((icon) =>
           get_icon_override(item.id, icon),
         )}
+        pixelSize={20}
       />
     </menubutton>
   ) as Gtk.MenuButton;

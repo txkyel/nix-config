@@ -1,4 +1,4 @@
-import { bind, Variable } from "astal";
+import { bind } from "astal";
 import { Gdk } from "astal/gtk4";
 import AstalWp from "gi://AstalWp";
 
@@ -6,7 +6,13 @@ const audio = AstalWp.get_default()!.audio;
 
 const AudioIcon = ({ endpoint }: { endpoint: AstalWp.Endpoint }) => (
   <box spacing={2}>
-    <image iconName={bind(endpoint, "volumeIcon")} />
+    <image
+      iconName={bind(endpoint, "volumeIcon").as((icon) => {
+        console.log(icon);
+        return icon;
+      })}
+      pixelSize={16}
+    />
     <label
       label={bind(endpoint, "volume").as((vol) => `${Math.round(vol * 100)}%`)}
     />
