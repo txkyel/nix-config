@@ -20,6 +20,7 @@ The eventual goal is to build widgets to my custom spec without having to rely o
 ## Projects that may be useful as reference
 
 - https://github.com/Jas-SinghFSU/HyprPanel
-- https://github.com/fufexan/dotfiles/tree/main/home/services/ags
 - https://github.com/end-4/dots-hyprland
+- https://github.com/Mabi19/desktop-shell
+- https://github.com/kotontrion/kompass
 - ...
