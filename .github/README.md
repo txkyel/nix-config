@@ -9,6 +9,7 @@ reduce potential sources of errors.
 
 - Investigate alternatives to home-manager to speed up evaluation times
 - Find alternative to swaync (potentially also Astal/AGS?)
+- Create own nvim config without nvf abstraction layer
 
 ## Dotfiles references: 
 
