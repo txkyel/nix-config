@@ -8,6 +8,13 @@
       timeout = 0;
       systemd-boot.enable = true;
     };
+    initrd.systemd.enable = true;
+
+    tmp = {
+      # Because tmpfs is disabled by default, I had undetected stale roots
+      useTmpfs = true;
+      tmpfsSize = "50%";
+    };
 
     # Silent Boot
     consoleLogLevel = 0;
