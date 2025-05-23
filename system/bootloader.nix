@@ -16,17 +16,10 @@
       tmpfsSize = "50%";
     };
 
-    # Silent Boot
-    consoleLogLevel = 0;
-    initrd.verbose = false;
     kernelParams = [
-      "quiet"
-      "splash"
-      "vga=current"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
-      "udev.log_priority=3"
-      "boot.shell_on_fail"
+      "nowatchdog"
+      "mitigations=off" # Open to CPU vulnerabilities
+      "8250.nr_uarts=0" # Disable probing for old serial ports
     ];
   };
 }
