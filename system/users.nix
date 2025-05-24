@@ -29,6 +29,7 @@
       "networkmanager"
       "wheel"
       "dialout"
+      "plugdev"
     ];
     shell = pkgs.zsh;
   };

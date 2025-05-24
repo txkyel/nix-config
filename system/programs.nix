@@ -9,9 +9,11 @@
     zip
     unzip
     kitty
-    qmk-udev-rules
+    via
     vial
   ];
+
+  hardware.keyboard.qmk.enable = true;
 
   # Set default terminal
   xdg.terminal-exec = {
