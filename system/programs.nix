@@ -9,6 +9,7 @@
     zip
     unzip
     kitty
+    alacritty
     via
     vial
   ];
