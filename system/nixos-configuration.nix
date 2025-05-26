@@ -34,4 +34,10 @@
     persistent = true;
     randomizedDelaySec = "10min";
   };
+
+  # Don't build in tmpfs
+  # https://discourse.nixos.org/t/how-do-you-optimize-your-tmp/51956
+  systemd.services.nix-daemon.environment.TMPDIR = "/var/tmp";
+  # https://github.com/NixOS/nixpkgs/issues/293114#issuecomment-2663470083
+  nix.settings.build-dir = "/var/tmp";
 }
