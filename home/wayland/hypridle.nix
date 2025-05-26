@@ -7,7 +7,7 @@
 let
   brightnessctl = lib.getExe pkgs.brightnessctl;
   hyprlock = lib.getExe config.programs.hyprlock.package;
-  niri = lib.getExe pkgs.niri-unstable;
+  niri = lib.getExe pkgs.niri;
 in
 {
   services.hypridle = {

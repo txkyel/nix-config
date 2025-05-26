@@ -28,8 +28,6 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    hyprland.url = "github:hyprwm/Hyprland";
-    niri.url = "github:sodiboo/niri-flake";
 
     home-manager = {
       url = "github:nix-community/home-manager";
