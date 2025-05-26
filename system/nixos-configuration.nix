@@ -3,13 +3,26 @@
   ...
 }:
 {
-  nix.package = pkgs.nixVersions.latest;
-  nix.settings = {
-    # Enable flakes
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+  nix = {
+    package = pkgs.nixVersions.latest;
+    settings = {
+      # Enable flakes
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      auto-optimise-store = true;
+      # https://github.com/NixOS/nixpkgs/issues/293114#issuecomment-2663470083
+      build-dir = "/var/tmp";
+    };
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+      persistent = true;
+      randomizedDelaySec = "10min";
+    };
   };
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
@@ -25,19 +38,7 @@
     })
   ];
 
-  # Storage optimisation
-  nix.settings.auto-optimise-store = true;
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-    persistent = true;
-    randomizedDelaySec = "10min";
-  };
-
   # Don't build in tmpfs
   # https://discourse.nixos.org/t/how-do-you-optimize-your-tmp/51956
   systemd.services.nix-daemon.environment.TMPDIR = "/var/tmp";
-  # https://github.com/NixOS/nixpkgs/issues/293114#issuecomment-2663470083
-  nix.settings.build-dir = "/var/tmp";
 }
