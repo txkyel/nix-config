@@ -17,8 +17,6 @@
     };
 
     kernelParams = [
-      "nowatchdog"
-      "mitigations=off" # Open to CPU vulnerabilities
       "8250.nr_uarts=0" # Disable probing for old serial ports
     ];
   };
