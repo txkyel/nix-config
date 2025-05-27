@@ -13,7 +13,7 @@
     extraSpecialArgs = { inherit inputs username; };
     users.${username} = {
       # This is the home modules entry point
-      imports = [ ./../home ];
+      imports = [ ./../../home ];
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
       home.stateVersion = config.system.stateVersion;
