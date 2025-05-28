@@ -10,6 +10,8 @@ reduce potential sources of errors.
 - Investigate alternatives to home-manager to speed up evaluation times
 - Find alternative to swaync (potentially also Astal/AGS?)
 - Create own nvim config without nvf abstraction layer
+- Modularize system settings placed in `modules/desktop`
+  - Split into `modules/core` and `modules/gui`
 
 ## Dotfiles references: 
 
