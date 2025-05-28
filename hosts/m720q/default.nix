@@ -6,4 +6,6 @@
 
   system.stateVersion = "25.05"; # Did you read the comment?
   services.openssh.enable = true;
+
+  services.xserver.displayManager.gdm.autoSuspend = false;
 }
