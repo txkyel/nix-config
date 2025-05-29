@@ -7,6 +7,7 @@ let
 in
 {
   imports = [
+    ./samba.nix
     ./jellyfin.nix
   ];
 
@@ -31,9 +32,5 @@ in
         group = cfg.group;
       };
     };
-
-    systemd.tmpfiles.rules = [
-      "d /data/media 0770 - ${cfg.user} - -"
-    ];
   };
 }
