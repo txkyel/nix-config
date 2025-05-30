@@ -8,7 +8,7 @@ in
 {
   imports = [
     ./samba.nix
-    ./jellyfin.nix
+    ./services
   ];
 
   options.homelab = {
