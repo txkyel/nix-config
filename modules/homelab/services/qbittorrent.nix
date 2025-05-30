@@ -1,3 +1,5 @@
+# NOTE copies bits and pieces from https://github.com/NixOS/nixpkgs/pull/287923
+# Migrate to using this service config once it's been merged
 {
   config,
   lib,
@@ -27,23 +29,19 @@ in
 
     profileDir = mkOption {
       type = path;
-      default = "/var/lib/qBittorent";
+      default = "/var/lib/qBittorrent";
       description = "The path passed to qBittorrent via --profile.";
     };
 
-    openFirewall = mkEnableOption "Open ports in the firewal for the qBittorrent WebUI.";
-
     port = mkOption {
       type = port;
-      default = 8081;
+      default = 8080;
       description = "qBittorrent WebUI port.";
     };
   };
 
   config = mkIf (homelab.enable && cfg.enable) {
-    #networking.firewall = mkIf cfg.openFirewall {
-    #  allowedTCPPorts = [ cfg.port ];
-    #};
+    networking.firewall.allowedTCPPorts = [ cfg.port ];
 
     systemd = {
       tmpfiles.settings.qbittorrentDirs = {
