@@ -44,13 +44,10 @@ in
     networking.firewall.allowedTCPPorts = [ cfg.port ];
 
     systemd = {
-      tmpfiles.settings.qbittorrentDirs = {
-        ${cfg.profileDir}."d" = {
-          mode = "755";
-          user = homelab.user;
-          group = homelab.group;
-        };
-      };
+      tmpfiles.rules = [
+        "d /var/lib/qBittorrent ${homelab.user} ${homelab.group} - -"
+      ];
+
       services.qbittorrent = {
         description = "qBittorrent-nox service";
         documentation = [ "man:qbittorrent-nox(1)" ];
