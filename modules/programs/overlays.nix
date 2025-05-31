@@ -2,6 +2,8 @@
 {
   nixpkgs.overlays = [
     (final: prev: {
+      # Unnecessary if the following issue is addressed
+      # https://github.com/NixOS/nixpkgs/issues/394395
       vesktop = prev.vesktop.overrideAttrs (oldAttrs: {
         postFixup = ''
           ${oldAttrs.postFixup or ""}
