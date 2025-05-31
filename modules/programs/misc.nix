@@ -8,7 +8,7 @@ let
   inherit (lib) mkIf;
 in
 {
-  config = mkIf (!config.homelab.enable) {
+  config = mkIf (config.profiles.desktop.enable) {
     hj.packages = with pkgs; [
       appimage-run
       obs-studio
