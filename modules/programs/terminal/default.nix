@@ -1,7 +1,5 @@
 {
   imports = [
-    ./terminal
-    ./overlays.nix
     ./misc.nix
   ];
 }

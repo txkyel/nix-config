@@ -15,6 +15,7 @@
     hyprcursor
 
     # Additional window manager utils
+    jq
     grimblast
     slurp
     swappy
