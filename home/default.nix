@@ -6,7 +6,6 @@
     ./wayland
     ./neovim
     ./ags
-    ./anki.nix
     ./git.nix
     ./kitty.nix
     ./mpv.nix
