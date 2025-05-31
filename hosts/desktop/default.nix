@@ -16,9 +16,6 @@
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;
 
-  modules.gaming.enable = true;
-  modules.gaming.enableVR = true;
-
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [
