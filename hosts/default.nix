@@ -15,7 +15,8 @@ let
           nixpkgs.hostPlatform = system;
         }
         ./${name}
-      ] ++ builtins.attrValues self.nixosModules;
+        ./../modules
+      ];
 
       specialArgs = {
         host = name;

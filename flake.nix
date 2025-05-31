@@ -16,8 +16,6 @@
     {
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
 
-      nixosModules = import ./modules;
-
       nixosConfigurations = import ./hosts inputs;
     };
 

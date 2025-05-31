@@ -1,6 +1,8 @@
 {
-  gaming = import ./gaming;
-  desktop = import ./desktop;
-  homelab = import ./homelab;
-  core = import ./core;
+  imports = [
+    ./core
+    ./gaming
+    ./desktop
+    ./homelab
+  ];
 }
