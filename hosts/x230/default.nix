@@ -10,6 +10,7 @@
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x230
     ./hardware-configuration.nix
+    ./options.nix
   ];
 
   system.stateVersion = "24.05";

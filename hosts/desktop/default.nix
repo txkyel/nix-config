@@ -8,6 +8,7 @@
     inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
     inputs.nixos-hardware.nixosModules.common-gpu-amd
     ./hardware-configuration.nix
+    ./options.nix
   ];
 
   system.stateVersion = "24.05";

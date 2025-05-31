@@ -24,6 +24,12 @@ in
   };
 
   config = mkIf cfg.enable {
+    assertions = [
+      {
+        assertion = config.profiles.enabled;
+        message = "The server profile must be enabled if homelab enabled";
+      }
+    ];
     users = {
       groups.${cfg.group} = { };
       users.${cfg.user} = {
