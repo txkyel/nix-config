@@ -4,5 +4,6 @@
     ./gaming
     ./desktop
     ./homelab
+    ./programs
   ];
 }
