@@ -7,7 +7,6 @@
     ./neovim
     ./ags
     ./anki.nix
-    ./browser.nix
     ./git.nix
     ./kitty.nix
     ./mpv.nix
