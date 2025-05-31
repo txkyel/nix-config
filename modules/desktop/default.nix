@@ -12,6 +12,5 @@
     ./security.nix
     ./services.nix
     ./sound.nix
-    ./users.nix
   ];
 }
