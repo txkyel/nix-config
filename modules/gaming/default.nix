@@ -27,12 +27,12 @@ in
           MANGOHUD_CONFIGFILE = MangoHudConf;
         };
       };
+
+      # amdgpu for corectrl
+      hardware.amdgpu.overdrive.enable = true;
+      hardware.amdgpu.overdrive.ppfeaturemask = "0xffffffff";
       programs.corectrl = {
         enable = true;
-        gpuOverclock = {
-          enable = true;
-          ppfeaturemask = "0xffffffff";
-        };
       };
 
       environment.systemPackages = with pkgs; [
