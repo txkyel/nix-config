@@ -27,7 +27,7 @@ in
   config = mkIf cfg.enable {
     assertions = [
       {
-        assertion = config.profiles.enabled;
+        assertion = config.profiles.server.enable;
         message = "The server profile must be enabled if homelab enabled";
       }
     ];
