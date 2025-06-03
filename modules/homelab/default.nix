@@ -7,7 +7,8 @@ let
 in
 {
   imports = [
-    ./jellyfin.nix
+    ./samba.nix
+    ./services
   ];
 
   options.homelab = {
@@ -31,9 +32,5 @@ in
         group = cfg.group;
       };
     };
-
-    systemd.tmpfiles.rules = [
-      "d /data/media 0770 - ${cfg.user} - -"
-    ];
   };
 }
