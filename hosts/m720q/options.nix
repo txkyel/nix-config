@@ -2,6 +2,19 @@
   profiles.server.enable = true;
   homelab = {
     enable = true;
-    services.jellyfin.enable = true;
+
+    samba = {
+      enable = true;
+      shares = {
+        Media = {
+          "path" = "/data/media";
+        };
+      };
+    };
+
+    services = {
+      jellyfin.enable = true;
+      qbittorrent.enable = true;
+    };
   };
 }
