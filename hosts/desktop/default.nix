@@ -8,15 +8,13 @@
     inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
     inputs.nixos-hardware.nixosModules.common-gpu-amd
     ./hardware-configuration.nix
+    ./options.nix
   ];
 
   system.stateVersion = "24.05";
 
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;
-
-  modules.gaming.enable = true;
-  modules.gaming.enableVR = true;
 
   networking.firewall = {
     enable = true;
