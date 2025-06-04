@@ -4,7 +4,6 @@
 }:
 {
   imports = [
-    ./hyprland
     ./niri
     ./hypridle.nix
     ./hyprlock.nix
