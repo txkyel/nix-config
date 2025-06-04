@@ -3,7 +3,6 @@
     ./session-variables.nix
     ./shell.nix
     ./theme
-    ./wayland
     ./neovim
     ./ags
     ./git.nix
