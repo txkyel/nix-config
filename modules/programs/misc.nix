@@ -21,5 +21,9 @@ in
       xdg-user-dirs
       xdg-utils
     ];
+
+    environment.sessionVariables = {
+      ANKI_WAYLAND = 1;
+    };
   };
 }
