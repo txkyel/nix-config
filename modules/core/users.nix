@@ -14,6 +14,7 @@ in
     inputs.home-manager.nixosModules.home-manager
     inputs.hjem.nixosModules.default
     (mkAliasOptionModule [ "hj" ] [ "hjem" "users" username ])
+    (mkAliasOptionModule [ "hm" ] [ "home-manager" "users" username ])
   ];
 
   config = {
