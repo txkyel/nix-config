@@ -10,8 +10,8 @@ in
 {
   imports = [
     ./niri
-    #./hypridle.nix
-    #./hyprlock.nix
+    ./hypridle.nix
+    ./hyprlock.nix
     #./wlogout.nix
   ];
 
