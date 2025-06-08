@@ -4,6 +4,7 @@
     ./terminal
     ./wayland
     ./browsers.nix
+    ./nautilus.nix
     ./misc.nix
   ];
 }

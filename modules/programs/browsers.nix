@@ -5,12 +5,14 @@
   ...
 }:
 let
+  inherit (lib.modules) mkIf;
+
   commandLineArgs = [
     "--enable-features=AllowWindowDragUsingSystemDragDrop"
   ];
 in
 {
-  config = lib.mkIf (config.profiles.desktop.enable) {
+  config = mkIf (config.profiles.desktop.enable) {
     hj.packages = with pkgs; [
       (google-chrome.override {
         commandLineArgs = commandLineArgs;
