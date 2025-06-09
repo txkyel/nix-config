@@ -1,11 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  inputs,
-  username,
-  ...
-}:
+{ inputs, ... }:
 {
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x230
@@ -17,11 +13,6 @@
 
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;
-
-  home-manager.users.${username}.wayland.windowManager.hyprland.settings.monitor = [
-    "LVDS-1, 1366x768, 277x1080, 1"
-    "DP-1, 1920x1080, 0x0, 1"
-  ];
 
   powerManagement.enable = true;
 
