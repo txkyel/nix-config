@@ -27,6 +27,4 @@
       8081
     ];
   };
-
-  virtualisation.vmware.host.enable = true;
 }
