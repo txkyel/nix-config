@@ -9,7 +9,7 @@
   services.openssh.enable = true;
 
   # TODO: move into a server profile locked setting
-  services.displayManager.gdm.autoSuspend = false;
+  services.xserver.displayManager.gdm.autoSuspend = false;
 
   # Intel graphics for jellyfin
   boot.kernelParams = [ "i915.enable_guc=2" ];

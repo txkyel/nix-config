@@ -19,7 +19,7 @@ in
     environment.sessionVariables.NIXOS_OZONE_WL = 1;
 
     # GDM
-    services.displayManager.gdm.enable = true;
+    services.xserver.displayManager.gdm.enable = true;
 
     xdg.portal = {
       enable = true;
