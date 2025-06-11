@@ -14,7 +14,7 @@ in
       appimage-run
       obs-studio
       orca-slicer
-      qbittorrent-nox
+      qbittorrent
       qalculate-qt
       whatsapp-for-linux
       vesktop
