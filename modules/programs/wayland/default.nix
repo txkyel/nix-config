@@ -26,8 +26,8 @@ in
       xdgOpenUsePortal = true;
     };
 
-    # TODO: migrate to hjem
     hj.packages = with pkgs; [
+      (rofi-wayland.overide { plugins = [ rofi-emoji-wayland ]; })
       swww
       cliphist
       wl-clipboard
