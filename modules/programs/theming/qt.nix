@@ -5,39 +5,37 @@
   ...
 }:
 let
-  qtctConf = {
-    Appearance = {
-      custom_palette = false;
-      icon_theme = config.gtk.iconTheme.name;
-      standard_dialogs = "xdgdesktopportal";
-      style = "kvantum";
-    };
-  };
+  qt-theme-name = "ColloidDark";
+  qt-theme-pkg = pkgs.colloid-kde;
 in
 {
-  qt = {
-    enable = true;
-    platformTheme.name = "qtct";
-    style.name = "kvantum";
-  };
-
-  home.packages = with pkgs; [
-    colloid-kde
-    libsForQt5.qtstyleplugin-kvantum
-    libsForQt5.qt5ct
-    qt6Packages.qtstyleplugin-kvantum
-    qt6Packages.qt6ct
-  ];
-
-  xdg.configFile = {
-    "Kvantum/kvantum.kvconfig".text = lib.generators.toINI { } {
-      General.theme = "ColloidDark";
+  config = lib.mkIf config.profiles.desktop.enable {
+    environment.sessionVariables = {
+      QT_QPA_PLATFORMTHEME = "qt6ct";
     };
-    "Kvantum" = {
-      source = "${pkgs.colloid-kde}/share/Kvantum";
-      recursive = true;
+
+    hj = {
+      files = {
+        ".config/qt6ct/qt6ct.conf".text = lib.generators.toINI { } {
+          Appearance = {
+            icon_theme = "Papirus-Dark";
+            standard_dialogs = "xdgdesktopportal";
+            custom_palette = false;
+            style = "kvantum";
+          };
+        };
+        ".config/Kvantum/Colloid" = {
+          source = "${qt-theme-pkg}/share/Kvantum/Colloid";
+        };
+        ".config/Kvantum/kvantum.kvconfig".text = lib.generators.toINI { } {
+          General.theme = qt-theme-name;
+        };
+      };
+      packages = with pkgs; [
+        qt-theme-pkg
+        qt6Packages.qtstyleplugin-kvantum
+        qt6Packages.qt6ct
+      ];
     };
-    "qt5ct/qt5ct.conf".text = lib.generators.toINI { } qtctConf;
-    "qt6ct/qt6ct.conf".text = lib.generators.toINI { } qtctConf;
   };
 }
