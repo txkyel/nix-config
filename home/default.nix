@@ -2,7 +2,6 @@
   imports = [
     ./session-variables.nix
     ./shell.nix
-    ./theme
     ./ags
     ./git.nix
     ./kitty.nix
