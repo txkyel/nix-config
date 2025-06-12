@@ -1,6 +1,5 @@
 {
   imports = [
-    ./session-variables.nix
     ./shell.nix
     ./ags
     ./git.nix
