@@ -89,7 +89,6 @@ spawn-at-startup "ags" "run" "--gtk4"
 spawn-at-startup "wl-paste" "--type text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type image" "--watch" "cliphist" "store"
 spawn-at-startup "nm-applet" "--indicator"
-spawn-at-startup "fcitx5" "-d" "-r"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "corectrl" "--minimize-systray"
 
