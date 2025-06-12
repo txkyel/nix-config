@@ -31,6 +31,7 @@ in
     };
 
     hjem = {
+      clobberByDefault = true;
       users.${username} = {
         enable = true;
         directory = "/home/${username}";
