@@ -16,7 +16,14 @@ in
   ];
 
   config = mkIf config.profiles.desktop.enable {
-    environment.sessionVariables.NIXOS_OZONE_WL = 1;
+    environment.sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+      NIXOS_OZONE_WL = 1;
+      QT_QPA_PLATFORM = "wayland;xcb";
+      GDK_BACKEND = "wayland,x11";
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    };
 
     # GDM
     services.xserver.displayManager.gdm.enable = true;
@@ -27,7 +34,7 @@ in
     };
 
     hj.packages = with pkgs; [
-      (rofi-wayland.overide { plugins = [ rofi-emoji-wayland ]; })
+      (rofi-wayland.override { plugins = [ rofi-emoji-wayland ]; })
       swww
       cliphist
       wl-clipboard
