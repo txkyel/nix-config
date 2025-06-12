@@ -79,6 +79,9 @@ in
       bindkey '^[[A' history-substring-search-up
       bindkey '^[OB' history-substring-search-down
       bindkey '^[[B' history-substring-search-down
+
+      # Fix kitty ssh jank
+      [[ "$TERM" == "xterm-kitty" ]] && alias ssh='TERM=xterm-256color ssh'
     '';
   };
 }
