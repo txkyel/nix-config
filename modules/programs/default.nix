@@ -1,7 +1,7 @@
 {
   imports = [
     ./overlays.nix
-    ./terminal
+    ./cli
     ./wayland
     ./theming
     ./browsers.nix
