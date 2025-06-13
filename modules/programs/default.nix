@@ -8,5 +8,6 @@
     ./kitty.nix
     ./nautilus.nix
     ./misc.nix
+    ./mpv.nix
   ];
 }
