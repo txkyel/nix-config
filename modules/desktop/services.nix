@@ -5,7 +5,6 @@
     dbus.enable = true;
     envfs.enable = true; # For shebang execution
     fstrim.enable = true;
-    flatpak.enable = true;
     # Reduce journald disk usage for faster boot time
     journald.extraConfig = "SystemMaxUse=50M";
     avahi = {

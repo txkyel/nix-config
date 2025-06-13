@@ -1,5 +1,10 @@
 {
-  gaming = import ./gaming;
-  desktop = import ./desktop;
-  homelab = import ./homelab;
+  imports = [
+    ./options
+    ./core
+    ./gaming
+    ./desktop
+    ./homelab
+    ./programs
+  ];
 }

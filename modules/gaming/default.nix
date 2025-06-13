@@ -6,18 +6,12 @@
   ...
 }:
 let
-  inherit (lib.options) mkEnableOption;
   inherit (lib.modules) mkIf mkMerge;
-  cfg = config.modules.gaming;
+  cfg = config.profiles.gaming;
 
   MangoHudConf = "${config.users.users.${username}.home}/.config/MangoHud/MangoHud.conf";
 in
 {
-  options.modules.gaming = {
-    enable = mkEnableOption "The default gaming profile";
-    enableVR = mkEnableOption "Enabling VR";
-  };
-
   config = mkIf cfg.enable (mkMerge [
     {
       programs.steam = {
@@ -33,12 +27,12 @@ in
           MANGOHUD_CONFIGFILE = MangoHudConf;
         };
       };
+
+      # amdgpu for corectrl
       programs.corectrl = {
         enable = true;
-        gpuOverclock = {
-          enable = true;
-          ppfeaturemask = "0xffffffff";
-        };
+        gpuOverclock.enable = true;
+        gpuOverclock.ppfeaturemask = "0xffffffff";
       };
 
       environment.systemPackages = with pkgs; [
