@@ -5,6 +5,5 @@
     ./git.nix
     ./desktop-entries.nix
     ./scripts
-    ./yazi.nix
   ];
 }
