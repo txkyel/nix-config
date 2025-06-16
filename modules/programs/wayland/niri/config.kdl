@@ -18,6 +18,7 @@ input {
         accel-profile "flat"
         scroll-method "no-scroll"
     }
+    warp-mouse-to-focus mode="center-xy"
 }
 
 // You can configure outputs by their name, which you can find
