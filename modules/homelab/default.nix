@@ -31,6 +31,9 @@ in
         message = "The server profile must be enabled if homelab enabled";
       }
     ];
+
+    services.xserver.enable = lib.mkDefault false;
+
     users = {
       groups.${cfg.group} = { };
       users.${cfg.user} = {
