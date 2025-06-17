@@ -23,6 +23,7 @@ in
     };
 
     # GDM
+    services.xserver.enable = true;
     services.xserver.displayManager.gdm.enable = true;
 
     xdg.portal = {
