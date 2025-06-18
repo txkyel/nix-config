@@ -13,7 +13,6 @@ in
       anki-bin
       appimage-run
       obs-studio
-      orca-slicer
       qbittorrent
       qalculate-qt
       whatsapp-for-linux

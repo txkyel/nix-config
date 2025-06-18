@@ -9,5 +9,6 @@
     ./nautilus.nix
     ./misc.nix
     ./mpv.nix
+    ./orca-slicer.nix
   ];
 }
