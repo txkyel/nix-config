@@ -92,6 +92,8 @@ spawn-at-startup "wl-paste" "--type image" "--watch" "cliphist" "store"
 spawn-at-startup "nm-applet" "--indicator"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "corectrl" "--minimize-systray"
+// Why does niri-session's call not include all my variables, but this does?
+// https://github.com/YaLTeR/niri/blob/ed14e8da8476d5fde27b14d1dde03256a2f6e11b/resources/niri-session#L33
 spawn-at-startup "dbus-update-activation-environment" "--all"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
