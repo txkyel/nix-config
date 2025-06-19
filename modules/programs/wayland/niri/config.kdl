@@ -193,7 +193,7 @@ window-rule { // Float all qbittorrent windows except the main client
 }
 
 // screencast rules
-window-rule {
+/- window-rule {
     match app-id="[DdVv]esktop"
     block-out-from "screencast"
 }
