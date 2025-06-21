@@ -10,5 +10,6 @@
     ./misc.nix
     ./mpv.nix
     ./orca-slicer.nix
+    ./scripts
   ];
 }
