@@ -27,7 +27,6 @@ in
         "dialout"
         "plugdev"
       ] ++ lib.optionals config.homelab.enable [ config.homelab.group ];
-      shell = pkgs.zsh;
     };
 
     hjem = {
