@@ -103,13 +103,14 @@ in
         function precmd() {
           local last_status=$?
           local indicators=""
-          [[ -n $IN_NIX_SHELL ]] && indicators+="%F{blue} %f"
+          [[ -n $IN_NIX_SHELL ]] && indicators+="<U+F313> "
+          [[ -n $SSH_TTY ]] && indicators+="%F{green}%n@%m%f:"
 
           # Prompt color based on last exit code
           local prompt_symbol="%F{green}$%f"
           [[ $last_status -ne 0 ]] && prompt_symbol="%F{red}$%f"
 
-          PROMPT="$indicators %F{blue}%3~%f $prompt_symbol "
+          PROMPT="$indicators%F{blue}%3~%f $prompt_symbol "
         }
       '';
 
