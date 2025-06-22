@@ -29,20 +29,14 @@
 	"group/mobo_drawer",
 	"custom/separator#blank",
 	"group/laptop",
-	"custom/separator#line",
-	"custom/weather",
 	],
 
 "modules-center": [
-	"group/notify",
-	"custom/cava_mviz",
+	"custom/swaync",
 	"custom/separator#dot-line",
 	"clock",
-	"custom/separator#line",
-	"hyprland/workspaces#roman",
 	"custom/separator#dot-line",
 	"idle_inhibitor",	
-	"custom/hint",	
 	], 
 
 "modules-right": [
@@ -50,11 +44,8 @@
 	"group/connections",
 	"custom/separator#line",
 	"tray",
-	"mpris", 
 	"group/audio",
 	"custom/separator#line",
-	"keyboard-state",
-	"custom/keyboard",
 	"custom/lock",
 	"custom/power",
 	],
