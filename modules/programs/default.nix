@@ -11,6 +11,5 @@
     ./mpv.nix
     ./orca-slicer.nix
     ./scripts
-    ./zsh.nix
   ];
 }
