@@ -13,6 +13,7 @@ in
     ./hypridle.nix
     ./hyprlock.nix
     #./wlogout.nix
+    ./waybar
   ];
 
   config = mkIf config.profiles.desktop.enable {
