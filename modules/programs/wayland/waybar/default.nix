@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -8,8 +9,13 @@ let
 in
 {
   config = mkIf config.profiles.desktop.enable {
-    programs.waybar.enable = true;
-
-    hj.files.".config/waybar".source = ./config;
+    hj = {
+      packages = with pkgs; [
+        waybar
+      ];
+      files = {
+        ".config/waybar".source = ./config;
+      };
+    };
   };
 }
