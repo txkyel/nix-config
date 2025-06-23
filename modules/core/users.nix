@@ -30,6 +30,7 @@ in
     };
 
     hjem = {
+      linker = inputs.hjem.packages.${pkgs.system}.smfh;
       clobberByDefault = true;
       users.${username} = {
         enable = true;
