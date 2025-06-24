@@ -262,10 +262,6 @@ binds {
     Mod+Ctrl+R       { expand-column-to-available-width; }
     Mod+Shift+R      { switch-preset-window-height; }
     Mod+Shift+Ctrl+R { reset-window-height; }
-    Mod+Minus        { set-column-width "-10%"; }
-    Mod+Plus         { set-column-width "-10%"; }
-    Mod+Ctrl+Minus   { set-window-height "-10%"; }
-    Mod+Ctrl+Plus    { set-window-height "-10%"; }
     
     // Fullscreen
     Mod+F            { maximize-column; }
@@ -314,6 +310,12 @@ binds {
     // Move column to monitor
     Mod+Ctrl+U                      { move-column-to-monitor-previous; }
     Mod+Ctrl+I                      { move-column-to-monitor-next; }
+
+    // Consume/expel/tabbed
+    Mod+Comma  { consume-or-expel-window-left; }
+    Mod+Period { consume-or-expel-window-right; }
+    Mod+G      { toggle-column-tabbed-display; }
+
     
     // Workspaces
     Mod+1 { focus-workspace 1; }
