@@ -19,7 +19,6 @@
 
 "modules-left": [
 	"custom/menu",
-	"custom/light_dark",
 	"custom/separator#dot-line",
 	"power-profiles-daemon",
 	"group/mobo_drawer",
@@ -37,10 +36,10 @@
 
 "modules-right": [
 	"network#speed",
-	"group/connections",
 	"custom/separator#line",
 	"tray",
-	"group/audio",
+    "pulseaudio",
+    "pulseaudio#microphone",
 	"custom/separator#line",
 	"custom/lock",
 	"custom/power",
