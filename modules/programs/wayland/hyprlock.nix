@@ -8,87 +8,71 @@ let
   inherit (lib.modules) mkIf;
 in
 {
-
   config = mkIf config.profiles.desktop.enable {
-    # TODO: convert config to hjem
-    hm.programs.hyprlock = {
-      enable = true;
-      settings = {
-        animations = {
-          animation = [
-            "fade, 0"
-          ];
-        };
+    programs.hyprlock.enable = true;
 
-        general = {
-          hide_cursor = false;
-          grace = 1;
-        };
+    hj.files = {
+      ".config/hypr/hyprlock.conf".text = ''
+        animations {
+          animation = fade, 0
+        }
 
-        background = {
-          # TODO: Make this work with hjem
-          path = "${config.users.users.${username}.home}/.cache/.current_wallpaper";
-          blur_passes = 1;
-        };
+        background {
+          blur_passes = 1
+          path = ${config.users.users.${username}.home}/.cache/.current_wallpaper
+        }
 
-        input-field = {
-          valign = "bottom";
-          position = "0%, 10%";
+        general {
+          grace = 1
+          hide_cursor = false
+        }
 
-          outline_thickness = 1;
+        input-field {
+          check_color = rgba(247, 193, 19, 0.5)
+          dots_center = true
+          dots_spacing = 0.200000
+          fade_on_empty = false
+          fail_color = rgba(255, 106, 134, 0.5)
+          font_color = rgb(b6c4ff)
+          inner_color = rgba(200, 200, 200, 0.1)
+          outer_color = rgba(180, 180, 180, 0.5)
+          outline_thickness = 1
+          placeholder_text = Enter Password
+          position = 0%, 10%
+          shadow_color = rgba(0, 0, 0, 0.1)
+          shadow_passes = 2
+          shadow_size = 7
+          valign = bottom
+        }
 
-          font_color = "rgb(b6c4ff)";
-          outer_color = "rgba(180, 180, 180, 0.5)";
-          inner_color = "rgba(200, 200, 200, 0.1)";
-          check_color = "rgba(247, 193, 19, 0.5)";
-          fail_color = "rgba(255, 106, 134, 0.5)";
+        label {
+          monitor =
+          color = rgb(b6c4ff)
+          font_size = 150
+          halign = center
+          position = 0%, 30%
+          shadow_boost = 0.300000
+          shadow_color = rgba(0, 0, 0, 0.1)
+          shadow_passes = 2
+          shadow_size = 20
+          text = $TIME
+          valign = center
+        }
 
-          fade_on_empty = false;
-          placeholder_text = "Enter Password";
-
-          dots_spacing = 0.2;
-          dots_center = true;
-
-          shadow_color = "rgba(0, 0, 0, 0.1)";
-          shadow_size = 7;
-          shadow_passes = 2;
-        };
-
-        label = [
-          {
-            monitor = "";
-            text = "$TIME";
-            font_size = 150;
-            color = "rgb(b6c4ff)";
-
-            position = "0%, 30%";
-
-            valign = "center";
-            halign = "center";
-
-            shadow_color = "rgba(0, 0, 0, 0.1)";
-            shadow_size = 20;
-            shadow_passes = 2;
-            shadow_boost = 0.3;
-          }
-          {
-            monitor = "";
-            text = "cmd[update:3600000] date +'%a %b %d'";
-            font_size = 20;
-            color = "rgb(b6c4ff)";
-
-            position = "0%, 40%";
-
-            valign = "center";
-            halign = "center";
-
-            shadow_color = "rgba(0, 0, 0, 0.1)";
-            shadow_size = 20;
-            shadow_passes = 2;
-            shadow_boost = 0.3;
-          }
-        ];
-      };
+        label {
+          monitor =
+          color = rgb(b6c4ff)
+          font_size = 20
+          halign = center
+          position = 0%, 40%
+          shadow_boost = 0.300000
+          shadow_color = rgba(0, 0, 0, 0.1)
+          shadow_passes = 2
+          shadow_size = 20
+          text = cmd[update:3600000] date +'%a %b %d'
+          valign = center
+        }
+      '';
     };
   };
 }
