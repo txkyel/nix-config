@@ -8,5 +8,6 @@
     ./users.nix
     ./security.nix
     ./session-variables.nix
+    ./sound.nix
   ];
 }
