@@ -7,6 +7,7 @@
     ./nixos-configuration.nix
     ./users.nix
     ./security.nix
+    ./services.nix
     ./session-variables.nix
     ./sound.nix
   ];
