@@ -6,4 +6,11 @@
     ytarchive
     yt-dlp
   ];
+
+  environment.systemPackages = with pkgs; [
+    curl
+    wget
+    zip
+    unzip
+  ];
 }
