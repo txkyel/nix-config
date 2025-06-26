@@ -1,7 +1,8 @@
 {
   imports = [
+    ./bluetooth.nix
     ./bootloader.nix
-    ./desktop
+    ./fonts.nix
     ./localization.nix
     ./network.nix
     ./nixos-configuration.nix
