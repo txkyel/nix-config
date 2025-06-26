@@ -1,6 +1,5 @@
 {
   imports = [
-    ./bootloader.nix
     ./localization.nix
     ./network.nix
     ./security.nix
