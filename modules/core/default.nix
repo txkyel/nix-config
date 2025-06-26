@@ -2,6 +2,7 @@
   imports = [
     ./bootloader.nix
     ./desktop
+    ./localization.nix
     ./network.nix
     ./nixos-configuration.nix
     ./users.nix
