@@ -12,7 +12,7 @@ in
     ./niri
     ./hypridle.nix
     ./hyprlock.nix
-    #./wlogout.nix
+    ./wlogout.nix
     ./waybar
   ];
 
