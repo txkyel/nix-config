@@ -5,9 +5,10 @@
     ./hardware-configuration.nix
   ];
 
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.05";
   services.openssh.enable = true;
 
+  # TODO: move into a server profile locked setting
   services.xserver.displayManager.gdm.autoSuspend = false;
 
   # Intel graphics for jellyfin

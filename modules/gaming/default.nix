@@ -6,18 +6,13 @@
   ...
 }:
 let
-  inherit (lib.options) mkEnableOption;
   inherit (lib.modules) mkIf mkMerge;
-  cfg = config.modules.gaming;
+  cfg = config.profiles.gaming;
 
+  # TODO: Make write this file to store and reference by both gamescope and hj
   MangoHudConf = "${config.users.users.${username}.home}/.config/MangoHud/MangoHud.conf";
 in
 {
-  options.modules.gaming = {
-    enable = mkEnableOption "The default gaming profile";
-    enableVR = mkEnableOption "Enabling VR";
-  };
-
   config = mkIf cfg.enable (mkMerge [
     {
       programs.steam = {
@@ -33,48 +28,44 @@ in
           MANGOHUD_CONFIGFILE = MangoHudConf;
         };
       };
+
+      # amdgpu for corectrl
       programs.corectrl = {
         enable = true;
-        gpuOverclock = {
-          enable = true;
-          ppfeaturemask = "0xffffffff";
-        };
+        gpuOverclock.enable = true;
+        gpuOverclock.ppfeaturemask = "0xffffffff";
       };
 
       environment.systemPackages = with pkgs; [
         protonup-qt
         steamtinkerlaunch # Additional mods and games
-        owmods-gui # ??
+        owmods-gui
+        r2modman
+        mangohud
       ];
 
       users.users.${username}.extraGroups = [
         "gamemode"
       ];
 
-      # TODO: Figure out how to separate home manager stuff more elegantly
-      home-manager.users.${username} = {
-        home.packages = with pkgs; [
-          r2modman
-        ];
-
-        programs.mangohud.enable = true;
-        programs.mangohud.settings = {
-          gpu_core_clock = true;
-          gpu_mem_clock = true;
-          gpu_power = true;
-          gpu_temp = true;
-          vram = true;
-          cpu_power = true;
-          cpu_temp = true;
-          table_columns = 5;
+      hj = {
+        files = {
+          ".config/MangoHud/MangoHud.conf".text = ''
+            cpu_power
+            cpu_temp
+            gpu_core_clock
+            gpu_mem_clock
+            gpu_temp
+            table_columns=5
+            vram
+          '';
+          ".local/share/Steam/steam_dev.cfg".text = ''
+            @nClientDownloadEnableHTTP2PlatformLinux 0
+            @fDownloadRateImprovementToAddAnotherConnection 1.0
+            @cMaxInitialDownloadSources 25
+            unShaderBackgroundProcessingThreads 8
+          '';
         };
-
-        xdg.dataFile."Steam/steam_dev.cfg".text = ''
-          @nClientDownloadEnableHTTP2PlatformLinux 0
-          @fDownloadRateImprovementToAddAnotherConnection 1.0
-          @cMaxInitialDownloadSources 25
-          unShaderBackgroundProcessingThreads 8
-        '';
       };
     }
 

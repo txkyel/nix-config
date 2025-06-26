@@ -16,27 +16,19 @@
     {
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
 
-      nixosModules = import ./modules;
-
       nixosConfigurations = import ./hosts inputs;
     };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-25.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    hjem = {
+      url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nvf = {
       url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    ags = {
-      url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

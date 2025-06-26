@@ -1,0 +1,350 @@
+// Check the wiki for a full description of the configuration:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
+
+// Input device configuration.
+// Find the full list of options on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+input {
+    keyboard {
+        xkb { layout "us"; }
+        repeat-delay 300
+    }
+    touchpad {
+        tap
+        natural-scroll
+    }
+    mouse {
+        accel-speed -0.5
+        accel-profile "flat"
+        scroll-method "no-scroll"
+    }
+    warp-mouse-to-focus mode="center-xy"
+}
+
+// You can configure outputs by their name, which you can find
+// by running `niri msg outputs` while inside a niri instance.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
+output "DP-3" {
+    mode "2560x1440@143.972" // cursed framerate
+    focus-at-startup
+}
+
+// Settings that influence how windows are positioned and sized.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
+layout {
+    center-focused-column "never"
+    always-center-single-column
+    empty-workspace-above-first
+
+    gaps 10
+    struts {
+        // left 64
+        // right 64
+        // top 64
+        // bottom 64
+    }
+
+    preset-column-widths {
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+    }
+    preset-window-heights {
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+    }
+    default-column-width { proportion 0.5; }
+
+    focus-ring { off; }
+    border {
+        width 3
+        active-color "#5b9bf8"
+        inactive-color "#5559"
+    }
+
+    insert-hint {
+        color "#5b9bf880"
+    }
+
+    shadow {
+        on
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#222e"
+    }
+}
+
+prefer-no-csd
+
+hotkey-overlay { skip-at-startup; }
+environment { DISPLAY ":0"; }  // Xwayland
+
+// Why does niri-session's call not include all my variables, but this does?
+// https://github.com/YaLTeR/niri/blob/ed14e8da8476d5fde27b14d1dde03256a2f6e11b/resources/niri-session#L33
+spawn-at-startup "dbus-update-activation-environment" "--all"
+
+// Note that running niri as a session supports xdg-desktop-autostart,
+// which may be more convenient to use.
+spawn-at-startup "swww-daemon" "--format" "xrgb"
+spawn-at-startup "waybar"
+spawn-at-startup "wl-paste" "--type text" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type image" "--watch" "cliphist" "store"
+spawn-at-startup "nm-applet" "--indicator"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "corectrl" "--minimize-systray"
+
+screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
+
+// Animation settings.
+// The wiki explains how to configure individual animations:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
+animations {
+    // Animation source
+    // https://github.com/greed-d/.dotfiles/blob/4a87aa62427d24742b6bef2985748f9e0891a4db/niri.bak/.config/niri/config.kdl#L113
+    window-open {
+        duration-ms 200
+        curve "linear"
+        custom-shader r"
+            vec4 expanding_circle(vec3 coords_geo, vec3 size_geo) {
+                vec3 coords_tex = niri_geo_to_tex * coords_geo;
+                vec4 color = texture2D(niri_tex, coords_tex.st);
+                vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0;
+                coords = coords / length(size_geo.xy);
+                float p = niri_clamped_progress;
+                if (p * p <= dot(coords, coords))
+                color = vec4(0.0);
+
+                return color;
+            }
+
+            vec4 open_color(vec3 coords_geo, vec3 size_geo) {
+                return expanding_circle(coords_geo, size_geo);
+            }
+        "
+    }
+    window-close {
+        duration-ms 175
+        curve "linear"
+        custom-shader r"
+            vec4 shrinking_circle(vec3 coords_geo, vec3 size_geo) {
+                vec3 coords_tex = niri_geo_to_tex * coords_geo;
+                vec4 color = texture2D(niri_tex, coords_tex.st);
+                // Calculate coordinates relative to center, scaled appropriately
+                vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0;
+                // Normalize coordinates based on diagonal length for a circular shape
+                coords = coords / length(size_geo.xy);
+
+                // Invert the progress for closing effect: 1 -> 0
+                float p_close = 1.0 - niri_clamped_progress;
+                
+                // If pixel's squared distance from center is >= shrinking radius squared, make transparent
+                // (Keeps pixels *inside* the shrinking radius p_close)
+                if (p_close * p_close <= dot(coords, coords))
+                color = vec4(0.0);
+
+                // Optional: You could also fade the alpha slightly faster at the end if desired
+                // color.a *= p_close; // Fades out completely as radius reaches 0
+
+                return color;
+            }
+
+            vec4 close_color(vec3 coords_geo, vec3 size_geo) {
+                return shrinking_circle(coords_geo, size_geo);
+            }
+        "
+    }
+}
+
+// Window rules let you adjust behavior for individual windows.
+// You can find window app id and titles by running `niri msg windows`
+// while inside a niri instance.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+window-rule {
+    match is-focused=false
+    opacity 0.9
+}
+
+window-rule {  // Picture in picture in the bottom left
+    match title="^[Pp]icture[- ]in[- ][Pp]icture$"
+    open-floating true
+    default-floating-position x=40 y=40 relative-to="bottom-left"
+}
+window-rule {  // Steam notifs in the bottom right
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+window-rule {
+    match title="[Yy]ou[Tt]ube"
+    match app-id="mpv"
+    opacity 1.0
+}
+window-rule { // Float all qbittorrent windows except the main client
+    match app-id="q[bB]ittorrent"
+    exclude title="q[bB]ittorrent"
+    open-floating true
+}
+
+// screencast rules
+/- window-rule {
+    match app-id="[DdVv]esktop"
+    block-out-from "screencast"
+}
+layer-rule {
+    match namespace="notification"
+    block-out-from "screencast"
+}
+window-rule {  // Indicate screencasted windows with red colors
+    match is-window-cast-target=true
+    border {
+        active-color "#fd5f51"
+        inactive-color "#e53935"
+    }
+    shadow {
+        color "#fd5f5180"
+    }
+}
+
+binds {
+    // Keys consist of modifiers separated by + signs, followed by an XKB key name
+    // in the end. To find an XKB name for a particular key, you may use a program
+    // like wev.
+    //
+    // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
+    // when running as a winit window.
+    //
+    // Most actions that you can bind here can also be invoked programmatically with
+    // `niri msg action do-something`.
+
+    Mod+Shift+Slash  { show-hotkey-overlay; }
+    Mod+Return       { spawn "kitty"; }
+    Mod+D            hotkey-overlay-title="Spawn <span face='monospace' bgcolor='#000000'>rofi</span>" { spawn "sh" "-c" "pkill rofi || rofi -show drun -modi drun,filebrowser,run,window"; }
+    Ctrl+Alt+P       { spawn "sh" "-c" "pkill wlogout || wlogout"; }
+    Ctrl+Alt+L       { spawn "loginctl" "lock-session"; }
+    Mod+Q            { close-window; }
+    Ctrl+Alt+Delete  { quit; }
+    
+    Print        { screenshot; }
+    Ctrl+Print   { screenshot-screen; }
+    Alt+Print    { screenshot-window; }
+    Mod+Shift+S  { screenshot; }
+    Mod+P        { screenshot-screen; }
+    Mod+Ctrl+P   { screenshot-window; }
+    
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    
+    XF86AudioPlay  { spawn "playerctl" "play-pause"; }
+    XF86AudioPause { spawn "playerctl" "play-pause"; }
+    XF86AudioNext  { spawn "playerctl" "next"; }
+    XF86AudioPrev  { spawn "playerctl" "previous"; }
+    XF86AudioStop  { spawn "playerctl" "stop"; }
+    
+    XF86MonBrightnessUp    { spawn "brightnessctl" "set" "+10%"; }
+    XF86MonBrightnessDown  { spawn "brightnessctl" "set" "10%-"; }
+    XF86KbdBrightnessUp    { spawn "brightnessctl" "-d" "*::kbd_backlight" "set" "+30%"; }
+    XF86KbdBrightnessDown  { spawn "brightnessctl" "-d" "*::kbd_backlight" "set" "30%-"; }
+
+    Mod+O { toggle-overview; }
+    
+    // Resize column/window
+    Mod+R            { switch-preset-column-width; }
+    Mod+Ctrl+R       { expand-column-to-available-width; }
+    Mod+Shift+R      { switch-preset-window-height; }
+    Mod+Shift+Ctrl+R { reset-window-height; }
+    
+    // Fullscreen
+    Mod+F            { maximize-column; }
+    Mod+Ctrl+F       { fullscreen-window; }
+    Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
+    
+    // Misc
+    Mod+C        { center-column; }
+    Mod+V        { toggle-window-floating; }
+    Mod+Shift+V  { switch-focus-between-floating-and-tiling; }
+    
+    // Focus column/window/workspace
+    Mod+H               { focus-column-left; }
+    Mod+J               { focus-window-or-workspace-down; }
+    Mod+K               { focus-window-or-workspace-up; }
+    Mod+L               { focus-column-right; }
+    Mod+Left            { focus-column-left; }
+    Mod+Down            { focus-window-or-workspace-down; }
+    Mod+Up              { focus-window-or-workspace-up; }
+    Mod+Right           { focus-column-right; }
+    Alt+Tab             { focus-window-down-or-column-right; }
+    Alt+Shift+Tab       { focus-window-up-or-column-left; }
+    Mod+WheelScrollUp           { focus-column-left; }
+    Mod+WheelScrollDown         { focus-column-right; }
+    Mod+Shift+WheelScrollUp     cooldown-ms=150 { focus-workspace-up; }
+    Mod+Shift+WheelScrollDown   cooldown-ms=150 { focus-workspace-down; }
+    
+    // Move column/window in or between workspace
+    Mod+Ctrl+H                { move-column-left; }
+    Mod+Ctrl+J                { move-window-down-or-to-workspace-down; }
+    Mod+Ctrl+K                { move-window-up-or-to-workspace-up; }
+    Mod+Ctrl+L                { move-column-right; }
+    Mod+Ctrl+Left             { move-column-left; }
+    Mod+Ctrl+Down             { move-window-down-or-to-workspace-down; }
+    Mod+Ctrl+Up               { move-window-up-or-to-workspace-up; }
+    Mod+Ctrl+Right            { move-column-right; }
+    Mod+Ctrl+WheelScrollUp          { move-column-left; }
+    Mod+Ctrl+WheelScrollDown        { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp    cooldown-ms=150 { move-column-to-workspace-up; }
+    Mod+Ctrl+Shift+WheelScrollDown  cooldown-ms=150 { move-column-to-workspace-down; }
+    
+    // Focus monitor
+    Mod+U                     { focus-monitor-previous; }
+    Mod+I                     { focus-monitor-next; }
+    
+    // Move column to monitor
+    Mod+Ctrl+U                      { move-column-to-monitor-previous; }
+    Mod+Ctrl+I                      { move-column-to-monitor-next; }
+
+    // Consume/expel/tabbed
+    Mod+Comma  { consume-or-expel-window-left; }
+    Mod+Period { consume-or-expel-window-right; }
+    Mod+G      { toggle-column-tabbed-display; }
+
+    
+    // Workspaces
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Ctrl+1 { move-column-to-workspace 1; }
+    Mod+Ctrl+2 { move-column-to-workspace 2; }
+    Mod+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+6 { move-column-to-workspace 6; }
+    Mod+Ctrl+7 { move-column-to-workspace 7; }
+    Mod+Ctrl+8 { move-column-to-workspace 8; }
+    Mod+Ctrl+9 { move-column-to-workspace 9; }
+    
+    // Applications such as remote-desktop clients and software KVM switches may
+    // request that niri stops processing the keyboard shortcuts defined here
+    // so they may, for example, forward the key presses as-is to a remote machine.
+    // It's a good idea to bind an escape hatch to toggle the inhibitor,
+    // so a buggy application can't hold your session hostage.
+    //
+    // The allow-inhibiting=false property can be applied to other binds as well,
+    // which ensures niri always processes them, even when an inhibitor is active.
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }   
+}
+
