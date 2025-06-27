@@ -96,6 +96,7 @@ spawn-at-startup "wl-paste" "--type image" "--watch" "cliphist" "store"
 spawn-at-startup "nm-applet" "--indicator"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "corectrl" "--minimize-systray"
+spawn-at-startup "kdeconnect-indicator"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 

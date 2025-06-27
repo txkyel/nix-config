@@ -9,6 +9,8 @@ let
 in
 {
   config = mkIf (config.profiles.desktop.enable) {
+    programs.kdeconnect.enable = true;
+
     hj.packages = with pkgs; [
       anki-bin
       appimage-run
