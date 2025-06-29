@@ -19,11 +19,11 @@ jobs:
 
       - uses: cachix/install-nix-action@v27
 
-      - run: nix flake update nixpkgs home-manager
+      - run: nix flake update nixpkgs nixos-hardware hjem
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Update nixpkgs and home-manager
+          commit_message: Update nixpkgs nixos-hardware hjem
           branch: main
           commit_options: '--no-verify --signoff'
           file_pattern: flake.lock
