@@ -1,21 +1,14 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 let
   tomlFormat = pkgs.formats.toml { };
 in
 {
   config = {
-    # Remove once downgrade is applied to stable
-    # https://nixpk.gs/pr-tracker.html?pr=407722
-    environment.sessionVariables = {
-      YAZI_FILE_ONE = "${lib.getExe pkgs.file-patched}";
-    };
-
     hj = {
       packages = with pkgs; [
         xdragon
         mediainfo
         ouch
-        file-patched
         yazi
       ];
 
