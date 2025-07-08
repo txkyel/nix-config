@@ -276,7 +276,7 @@ binds {
     // Misc
     Mod+C        { center-column; }
     Mod+V        { toggle-window-floating; }
-    Mod+Shift+V  { switch-focus-between-floating-and-tiling; }
+    Mod+Ctrl+V   { switch-focus-between-floating-and-tiling; }
     
     // Focus column/window/workspace
     Mod+H               { focus-column-left; }
