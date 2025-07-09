@@ -10,7 +10,12 @@ in
 {
   config = mkMerge [
     {
-      time.timeZone = "America/Toronto";
+      time.timeZone = lib.mkDefault "America/Toronto";
+      services = {
+        geoclue2.enable = true;
+        localtimed.enable = true;
+      };
+
       i18n.defaultLocale = "en_US.UTF-8";
       i18n.supportedLocales = [
         "en_US.UTF-8/UTF-8"
