@@ -243,6 +243,8 @@ binds {
     Mod+Shift+S  { screenshot; }
     Mod+P        { screenshot-screen; }
     Mod+Ctrl+P   { screenshot-window; }
+    // OCR
+    Mod+T        { spawn "sh" "-c" "grim -g \"$(slurp)\" - | tesseract - - -l jpn+eng -c preserve_interword_spaces=1 | wl-copy"; }
     
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }

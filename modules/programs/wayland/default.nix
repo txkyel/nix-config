@@ -41,6 +41,9 @@ in
       swaynotificationcenter
       brightnessctl
       playerctl
+      grim
+      slurp
+      tesseract
     ];
   };
 }
