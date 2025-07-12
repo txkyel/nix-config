@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -18,7 +17,7 @@ in
 
   config = mkIf (homelab.enable && cfg.enable) {
     # https://wiki.nixos.org/wiki/Jellyfin#Intro_Skipper_plugin
-    nixpkgs.overlays = with pkgs; [
+    nixpkgs.overlays = [
       (final: prev: {
         jellyfin-web = prev.jellyfin-web.overrideAttrs (
           finalAttrs: previousAttrs: {
