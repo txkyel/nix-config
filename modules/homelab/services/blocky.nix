@@ -1,36 +1,73 @@
 { lib, config, ... }:
 let
-  inherit (lib.modules) mkIf;
+  inherit (lib.modules) mkIf mkMerge;
   inherit (lib.options) mkEnableOption;
   homelab = config.homelab;
   cfg = homelab.services.blocky;
 in
 {
   options.homelab.services.blocky = {
-    enable = mkEnableOption "Enable blocky";
+    enable = mkEnableOption "Enable blocky and reverse proxy settings";
   };
 
-  config = mkIf (homelab.enable && cfg.enable) {
-    networking = {
-      firewall.allowedTCPPorts = [ 53 ];
-      firewall.allowedUDPPorts = [ 53 ];
-    };
+  config = mkIf (homelab.enable && cfg.enable) (mkMerge [
+    {
+      networking.firewall = {
+        allowedTCPPorts = [ 53 ];
+        allowedUDPPorts = [ 53 ];
+      };
 
-    services.blocky.enable = true;
-    services.blocky.settings = {
-      upstreams.groups.default = [
-        "1.1.1.1"
-        "1.0.0.1"
-      ];
+      services.blocky.enable = true;
+      services.blocky.settings = {
+        upstreams.groups.default = [
+          "1.1.1.1"
+          "1.0.0.1"
+        ];
 
-      blocking = {
-        blackLists = {
-          ads = [ "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" ];
-        };
-        clientGroupsBlock = {
-          default = [ "ads" ];
+        blocking = {
+          blackLists = {
+            ads = [ "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" ];
+          };
+          clientGroupsBlock = {
+            default = [ "ads" ];
+          };
         };
       };
-    };
-  };
+    }
+    {
+      # Reverse proxy settings
+      networking.firewall = {
+        allowedTCPPorts = [ 80 ];
+      };
+
+      # TODO: Make services configure reverse proxy and dns mapping
+      # TODO: Use setting for host ip
+      services.blocky.settings = {
+        customDNS.mapping = {
+          "jellyfin.local" = "192.168.0.245";
+          "qbittorrent.local" = "192.168.0.245";
+        };
+      };
+
+      services.nginx = {
+        enable = true;
+        recommendedProxySettings = true;
+
+        virtualHosts = {
+          "jellyfin.local" = mkIf homelab.services.jellyfin.enable {
+            locations."/" = {
+              proxyPass = "http://192.168.0.245:8096";
+              proxyWebsockets = true;
+            };
+          };
+          "qbittorrent.local" = mkIf homelab.services.qbittorrent.enable {
+            locations."/" = {
+              proxyPass = "http://192.168.0.245:8080";
+              proxyWebsockets = true;
+            };
+          };
+        };
+      };
+    }
+  ]);
 }
