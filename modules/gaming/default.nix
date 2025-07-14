@@ -30,10 +30,10 @@ in
       };
 
       # amdgpu for corectrl
+      hardware.amdgpu.overdrive.enable = true;
+      hardware.amdgpu.overdrive.ppfeaturemask = "0xffffffff";
       programs.corectrl = {
         enable = true;
-        gpuOverclock.enable = true;
-        gpuOverclock.ppfeaturemask = "0xffffffff";
       };
 
       environment.systemPackages = with pkgs; [
