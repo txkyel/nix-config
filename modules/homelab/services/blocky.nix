@@ -20,12 +20,15 @@ in
       services.blocky.enable = true;
       services.blocky.settings = {
         upstreams.groups.default = [
-          "1.1.1.1"
+          "1.1.1.1" # Cloudflare
           "1.0.0.1"
+          "8.8.8.8" # Google
+          "8.8.4.4"
+          "208.67.222.222" # OpenDNS
+          "208.67.220.220"
         ];
-
         blocking = {
-          blackLists = {
+          denylists = {
             ads = [ "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" ];
           };
           clientGroupsBlock = {
@@ -39,7 +42,6 @@ in
       networking.firewall = {
         allowedTCPPorts = [ 80 ];
       };
-
       # TODO: Make services configure reverse proxy and dns mapping
       # TODO: Use setting for host ip
       services.blocky.settings = {
@@ -48,7 +50,6 @@ in
           "qbittorrent.local" = "192.168.0.245";
         };
       };
-
       services.nginx = {
         enable = true;
         recommendedProxySettings = true;
