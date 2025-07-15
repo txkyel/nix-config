@@ -262,13 +262,13 @@ binds {
     XF86KbdBrightnessUp    { spawn "brightnessctl" "-d" "*::kbd_backlight" "set" "+30%"; }
     XF86KbdBrightnessDown  { spawn "brightnessctl" "-d" "*::kbd_backlight" "set" "30%-"; }
 
-    Mod+O { toggle-overview; }
+    Mod+Tab { toggle-overview; }
     
     // Resize column/window
-    Mod+R            { switch-preset-column-width; }
-    Mod+Ctrl+R       { expand-column-to-available-width; }
-    Mod+Shift+R      { switch-preset-window-height; }
-    Mod+Shift+Ctrl+R { reset-window-height; }
+    Mod+R      { switch-preset-column-width; }
+    Mod+Ctrl+R { expand-column-to-available-width; }
+    Mod+C      { switch-preset-window-height; }
+    Mod+Ctrl+C { reset-window-height; }
     
     // Fullscreen
     Mod+F            { maximize-column; }
@@ -276,7 +276,7 @@ binds {
     Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
     
     // Misc
-    Mod+C        { center-column; }
+    Mod+M        { center-column; }
     Mod+V        { toggle-window-floating; }
     Mod+Ctrl+V   { switch-focus-between-floating-and-tiling; }
     
