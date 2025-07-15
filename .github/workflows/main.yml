@@ -3,8 +3,8 @@ name: Bump flake.lock
 
 on:
   schedule:
-    # Update every Monday
-    - cron: "0 12 * * 1"
+    # Update every Monday at 6 UTC
+    - cron: "0 6 * * 1"
 
   workflow_dispatch:
 

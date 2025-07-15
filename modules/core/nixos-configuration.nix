@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   ...
 }:
 {
@@ -19,13 +20,23 @@
 
     gc = {
       automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
+      dates = "Mon *-*-* 03:30:00";
+      options = "--delete-older-than 14d";
       persistent = true;
       randomizedDelaySec = "10min";
     };
   };
   nixpkgs.config.allowUnfree = true;
+
+  system.autoUpgrade = {
+    enable = true;
+    flake = "github:txkyel/nix-config";
+    allowReboot = !config.profiles.desktop.enable; # Only enable when not desktop
+    dates = "Mon *-*-* 03:00:00";
+    flags = [ "-L" ];
+    persistent = true;
+    randomizedDelaySec = "10min";
+  };
 
   # Don't build in tmpfs
   # https://discourse.nixos.org/t/how-do-you-optimize-your-tmp/51956
