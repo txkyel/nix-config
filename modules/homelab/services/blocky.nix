@@ -46,6 +46,7 @@ in
       # TODO: Use setting for host ip
       services.blocky.settings = {
         customDNS.mapping = {
+          "m720q.local" = "192.168.0.245"; # Because mDNS doesn't appear to work with blocky
           "jellyfin.local" = "192.168.0.245";
           "qbittorrent.local" = "192.168.0.245";
         };
