@@ -46,9 +46,9 @@ in
       # TODO: Use setting for host ip
       services.blocky.settings = {
         customDNS.mapping = {
-          "m720q.local" = "192.168.0.245"; # Because mDNS doesn't appear to work with blocky
-          "jellyfin.local" = "192.168.0.245";
-          "qbittorrent.local" = "192.168.0.245";
+          "m720q.lan" = "192.168.0.245"; # Because mDNS doesn't appear to work with blocky
+          "jellyfin.lan" = "192.168.0.245";
+          "qbittorrent.lan" = "192.168.0.245";
         };
       };
       services.nginx = {
@@ -56,13 +56,13 @@ in
         recommendedProxySettings = true;
 
         virtualHosts = {
-          "jellyfin.local" = mkIf homelab.services.jellyfin.enable {
+          "jellyfin.lan" = mkIf homelab.services.jellyfin.enable {
             locations."/" = {
               proxyPass = "http://192.168.0.245:8096";
               proxyWebsockets = true;
             };
           };
-          "qbittorrent.local" = mkIf homelab.services.qbittorrent.enable {
+          "qbittorrent.lan" = mkIf homelab.services.qbittorrent.enable {
             locations."/" = {
               proxyPass = "http://192.168.0.245:8080";
               proxyWebsockets = true;
