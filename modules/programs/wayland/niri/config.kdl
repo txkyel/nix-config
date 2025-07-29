@@ -73,14 +73,6 @@ layout {
     insert-hint {
         color "#5b9bf880"
     }
-
-    shadow {
-        on
-        softness 30
-        spread 5
-        offset x=0 y=5
-        color "#222e"
-    }
 }
 
 prefer-no-csd
@@ -213,9 +205,6 @@ window-rule {  // Indicate screencasted windows with red colors
     border {
         active-color "#fd5f51"
         inactive-color "#e53935"
-    }
-    shadow {
-        color "#fd5f5180"
     }
 }
 
