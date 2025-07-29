@@ -41,6 +41,7 @@ layout {
     center-focused-column "never"
     always-center-single-column
     empty-workspace-above-first
+    background-color "transparent"
 
     gaps 10
     struts {
@@ -216,6 +217,15 @@ window-rule {  // Indicate screencasted windows with red colors
     shadow {
         color "#fd5f5180"
     }
+}
+
+layer-rule { // make wallpaper stationary
+    match namespace="swww-daemon"
+    place-within-backdrop true
+}
+
+overview {
+    workspace-shadow { off; }
 }
 
 binds {
