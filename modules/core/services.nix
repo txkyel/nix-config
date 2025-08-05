@@ -5,11 +5,9 @@ in
 {
   config = mkMerge [
     {
-      # TODO: ensure these services are all required as core features
       services = {
         dbus.enable = true;
         envfs.enable = true; # For shebang execution
-        fstrim.enable = true;
         avahi = {
           enable = true;
           nssmdns4 = true;
