@@ -8,7 +8,7 @@ let
   inherit (lib.modules) mkIf;
 
   commandLineArgs = [
-    "--enable-features=AllowWindowDragUsingSystemDragDrop"
+    "--enable-features=TouchpadOverscrollHistoryNavigation"
   ];
 in
 {
