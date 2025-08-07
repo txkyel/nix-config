@@ -12,4 +12,19 @@
   system.stateVersion = "25.05";
 
   services.fwupd.enable = true;
+
+  services.keyd.enable = true;
+  services.keyd.keyboards = {
+    laptop = {
+      ids = [ "0001:0001:70533846" ];
+      settings = {
+        main = {
+          "\\" = "backspace";
+          backspace = "\\";
+          capslock = "layer(control)";
+          "capslock+leftcontrol" = "capslock";
+        };
+      };
+    };
+  };
 }
