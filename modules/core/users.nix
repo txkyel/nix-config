@@ -24,7 +24,8 @@ in
         "wheel"
         "dialout"
         "plugdev"
-      ] ++ lib.optionals config.homelab.enable [ config.homelab.group ];
+      ]
+      ++ lib.optionals config.homelab.enable [ config.homelab.group ];
     };
 
     hjem = {

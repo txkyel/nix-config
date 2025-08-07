@@ -7,6 +7,7 @@ in
     {
       services = {
         dbus.enable = true;
+        # Note: this needs to be disabled for install
         envfs.enable = true; # For shebang execution
         avahi = {
           enable = true;
