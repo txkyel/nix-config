@@ -30,7 +30,7 @@ cursor {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 output "DP-3" {
-    // desktop
+    // polaris
     mode "2560x1440@143.972" // cursed framerate
     variable-refresh-rate
 }
@@ -253,10 +253,10 @@ binds {
     // OCR
     Mod+T        { spawn "sh" "-c" "grim -g \"$(slurp)\" - | tesseract - - -l jpn+eng -c preserve_interword_spaces=1 | wl-copy"; }
     
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "volume" "--inc"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "volume" "--dec"; }
+    XF86AudioMute        allow-when-locked=true { spawn "volume" "--toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "volume" "--toggle-mic"; }
     
     XF86AudioPlay  { spawn "playerctl" "play-pause"; }
     XF86AudioPause { spawn "playerctl" "play-pause"; }
