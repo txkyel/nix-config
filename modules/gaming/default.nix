@@ -8,9 +8,6 @@
 let
   inherit (lib.modules) mkIf mkMerge;
   cfg = config.profiles.gaming;
-
-  # TODO: Make write this file to store and reference by both gamescope and hj
-  MangoHudConf = "${config.users.users.${username}.home}/.config/MangoHud/MangoHud.conf";
 in
 {
   config = mkIf cfg.enable (mkMerge [
@@ -25,16 +22,14 @@ in
       programs.gamescope = {
         enable = true;
         env = {
-          MANGOHUD_CONFIGFILE = MangoHudConf;
+          MANGOHUD_CONFIGFILE = "${./MangoHud.conf}";
         };
       };
 
       # amdgpu for corectrl
       hardware.amdgpu.overdrive.enable = true;
       hardware.amdgpu.overdrive.ppfeaturemask = "0xffffffff";
-      programs.corectrl = {
-        enable = true;
-      };
+      programs.corectrl.enable = true;
 
       environment.systemPackages = with pkgs; [
         protonup-qt
@@ -50,15 +45,9 @@ in
 
       hj = {
         files = {
-          ".config/MangoHud/MangoHud.conf".text = ''
-            cpu_power
-            cpu_temp
-            gpu_core_clock
-            gpu_mem_clock
-            gpu_temp
-            table_columns=5
-            vram
-          '';
+          # Generated using goverlay
+          # Use `nix-shell -p goverlay mangohud --run goverlay` to run and generate
+          ".config/MangoHud/MangoHud.conf".source = ./MangoHud.conf;
           ".local/share/Steam/steam_dev.cfg".text = ''
             @nClientDownloadEnableHTTP2PlatformLinux 0
             @fDownloadRateImprovementToAddAnotherConnection 1.0
