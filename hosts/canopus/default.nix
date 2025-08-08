@@ -12,6 +12,7 @@
   system.stateVersion = "25.05";
 
   services.fwupd.enable = true;
+  services.power-profiles-daemon.enable = true;
 
   services.keyd.enable = true;
   services.keyd.keyboards = {
