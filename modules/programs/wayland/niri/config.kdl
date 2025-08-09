@@ -86,7 +86,10 @@ layout {
 prefer-no-csd
 
 hotkey-overlay { skip-at-startup; }
-environment { DISPLAY ":0"; }  // Xwayland
+environment {
+    MANGOHUD "1"
+    DISPLAY ":0" // Xwayland
+}
 
 // Why does niri-session's call not include all my variables, but this does?
 // https://github.com/YaLTeR/niri/blob/ed14e8da8476d5fde27b14d1dde03256a2f6e11b/resources/niri-session#L33
