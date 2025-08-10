@@ -16,6 +16,8 @@
       blocky.enable = true;
       jellyfin.enable = true;
       qbittorrent.enable = true;
+      sonarr.enable = true;
+      radarr.enable = true;
     };
   };
 }
