@@ -19,6 +19,7 @@ in
       qalculate-qt
       whatsapp-for-linux
       vesktop
+      compsize
       xdg-user-dirs
       xdg-utils
     ];
