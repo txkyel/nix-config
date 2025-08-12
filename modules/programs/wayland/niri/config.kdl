@@ -38,7 +38,7 @@ output "DP-3" {
 output "eDP-1" {
     // canopus
     mode "2880x1920@60.001"
-    scale 1.75
+    scale 1.6
     variable-refresh-rate
 }
 
