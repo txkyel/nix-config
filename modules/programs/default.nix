@@ -11,6 +11,6 @@
     ./mpv.nix
     ./orca-slicer.nix
     ./scripts
-    ./via.nix
+    ./keyboards.nix
   ];
 }
