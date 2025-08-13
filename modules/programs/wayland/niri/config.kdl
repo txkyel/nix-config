@@ -102,6 +102,9 @@ spawn-at-startup "waybar"
 spawn-at-startup "wl-paste" "--type text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type image" "--watch" "cliphist" "store"
 spawn-at-startup "nm-applet" "--indicator"
+// For some reason, with the xdg-autostart version, I'm unable to access
+// the mozc configuration menu
+spawn-at-startup "fcitx5" "-dr"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "corectrl" "--minimize-systray"
 spawn-at-startup "kdeconnect-indicator"
