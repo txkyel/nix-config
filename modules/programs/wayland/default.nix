@@ -33,7 +33,12 @@ in
     };
 
     hj.packages = with pkgs; [
-      (rofi-wayland.override { plugins = [ rofi-emoji-wayland ]; })
+      (rofi-wayland.override {
+        plugins = [
+          rofi-emoji-wayland
+          rofi-games
+        ];
+      })
       swww
       cliphist
       wl-clipboard

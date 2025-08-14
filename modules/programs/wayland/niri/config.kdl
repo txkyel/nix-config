@@ -244,7 +244,7 @@ binds {
 
     Mod+Shift+Slash  { show-hotkey-overlay; }
     Mod+Return       { spawn "kitty"; }
-    Mod+D            hotkey-overlay-title="Spawn <span face='monospace' bgcolor='#000000'>rofi</span>" { spawn "sh" "-c" "pkill rofi || rofi -show drun -modi drun,filebrowser,run,window"; }
+    Mod+D            hotkey-overlay-title="Spawn <span face='monospace' bgcolor='#000000'>rofi</span>" { spawn "sh" "-c" "pkill rofi || rofi -show drun -modi drun,games,run,window"; }
     Ctrl+Alt+P       { spawn "sh" "-c" "pkill wlogout || wlogout"; }
     Ctrl+Alt+L       { spawn "loginctl" "lock-session"; }
     Mod+Q            { close-window; }
