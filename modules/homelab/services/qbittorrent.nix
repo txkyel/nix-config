@@ -20,6 +20,7 @@ in
       group = homelab.user;
       serverConfig = {
         LegalNotice.Accepted = true;
+        Preferences.WebUI.LocalHostAuth = false;
       };
     };
   };
