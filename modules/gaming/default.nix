@@ -60,15 +60,53 @@ in
 
     (mkIf cfg.enableVR {
       # VR
-      programs.adb.enable = mkIf cfg.enableVR true;
-      programs.envision = mkIf cfg.enableVR {
+      programs.adb.enable = true;
+      services.wivrn = {
         enable = true;
+        autoStart = true;
+        openFirewall = true;
+        defaultRuntime = true;
+
+        config = {
+          enable = true;
+          json = {
+            scale = 0.5;
+            # 200 Mbps
+            bitrate = 200000000;
+            tcp_only = false;
+            application = [ pkgs.wlx-overlay-s ];
+            encoders = [
+              {
+                encoder = "vaapi";
+                codec = "h265";
+                width = 0.5;
+                height = 0.25;
+                offset_x = 0.0;
+                offset_y = 0.0;
+              }
+              {
+                encoder = "vaapi";
+                codec = "h265";
+                width = 0.5;
+                height = 0.75;
+                offset_x = 0.0;
+                offset_y = 0.25;
+              }
+              {
+                encoder = "vaapi";
+                codec = "h265";
+                width = 0.5;
+                height = 1.0;
+                offset_x = 0.5;
+                offset_y = 0.0;
+              }
+            ];
+          };
+        };
       };
 
       environment.systemPackages = with pkgs; [
-        wlx-overlay-s # VR overlay
-        sidequest
-        bs-manager
+        bs-manager # Beat Saber mod manager
       ];
 
       users.users.${username}.extraGroups = [
