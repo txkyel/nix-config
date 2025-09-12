@@ -5,22 +5,33 @@
   ...
 }:
 let
-  cursor-theme-name = "Bibata-Modern-Ice";
-  cursor-theme-pkg = pkgs.bibata-cursors;
+  cursor-theme-name = "Tokai-Teio";
+  cursor-size = "24";
+  custom-cursor-theme-pkg = pkgs.symlinkJoin {
+    name = "custom-cursor-theme-pkg";
+    paths = [ ./custom-icons ];
+  };
+  cursor-theme-pkgs = [
+    pkgs.bibata-cursors
+    custom-cursor-theme-pkg
+  ];
 
   gtkCursorConfig = ''
     gtk-cursor-theme-name=${cursor-theme-name}
-    gtk-cursor-theme-size=24
+    gtk-cursor-theme-size=${cursor-size}
   '';
+
+  xcursor-path = [
+    "${pkgs.bibata-cursors}/share/icons"
+    "${custom-cursor-theme-pkg}/share/icons"
+  ];
 in
 {
   config = lib.mkIf config.profiles.desktop.enable {
     environment.sessionVariables = {
       XCURSOR_THEME = cursor-theme-name;
-      XCURSOR_SIZE = 24;
-      XCURSOR_PATH = [
-        "${cursor-theme-pkg}/share/icons"
-      ];
+      XCURSOR_SIZE = cursor-size;
+      XCURSOR_PATH = xcursor-path;
     };
 
     hj = {
@@ -32,7 +43,7 @@ in
           Inherits=${cursor-theme-name}
         '';
       };
-      packages = [ cursor-theme-pkg ];
+      packages = cursor-theme-pkgs;
     };
 
     programs.dconf.profiles.user.databases = [
@@ -41,7 +52,7 @@ in
         settings = {
           "org/gnome/desktop/interface" = {
             cursor-theme = cursor-theme-name;
-            cursor-size = lib.gvariant.mkInt32 24;
+            cursor-size = lib.gvariant.mkInt32 cursor-size;
           };
         };
       }
