@@ -88,7 +88,6 @@ prefer-no-csd
 hotkey-overlay { skip-at-startup; }
 environment {
     MANGOHUD "1"
-    DISPLAY ":0" // Xwayland
 }
 
 // Why does niri-session's call not include all my variables, but this does?
@@ -104,8 +103,6 @@ spawn-at-startup "wl-paste" "--type image" "--watch" "cliphist" "store"
 spawn-at-startup "nm-applet" "--indicator"
 // For some reason, with the xdg-autostart version, I'm unable to access
 // the mozc configuration menu
-spawn-at-startup "fcitx5" "-dr"
-spawn-at-startup "xwayland-satellite"
 spawn-at-startup "corectrl" "--minimize-systray"
 spawn-at-startup "kdeconnect-indicator"
 
@@ -244,9 +241,9 @@ binds {
 
     Mod+Shift+Slash  { show-hotkey-overlay; }
     Mod+Return       { spawn "kitty"; }
-    Mod+D            hotkey-overlay-title="Spawn <span face='monospace' bgcolor='#000000'>rofi</span>" { spawn "sh" "-c" "pkill rofi || rofi -show drun -modi drun,games,run,window"; }
-    Ctrl+Alt+P       { spawn "sh" "-c" "pkill wlogout || wlogout"; }
-    Ctrl+Alt+L       { spawn "loginctl" "lock-session"; }
+    Mod+D            hotkey-overlay-title="Spawn <span face='monospace' bgcolor='#000000'>rofi</span>" { spawn-sh "pkill rofi || rofi -show drun -modi drun,games,run,window"; }
+    Ctrl+Alt+P       { spawn-sh "pkill wlogout || wlogout"; }
+    Ctrl+Alt+L       { spawn-sh "loginctl lock-session"; }
     Mod+Q            { close-window; }
     Ctrl+Alt+Delete  { quit; }
     
@@ -257,7 +254,7 @@ binds {
     Mod+P        { screenshot-screen; }
     Mod+Ctrl+P   { screenshot-window; }
     // OCR
-    Mod+T        { spawn "sh" "-c" "grim -g \"$(slurp)\" - | tesseract - - -l jpn+eng -c preserve_interword_spaces=1 | wl-copy"; }
+    Mod+T        { spawn-sh "pkill slurp || grim -g \"$(slurp)\" - | tesseract - - -l jpn+eng -c preserve_interword_spaces=1 | wl-copy"; }
     
     XF86AudioRaiseVolume allow-when-locked=true { spawn "volume" "--inc"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "volume" "--dec"; }
