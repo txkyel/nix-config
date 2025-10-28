@@ -187,6 +187,7 @@ window-rule {  // Picture in picture in the bottom left
     open-floating true
     default-floating-position x=40 y=40 relative-to="bottom-left"
 }
+
 window-rule {  // Steam notifs in the bottom right
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
     default-floating-position x=10 y=10 relative-to="bottom-right"
@@ -199,6 +200,10 @@ window-rule {
 window-rule { // Float all qbittorrent windows except the main client
     match app-id="q[bB]ittorrent"
     exclude title="q[bB]ittorrent"
+    open-floating true
+}
+window-rule {
+    match app-id="io.github.Qalculate.qalculate-qt"
     open-floating true
 }
 
