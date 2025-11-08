@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   config,
   ...
@@ -29,7 +30,7 @@
   nixpkgs.config.allowUnfree = true;
 
   system.autoUpgrade = {
-    enable = true;
+    enable = lib.mkDefault config.profiles.server.enable;
     flake = "github:txkyel/nix-config";
     allowReboot = !config.profiles.desktop.enable; # Only enable when not desktop
     dates = "Mon *-*-* 03:00:00";
