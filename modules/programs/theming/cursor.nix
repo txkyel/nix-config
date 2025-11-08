@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cursor-theme-name = "Tokai-Teio";
+  cursor-theme-name = "Bibata-Modern-Ice";
   cursor-size = "24";
   custom-cursor-theme-pkg = pkgs.symlinkJoin {
     name = "custom-cursor-theme-pkg";
