@@ -24,6 +24,7 @@ in
         ".config/mpv/mpv.conf".text = ''
           keep-open=yes
           cursor-autohide=250
+          use-filedir-conf=yes
         '';
 
         ".config/mpv/input.conf".text = ''
