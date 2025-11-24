@@ -22,7 +22,7 @@ in
         LegalNotice.Accepted = true;
         Preferences.WebUI.LocalHostAuth = false;
         Preferences.WebUI.AuthSubnetWhitelistEnable = true;
-        Preferences.WebUI.AuthSubnetWhitelist = 192.168.0.0/24;
+        Preferences.WebUI.AuthSubnetWhitelist = "192.168.0.0/24";
       };
     };
   };
