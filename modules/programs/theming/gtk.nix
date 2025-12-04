@@ -7,8 +7,10 @@
 let
   icon-theme-name = "Papirus-Dark";
   icon-theme-pkg = pkgs.papirus-icon-theme;
-  gtk-theme-name = "Colloid-Dark";
-  gtk-theme-pkg = pkgs.colloid-gtk-theme;
+  gtk-theme-name = "Colloid-Dark-Catppuccin";
+  gtk-theme-pkg = pkgs.colloid-gtk-theme.override {
+    tweaks = [ "catppuccin" ];
+  };
 
   gtkConfig = ''
     [Settings]

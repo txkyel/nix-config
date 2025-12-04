@@ -5,8 +5,8 @@
   ...
 }:
 let
-  qt-theme-name = "ColloidDark";
-  qt-theme-pkg = pkgs.kde-gruvbox;
+  qt-theme-name = "catppuccin-frappe-blue";
+  qt-theme-pkg = pkgs.catppuccin-kvantum;
 in
 {
   config = lib.mkIf config.profiles.desktop.enable {
@@ -24,8 +24,8 @@ in
             style = "kvantum";
           };
         };
-        ".config/Kvantum/Colloid" = {
-          source = "${qt-theme-pkg}/share/Kvantum/Colloid";
+        ".config/Kvantum/${qt-theme-name}" = {
+          source = "${qt-theme-pkg}/share/Kvantum/${qt-theme-name}";
         };
         ".config/Kvantum/kvantum.kvconfig".text = lib.generators.toINI { } {
           General.theme = qt-theme-name;
