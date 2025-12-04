@@ -17,7 +17,7 @@ in
       obs-studio
       qbittorrent
       qalculate-qt
-      whatsapp-for-linux
+      whatsapp-electron
       vesktop
       compsize
       xdg-user-dirs

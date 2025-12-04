@@ -6,7 +6,7 @@ in
   config = {
     hj = {
       packages = with pkgs; [
-        xdragon
+        dragon-drop
         mediainfo
         ouch
         yazi

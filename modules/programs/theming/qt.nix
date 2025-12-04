@@ -6,7 +6,7 @@
 }:
 let
   qt-theme-name = "ColloidDark";
-  qt-theme-pkg = pkgs.colloid-kde;
+  qt-theme-pkg = pkgs.kde-gruvbox;
 in
 {
   config = lib.mkIf config.profiles.desktop.enable {

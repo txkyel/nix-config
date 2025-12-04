@@ -14,8 +14,6 @@
         "flakes"
       ];
       auto-optimise-store = true;
-      # https://github.com/NixOS/nixpkgs/issues/293114#issuecomment-2663470083
-      build-dir = "/var/tmp";
       use-xdg-base-directories = true; # Clean home dir
     };
 
