@@ -277,7 +277,7 @@ binds {
     XF86KbdBrightnessUp    { spawn "brightnessctl" "-d" "*::kbd_backlight" "set" "+30%"; }
     XF86KbdBrightnessDown  { spawn "brightnessctl" "-d" "*::kbd_backlight" "set" "30%-"; }
 
-    Mod+Tab { toggle-overview; }
+    Mod+O { toggle-overview; }
     
     // Resize column/window
     Mod+R      { switch-preset-column-width; }
@@ -304,8 +304,6 @@ binds {
     Mod+Down            { focus-window-or-workspace-down; }
     Mod+Up              { focus-window-or-workspace-up; }
     Mod+Right           { focus-column-right; }
-    Alt+Tab             { focus-window-down-or-column-right; }
-    Alt+Shift+Tab       { focus-window-up-or-column-left; }
     Mod+WheelScrollUp           { focus-column-left; }
     Mod+WheelScrollDown         { focus-column-right; }
     Mod+Shift+WheelScrollUp     cooldown-ms=150 { focus-workspace-up; }
