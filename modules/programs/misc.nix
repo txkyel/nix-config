@@ -22,6 +22,7 @@ in
       compsize
       xdg-user-dirs
       xdg-utils
+      godot_4_6
     ];
 
     environment.sessionVariables = {
