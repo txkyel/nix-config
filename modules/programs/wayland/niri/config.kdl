@@ -104,7 +104,6 @@ spawn-at-startup "nm-applet" "--indicator"
 // For some reason, with the xdg-autostart version, I'm unable to access
 // the mozc configuration menu
 spawn-at-startup "corectrl" "--minimize-systray"
-spawn-at-startup "kdeconnect-indicator"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 
