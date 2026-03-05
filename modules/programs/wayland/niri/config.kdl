@@ -176,11 +176,6 @@ window-rule {
     geometry-corner-radius 8
     clip-to-geometry true
 }
-window-rule {
-    match is-focused=false
-    opacity 0.9
-}
-
 window-rule {  // Picture in picture in the bottom left
     match title="^[Pp]icture[- ]in[- ][Pp]icture$"
     open-floating true
@@ -190,11 +185,6 @@ window-rule {  // Picture in picture in the bottom left
 window-rule {  // Steam notifs in the bottom right
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
     default-floating-position x=10 y=10 relative-to="bottom-right"
-}
-window-rule {
-    match title="[Yy]ou[Tt]ube"
-    match app-id="mpv"
-    opacity 1.0
 }
 window-rule { // Float all qbittorrent windows except the main client
     match app-id="q[bB]ittorrent"
