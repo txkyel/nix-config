@@ -65,7 +65,6 @@ in
         enable = true;
         autoStart = true;
         openFirewall = true;
-        defaultRuntime = true;
 
         config = {
           enable = true;
