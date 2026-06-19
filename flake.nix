@@ -20,8 +20,11 @@
     };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.11";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixpkgs.url = "nixpkgs/nixos-26.05";
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";

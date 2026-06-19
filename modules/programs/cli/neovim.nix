@@ -6,8 +6,13 @@
   programs.nvf.settings.vim = {
     viAlias = true;
     vimAlias = true;
-    useSystemClipboard = true;
     undoFile.enable = true;
+
+    clipboard = {
+      enable = true;
+      providers.wl-copy.enable = true;
+      registers = "unnamedplus";
+    };
 
     options = {
       autoindent = true;
@@ -19,6 +24,7 @@
     };
 
     lsp = {
+      enable = true;
       formatOnSave = true;
       lightbulb.enable = true;
       trouble.enable = true;
@@ -26,21 +32,20 @@
     };
 
     languages = {
-      enableLSP = true;
       enableFormat = true;
       enableTreesitter = true;
 
       bash.enable = true;
       css.enable = true;
-      ts.enable = true;
+      typescript.enable = true;
       nix = {
         enable = true;
-        lsp.server = "nixd";
-        format.type = "nixfmt";
+        lsp.servers = [ "nixd" ];
+        format.type = [ "nixfmt" ];
       };
       python = {
         enable = true;
-        lsp.server = "pyright";
+        lsp.servers = [ "pyright" ];
       };
     };
 

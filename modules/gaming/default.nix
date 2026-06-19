@@ -60,7 +60,6 @@ in
 
     (mkIf cfg.enableVR {
       # VR
-      programs.adb.enable = true;
       services.wivrn = {
         enable = true;
         autoStart = true;
@@ -73,7 +72,7 @@ in
             # 200 Mbps
             bitrate = 200000000;
             tcp_only = false;
-            application = [ pkgs.wlx-overlay-s ];
+            application = [ pkgs.wayvr ];
             encoders = [
               {
                 encoder = "vaapi";
@@ -106,10 +105,6 @@ in
 
       environment.systemPackages = with pkgs; [
         bs-manager # Beat Saber mod manager
-      ];
-
-      users.users.${username}.extraGroups = [
-        "adbusers"
       ];
     })
   ]);
