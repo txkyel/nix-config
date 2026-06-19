@@ -38,7 +38,7 @@ in
           rofi-games
         ];
       })
-      swww
+      awww
       cliphist
       wl-clipboard
       libnotify
