@@ -24,8 +24,7 @@ in
 
     hj = {
       files = {
-        ".local/share/themes/${gtk-theme-name}".source =
-          "${gtk-theme-pkg}/usr/share/themes/${gtk-theme-name}";
+        ".local/share/themes/${gtk-theme-name}".source = "${gtk-theme-pkg}/share/themes/${gtk-theme-name}";
         ".config/gtk-3.0/settings.ini".text = gtkConfig;
         ".config/gtk-4.0/settings.ini".text = gtkConfig;
       };
