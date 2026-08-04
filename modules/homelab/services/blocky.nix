@@ -46,9 +46,8 @@ in
       # TODO: Use setting for host ip
       services.blocky.settings = {
         customDNS.mapping = {
-          "m720q.lan" = "192.168.0.245"; # Because mDNS doesn't appear to work with blocky
-          "jellyfin.lan" = "192.168.0.245";
-          "qbittorrent.lan" = "192.168.0.245";
+          # Route requests to lan to homelab server
+          "lan" = "192.168.0.245";
         };
       };
       services.nginx = {
