@@ -29,7 +29,6 @@ in
     };
 
     hjem = {
-      linker = inputs.hjem.packages.${pkgs.stdenv.hostPlatform.system}.smfh;
       clobberByDefault = true;
       users.${username} = {
         enable = true;
