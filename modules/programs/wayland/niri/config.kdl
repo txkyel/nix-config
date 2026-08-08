@@ -219,6 +219,20 @@ layer-rule { // make wallpaper stationary
     place-within-backdrop true
 }
 
+// Blur
+window-rule {
+    match is-active=false
+    opacity 0.75
+    background-effect {
+        blur true
+        xray false
+    }
+}
+window-rule {
+    match title="[Yy]ou[Tt]ube"
+    opacity 1.0
+}
+
 overview {
     workspace-shadow { off; }
 }
