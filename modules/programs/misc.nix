@@ -22,6 +22,8 @@ in
       xdg-utils
     ];
 
+    services.flatpak.enable = true;
+
     environment.sessionVariables = {
       ANKI_WAYLAND = 1;
     };
