@@ -5,7 +5,7 @@
 {
   imports = [
     inputs.nixos-hardware.nixosModules.gigabyte-b550
-    inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
+    inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-gpu-amd
     ./hardware-configuration.nix
     ./options.nix
